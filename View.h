@@ -21,6 +21,7 @@ signals:
 
 public slots:
 
+
 };
 
 #endif // VIEW_H

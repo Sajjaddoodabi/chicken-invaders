@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsView>
 #include <QGraphicsScene>
+#include <QTimer>
 
 class View : public QGraphicsView
 {
@@ -12,6 +13,8 @@ class View : public QGraphicsView
 private:
     //members class
     QGraphicsScene *scene;
+    QTimer *viewTimer;
+    double viewTime;
 
 public:
     //constructor
@@ -20,7 +23,7 @@ public:
 signals:
 
 public slots:
-
+    void background();
 
 };
 

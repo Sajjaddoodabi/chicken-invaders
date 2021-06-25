@@ -17,4 +17,18 @@ View::View() : QGraphicsView()
     //adding background
     setBackgroundBrush(QBrush(QImage(":/images/SpaceBackground2.jpg")));
 
+    //create timer
+    viewTime = 0;
+    viewTimer = new QTimer();
+    QObject::connect(viewTimer, SIGNAL(timeout()), this, SLOT(background()));
+    viewTimer->start(500);
+
+}
+
+void View::background()
+{
+    viewTime += 0.5;
+    if(viewTime == 4){
+        viewTimer->stop();
+        exit(1);}
 }

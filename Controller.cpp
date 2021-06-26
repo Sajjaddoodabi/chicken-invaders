@@ -23,3 +23,10 @@ Controller::~Controller()
     delete scene;
     delete holder;
 }
+
+void Controller::addChicken(int speed)
+{
+    ChickenList.push_back(new Chicken{speed , cTimer , holder});
+    scene->addItem(ChickenList.last());
+    ChickenList.last()->setPos(0 , 0);
+}

@@ -31,6 +31,8 @@ public:
 
     // destructor
     ~Controller();
+
+    void addChicken(int speed);
 };
 
 #endif // CONTROLLER_H

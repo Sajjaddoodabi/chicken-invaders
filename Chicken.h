@@ -3,10 +3,9 @@
 
 #include <QObject>
 #include <QGraphicsPixmapItem>
-#include <QGraphicsItem>
 #include <QTimer>
 
-class Chicken : public QObject , QGraphicsPixmapItem
+class Chicken : public QObject , public QGraphicsPixmapItem
 {
     Q_OBJECT
 private:

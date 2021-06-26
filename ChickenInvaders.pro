@@ -10,11 +10,13 @@ CONFIG += c++14
 
 SOURCES += \
     Controller.cpp \
+    Menu.cpp \
     View.cpp \
     main.cpp
 
 HEADERS += \
     Controller.h \
+    Menu.h \
     View.h
 
 # Default rules for deployment.
@@ -24,3 +26,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     rs.qrc
+
+FORMS +=

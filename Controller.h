@@ -11,8 +11,9 @@ class Controller : public QObject
     // macro
     Q_OBJECT
 
-    // add class view to friend
+    // add friend classes
     friend class View;
+    friend class Menu;
 
 private:
     // private members
@@ -20,13 +21,13 @@ private:
     QTimer * cTimer;
     QGraphicsRectItem * holder;
 
-
 public:
     // constructor
     explicit Controller(QObject *parent = nullptr);
 
     // destructor
     ~Controller();
+
 };
 
 #endif // CONTROLLER_H

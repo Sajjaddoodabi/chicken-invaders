@@ -3,4 +3,5 @@
         <file>SpaceBackground2.jpg</file>
         <file>menu.jpeg</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>

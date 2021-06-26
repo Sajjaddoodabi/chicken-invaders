@@ -11,7 +11,7 @@ class View : public QGraphicsView
     Q_OBJECT
 
 private:
-    //members class
+    // private members
     Controller * viewController;
     double viewTime;
 
@@ -23,6 +23,7 @@ public:
     ~View();
 
 public slots:
+    // show background
     void background();
 
 };

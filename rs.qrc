@@ -2,5 +2,6 @@
     <qresource prefix="/images">
         <file>SpaceBackground2.jpg</file>
         <file>menu.jpeg</file>
+        <file>invadres.png</file>
     </qresource>
 </RCC>

@@ -1,11 +1,13 @@
 #include "View.h"
 
+// constructor
 View::View() : QGraphicsView()
 {
-    //create scnen
-    scene = new QGraphicsScene();
-    scene->setSceneRect(0, 0, 1920, 1080);
-    setScene(scene);
+    // creat controller
+    viewController = new Controller;
+
+    // add scnen
+    setScene(viewController->scene);
 
     //fullsceenig the game window
     setWindowState(Qt::WindowFullScreen);
@@ -15,20 +17,24 @@ View::View() : QGraphicsView()
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     //adding background
-    setBackgroundBrush(QBrush(QImage(":/images/SpaceBackground2.jpg")));
+    setBackgroundBrush(QBrush(QImage(":/images/menu.jpeg")));
+
+    // initialize viewTime to zero
+    viewTime = 0;
 
     //create timer
-    viewTime = 0;
-    viewTimer = new QTimer();
-    QObject::connect(viewTimer, SIGNAL(timeout()), this, SLOT(background()));
-    viewTimer->start(500);
+    QObject::connect(viewController->cTimer, SIGNAL(timeout()), this, SLOT(background()));
+    viewController->cTimer->start(); // to do
 
+}
+
+// destructor
+View::~View()
+{
+    delete viewController;
 }
 
 void View::background()
 {
-    viewTime += 0.5;
-    if(viewTime == 4){
-        viewTimer->stop();
-        exit(1);}
+    viewController->cTimer->stop();
 }

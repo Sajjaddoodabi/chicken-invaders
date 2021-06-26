@@ -3,24 +3,24 @@
 
 #include <QObject>
 #include <QGraphicsView>
-#include <QGraphicsScene>
-#include <QTimer>
+#include "Controller.h"
 
 class View : public QGraphicsView
 {
+    // macro
     Q_OBJECT
 
 private:
     //members class
-    QGraphicsScene *scene;
-    QTimer *viewTimer;
+    Controller * viewController;
     double viewTime;
 
 public:
-    //constructor
+    // constructor
     explicit View();
 
-signals:
+    // destructor
+    ~View();
 
 public slots:
     void background();

@@ -5,6 +5,7 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QGraphicsRectItem>
+#include <Chicken.h>
 
 class Controller : public QObject
 {
@@ -19,7 +20,8 @@ private:
     QGraphicsScene * scene;
     QTimer * cTimer;
     QGraphicsRectItem * holder;
-
+    //list of our enemyes
+    QList<Chicken *> ChickenList;
 
 public:
     // constructor

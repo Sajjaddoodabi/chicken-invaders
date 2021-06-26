@@ -11,12 +11,14 @@ CONFIG += c++14
 SOURCES += \
     Chicken.cpp \
     Controller.cpp \
+    Hen.cpp \
     View.cpp \
     main.cpp
 
 HEADERS += \
     Chicken.h \
     Controller.h \
+    Hen.h \
     View.h
 
 # Default rules for deployment.

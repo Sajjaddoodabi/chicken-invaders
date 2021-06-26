@@ -6,6 +6,7 @@
 #include <QTimer>
 #include <QGraphicsRectItem>
 #include <Chicken.h>
+#include <Hen.h>
 
 class Controller : public QObject
 {
@@ -22,6 +23,7 @@ private:
     QGraphicsRectItem * holder;
     //list of our enemyes
     QList<Chicken *> ChickenList;
+    QList<Hen *> HenList;
 
 public:
     // constructor

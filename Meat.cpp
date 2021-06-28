@@ -3,7 +3,7 @@
 Meat::Meat(QGraphicsScene *meatScene , Score *meatScore , QTimer *timer
            , QGraphicsItem *parent)
       : QObject () , QGraphicsPixmapItem (parent) ,
-        meatScene(meatScene) , meatScore(meatScore) , timeIntervals{0}
+        meatScene(meatScene) , meatScore(meatScore) ,countMeat{0} , timeIntervals{0}
 {
 
     //set meat picture
@@ -19,5 +19,12 @@ Meat::Meat(QGraphicsScene *meatScene , Score *meatScore , QTimer *timer
 
 void Meat::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
+    countMeat++;
+    if(countMeat == 30){
+        countMeat = 0;
+        meatScore->addToScore(50);
+    }
 
+    meatScene->removeItem(this);
+    delete this;
 }

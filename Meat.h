@@ -13,6 +13,7 @@ class Meat : public QObject , public QGraphicsPixmapItem
 private:
     QGraphicsScene *meatScene;
     Score *meatScore;
+    int countMeat;
     int timeIntervals;
 public:
     //constructor

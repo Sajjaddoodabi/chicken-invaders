@@ -5,6 +5,7 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QGraphicsRectItem>
+#include <QMediaPlayer>
 
 class Controller : public QObject
 {
@@ -12,14 +13,16 @@ class Controller : public QObject
     Q_OBJECT
 
     // add friend classes
-    friend class View;
+    friend class Loading;
     friend class Menu;
+    friend class View;
 
 private:
     // private members
     QGraphicsScene * scene;
-    QTimer * cTimer;
+    QTimer * timer;
     QGraphicsRectItem * holder;
+    QMediaPlayer * media;
 
 public:
     // constructor

@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -10,13 +10,17 @@ CONFIG += c++14
 
 SOURCES += \
     Controller.cpp \
+    Loading.cpp \
     Menu.cpp \
+    NewGameButton.cpp \
     View.cpp \
     main.cpp
 
 HEADERS += \
     Controller.h \
+    Loading.h \
     Menu.h \
+    NewGameButton.h \
     View.h
 
 # Default rules for deployment.

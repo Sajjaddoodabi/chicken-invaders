@@ -6,6 +6,7 @@
 #include "Score.h"
 #include <QTimer>
 #include <QGraphicsSceneMouseEvent>
+#include <QGraphicsScene>
 
 class Meat : public QObject , public QGraphicsPixmapItem
 {

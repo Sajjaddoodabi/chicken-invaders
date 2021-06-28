@@ -55,7 +55,7 @@ void Loading::animatedBackground()
         setBackgroundBrush(QBrush(QImage(":/images/loading/background1.jpg")));
 
     // change to menu
-    if(loadingTime == 20){// change to 20
+    if(loadingTime == 2){// change to 20
         loadingController->timer->stop();
         loadingController->media->stop();
         this->close();

@@ -23,6 +23,9 @@ public:
     // destructor
     ~Menu();
 
+public slots:
+    void schedule();
+
 };
 
 #endif // MENU_H

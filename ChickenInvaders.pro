@@ -11,6 +11,7 @@ CONFIG += c++14
 SOURCES += \
     Chicken.cpp \
     Controller.cpp \
+    Meat.cpp \
     Score.cpp \
     View.cpp \
     main.cpp
@@ -18,6 +19,7 @@ SOURCES += \
 HEADERS += \
     Chicken.h \
     Controller.h \
+    Meat.h \
     Score.h \
     View.h
 

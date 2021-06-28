@@ -9,3 +9,8 @@ Meat::Meat(QGraphicsScene *meatScene, Score *meatScore, QTimer *timer, QGraphics
 {
 
 }
+
+void Meat::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+
+}

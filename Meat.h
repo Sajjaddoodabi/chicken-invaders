@@ -18,6 +18,11 @@ public:
     Meat(QGraphicsScene *meatScene , Score *meatScore , QTimer *timer
          , QGraphicsItem *parent = nullptr);
 
+    //a mouse event to get meats score
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+
+public slots:
+    void move();
 };
 
 #endif // MEAT_H

@@ -17,7 +17,12 @@ Menu::Menu() : QGraphicsView()
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     // adding background
-    setBackgroundBrush(QBrush(QImage(":/images/menu.jpeg")));
+    setBackgroundBrush(QBrush(QImage(":/images/menu/background1.jpeg")));
+
+    // add music
+    menuController->media = new QMediaPlayer();
+    menuController->media->setMedia(QUrl("qrc:/musics/menu/music.mp3"));
+    menuController->media->play();
 }
 
 // destructor

@@ -17,11 +17,11 @@ Loading::Loading() : QGraphicsView()
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     // adding background
-    setBackgroundBrush(QBrush(QImage(":/images/loading/background/Loading1.jpg")));
+    setBackgroundBrush(QBrush(QImage(":/images/loading/background1.jpg")));
 
     //create loading music
     loadingController->media = new QMediaPlayer();
-    loadingController->media->setMedia(QUrl("qrc:/musics/loading/music/Loadingmusic.mp3"));
+    loadingController->media->setMedia(QUrl("qrc:/musics/loading/music.mp3"));
     loadingController->media->play();
 
     // initialize viewTime to zero
@@ -44,20 +44,21 @@ void Loading::animatedBackground()
     // add one to loadingtime
     ++loadingTime;
 
-    // change images
+    // change background's images
     if(loadingTime % 4 == 1)
-        setBackgroundBrush(QBrush(QImage(":/images/loading/background/Loading2.jpg")));
+        setBackgroundBrush(QBrush(QImage(":/images/loading/background2.jpg")));
     else if(loadingTime % 4 == 2)
-        setBackgroundBrush(QBrush(QImage(":/images/loading/background/Loading3.jpg")));
+        setBackgroundBrush(QBrush(QImage(":/images/loading/background3.jpg")));
     else if(loadingTime % 4 == 3)
-        setBackgroundBrush(QBrush(QImage(":/images/loading/background/Loading4.jpg")));
+        setBackgroundBrush(QBrush(QImage(":/images/loading/background4.jpg")));
     else if(loadingTime % 4 == 0)
-        setBackgroundBrush(QBrush(QImage(":/images/loading/background/Loading1.jpg")));
+        setBackgroundBrush(QBrush(QImage(":/images/loading/background1.jpg")));
 
     // change to menu
-    if(loadingTime == 20){
+    if(loadingTime == 20){// change to 20
         loadingController->timer->stop();
         loadingController->media->stop();
+        this->close();
         menu = new Menu();
         menu->show();
     }

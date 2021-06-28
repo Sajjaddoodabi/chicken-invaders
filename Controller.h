@@ -16,6 +16,7 @@ class Controller : public QObject
     friend class Loading;
     friend class Menu;
     friend class View;
+    friend class NewGameButton;
 
 private:
     // private members

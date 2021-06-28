@@ -11,5 +11,6 @@
     <qresource prefix="/musics">
         <file>loading/music.mp3</file>
         <file>menu/music.mp3</file>
+        <file>menu/click.mp3</file>
     </qresource>
 </RCC>

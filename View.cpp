@@ -24,8 +24,12 @@ View::View() : QGraphicsView()
 
     // create timer
     QObject::connect(viewController->timer, SIGNAL(timeout()), this, SLOT(animatedBackground()));
-    viewController->timer->start(60); // to do
+    viewController->timer->start(60);
 
+    // add music
+    viewController->media = new QMediaPlayer();
+    viewController->media->setMedia(QUrl("qrc:/musics/game/music.mp3"));
+    viewController->media->play();
 }
 
 // destructor

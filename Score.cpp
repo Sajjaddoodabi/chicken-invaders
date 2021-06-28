@@ -1,6 +1,11 @@
 #include "Score.h"
+#include <QFont>
 
-Score::Score(QObject *parent) : QObject(parent)
+Score::Score(QGraphicsItem *parent)
+  : QGraphicsTextItem (parent) , playerScore{0}
 {
+    setPlainText(QString::number(playerScore));
+    setDefaultTextColor(Qt::red);
+    setFont(QFont());
 
 }

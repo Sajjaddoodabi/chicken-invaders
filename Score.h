@@ -1,15 +1,15 @@
 #ifndef SCORE_H
 #define SCORE_H
 
-#include <QObject>
+#include <QGraphicsSimpleTextItem>
 
-class Score : public QObject
+class Score : public QGraphicsTextItem
 {
-    Q_OBJECT
 private:
     int playerScore;
 public:
-    explicit Score(QObject *parent = nullptr);
+    explicit Score(QGraphicsItem *parent = 0);
+    void addToScore(int score);
 
 signals:
 

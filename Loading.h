@@ -2,13 +2,15 @@
 #define LOADING_H
 
 #include <QGraphicsView>
-#include "Controller.h"
 #include "Menu.h"
 
 class Loading : public QGraphicsView
 {
     // macro
     Q_OBJECT
+
+    // friend class
+    friend class NewGameButton;
 
 private:
     // private members

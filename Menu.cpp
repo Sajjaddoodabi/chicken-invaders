@@ -26,19 +26,31 @@ Menu::Menu() : QGraphicsView()
 
     // add timer
     menuController->timer = new QTimer();
-    menuController->timer->start(1000);
+    menuController->timer->start(100);
     connect(menuController->timer , SIGNAL(timeout()) , this , SLOT(schedule()));
+
+    // create newgamebutton
+    newGameButton = new NewGameButton(menuController->scene);
 }
 
 // destructor
 Menu::~Menu()
 {
     delete menuController;
+    delete newGameButton;
 }
 
 void Menu::schedule()
 {
     if(menuController->media->state() == QMediaPlayer::StoppedState )
                 menuController->media->play();
+
+    if(newGameButton->click == 1){
+        menuController->timer->stop();
+        menuController->media->stop();
+        menuController->media->setMedia(QUrl("qrc:/musics/menu/click.mp3"));
+        menuController->media->play();
+        this->close();
+    }
 }
 

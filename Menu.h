@@ -1,11 +1,9 @@
 #ifndef MENU_H
 #define MENU_H
 
-#include <QObject>
 #include <QGraphicsView>
-#include <QGraphicsTextItem>
-#include <QGraphicsSceneMouseEvent>
-#include "View.h"
+#include "NewGameButton.h"
+#include "Controller.h"
 
 class Menu : public QGraphicsView
 {
@@ -15,6 +13,7 @@ class Menu : public QGraphicsView
 private:
     // private members
     Controller * menuController;
+    NewGameButton * newGameButton;
 
 public:
     // constructor

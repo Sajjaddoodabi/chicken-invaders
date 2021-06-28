@@ -1,22 +1,22 @@
 #include "NewGameButton.h"
 
-NewGameButton::NewGameButton() :  QGraphicsPixmapItem()
+NewGameButton::NewGameButton(QGraphicsScene *scene) :  QGraphicsPixmapItem(), buttonScene{scene}, click{0}
 {
-    // create controller
-    buttonController = new Controller;
-
-    // add music
-    buttonController->media = new QMediaPlayer();
-    buttonController->media->setMedia(QUrl(":qrc/musics/menu/click.mp3"));
-    buttonController->media->play();
+    // create scene
+    setPixmap(QPixmap(":/images/menu/newgame.jpg"));
+    buttonScene->addItem(this);
+    setPos(790, 610);
 }
 
 NewGameButton::~NewGameButton()
 {
-    delete buttonController;
+    delete buttonScene;
+    delete view;
 }
 
 void NewGameButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-
+    click = 1;
+    view = new View;
+    view->show();
 }

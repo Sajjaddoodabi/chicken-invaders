@@ -17,14 +17,14 @@ View::View() : QGraphicsView()
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     // adding background
-    setBackgroundBrush(QBrush(QImage(":/images/SpaceBackground2.jpj")));
+    setBackgroundBrush(QBrush(QImage(":/images/game/background1.jpg")));
 
     // initialize viewTime to zero
     viewTime = 0;
 
     // create timer
-    QObject::connect(viewController->cTimer, SIGNAL(timeout()), this, SLOT(background()));
-    viewController->cTimer->start(); // to do
+    QObject::connect(viewController->timer, SIGNAL(timeout()), this, SLOT(background()));
+    viewController->timer->start(); // to do
 
 }
 
@@ -36,5 +36,5 @@ View::~View()
 
 void View::background()
 {
-    viewController->cTimer->stop();
+    viewController->timer->stop();
 }

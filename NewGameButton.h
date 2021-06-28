@@ -3,20 +3,26 @@
 
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
-#include "Controller.h"
+#include <QGraphicsScene>
+#include "View.h"
 
 class NewGameButton : public QObject, public QGraphicsPixmapItem
 {
     // macro
     Q_OBJECT
 
+    // friend class
+    friend class Menu;
+
 private:
     // private members
-    Controller * buttonController;
+    QGraphicsScene * buttonScene;
+    View * view;
+    int click;
 
 public:
     // constructor
-    explicit NewGameButton();
+    explicit NewGameButton(QGraphicsScene *scene);
 
     // destructor
     ~NewGameButton();

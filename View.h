@@ -1,7 +1,6 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-#include <QObject>
 #include <QGraphicsView>
 #include "Controller.h"
 
@@ -13,7 +12,7 @@ class View : public QGraphicsView
 private:
     // private members
     Controller * viewController;
-    double viewTime;
+    int viewTime;
 
 public:
     // constructor

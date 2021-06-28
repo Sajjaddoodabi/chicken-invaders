@@ -23,12 +23,12 @@ Controller::Controller(QObject *parent) : QObject(parent)
     scoreBoard = new QGraphicsPixmapItem();
     scoreBoard->setPixmap(QPixmap(":/images/")); //ToDO
     scene->addItem(scoreBoard);
-    scoreBoard->setPos(0,0);
+    //scoreBoard->setPos(0,0);
 
     //add score
     controllerScore = new Score();
     scene->addItem(controllerScore);
-    controllerScore->setPos(50,100);
+   //controllerScore->setPos(50,100);
 }
 
 // destructor

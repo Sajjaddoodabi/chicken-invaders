@@ -28,3 +28,15 @@ void Meat::mousePressEvent(QGraphicsSceneMouseEvent *event)
     meatScene->removeItem(this);
     delete this;
 }
+
+void Meat::move()
+{
+   ++timeIntervals;
+    setPos(x() , y()+6);
+
+    //if(//ToDO)
+    {
+        meatScene->removeItem(this);
+        delete this;
+    }
+}

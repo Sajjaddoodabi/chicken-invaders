@@ -8,6 +8,7 @@
 #include <Chicken.h>
 #include <Meat.h>
 #include <Score.h>
+#include <QMediaPlayer>
 
 class Controller : public QObject
 {

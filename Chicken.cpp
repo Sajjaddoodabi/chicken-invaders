@@ -13,7 +13,4 @@ Chicken::Chicken(int speedPerPix, QTimer *timer , QGraphicsItem * parent) :
     setPixmap(QPixmap(":/image/"));
 
 
-
-
-
 }

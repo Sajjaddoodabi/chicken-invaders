@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -13,6 +13,7 @@ SOURCES += \
     Controller.cpp \
     Meat.cpp \
     Score.cpp \
+    SpaceShip.cpp \
     View.cpp \
     main.cpp
 
@@ -21,6 +22,7 @@ HEADERS += \
     Controller.h \
     Meat.h \
     Score.h \
+    SpaceShip.h \
     View.h
 
 # Default rules for deployment.

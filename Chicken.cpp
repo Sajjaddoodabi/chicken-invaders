@@ -14,4 +14,6 @@ Chicken::Chicken(int speedPerPix, QTimer *timer , QGraphicsItem * parent) :
 
 
 
+
+
 }

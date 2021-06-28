@@ -14,6 +14,21 @@ Controller::Controller(QObject *parent) : QObject(parent)
     // create holder
     holder = new QGraphicsRectItem;
     holder->setRect(0, 0, 1920, 1080);
+
+    //create and start ctimer
+    cTimer = new QTimer();
+    cTimer->start(40);
+
+    //add scoreBoard
+    scoreBoard = new QGraphicsPixmapItem();
+    scoreBoard->setPixmap(QPixmap(":/images/")); //ToDO
+    scene->addItem(scoreBoard);
+    scoreBoard->setPos(0,0);
+
+    //add score
+    controllerScore = new Score();
+    scene->addItem(controllerScore);
+    controllerScore->setPos(50,100);
 }
 
 // destructor
@@ -30,3 +45,4 @@ void Controller::addChicken(int speed)
     scene->addItem(ChickenList.last());
     ChickenList.last()->setPos(0 , 0);
 }
+

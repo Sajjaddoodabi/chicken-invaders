@@ -6,7 +6,8 @@
 #include <QTimer>
 #include <QGraphicsRectItem>
 #include <Chicken.h>
-#include <Hen.h>
+#include <Meat.h>
+#include <Score.h>
 
 class Controller : public QObject
 {
@@ -19,11 +20,13 @@ class Controller : public QObject
 private:
     // private members
     QGraphicsScene * scene;
+    QGraphicsPixmapItem *scoreBoard;
+    Score *controllerScore;
     QTimer * cTimer;
     QGraphicsRectItem * holder;
     //list of our enemyes
     QList<Chicken *> ChickenList;
-    QList<Hen *> HenList;
+    QList<Meat *> MeatList;
 
 public:
     // constructor

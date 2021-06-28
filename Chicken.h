@@ -11,6 +11,8 @@ class Chicken : public QObject , public QGraphicsPixmapItem
 private:
     int Health;
     int speedPerPix;
+    bool isLord;
+    bool isHen;
 public:
     Chicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent);
 

@@ -7,5 +7,6 @@ Chicken::Chicken(int speedPerPix, QTimer *timer , QGraphicsItem * parent) :
     //setiing the chicken's pic
     setPixmap(QPixmap(":/image/invaders.png"));
 
+    //
 
 }

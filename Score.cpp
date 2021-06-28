@@ -6,6 +6,13 @@ Score::Score(QGraphicsItem *parent)
 {
     setPlainText(QString::number(playerScore));
     setDefaultTextColor(Qt::red);
-    setFont(QFont());
+    setFont(QFont()); //ToDO
 
+
+}
+
+void Score::addToScore(int score)
+{
+    playerScore += score;
+    setPlainText(QString::number(playerScore));
 }

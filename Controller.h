@@ -36,6 +36,8 @@ public:
     ~Controller();
 
     void addChicken(int speed);
+    void addMeat();
+
 };
 
 #endif // CONTROLLER_H

@@ -46,3 +46,7 @@ void Controller::addChicken(int speed)
     ChickenList.last()->setPos(0 , 0);
 }
 
+void Controller::addMeat()
+{
+MeatList.push_back(new Meat{scene,controllerScore,cTimer,holder});
+}

@@ -31,6 +31,9 @@ Menu::Menu() : QGraphicsView()
 
     // create newgamebutton
     newGameButton = new NewGameButton(menuController->scene);
+
+    // create quitbutton
+    quitButton = new QuitButton(menuController->scene);
 }
 
 // destructor
@@ -45,7 +48,7 @@ void Menu::schedule()
     if(menuController->media->state() == QMediaPlayer::StoppedState )
                 menuController->media->play();
 
-    if(newGameButton->click == 1){
+    if(newGameButton->click == 1 || quitButton->click == 1){
         menuController->timer->stop();
         menuController->media->stop();
         menuController->media->setMedia(QUrl("qrc:/musics/menu/click.mp3"));

@@ -3,6 +3,7 @@
 
 #include <QGraphicsView>
 #include "NewGameButton.h"
+#include "Quitbutton.h"
 #include "Controller.h"
 
 class Menu : public QGraphicsView
@@ -14,6 +15,7 @@ private:
     // private members
     Controller * menuController;
     NewGameButton * newGameButton;
+    QuitButton * quitButton;
 
 public:
     // constructor

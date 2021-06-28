@@ -1,12 +1,12 @@
-#ifndef NEWGAMEBUTTON_H
-#define NEWGAMEBUTTON_H
+#ifndef QUITBUTTON_H
+#define QUITBUTTON_H
 
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsScene>
 #include "View.h"
 
-class NewGameButton : public QGraphicsPixmapItem
+class QuitButton : public QGraphicsPixmapItem
 {
     // friend class
     friend class Menu;
@@ -19,13 +19,12 @@ private:
 
 public:
     // constructor
-    explicit NewGameButton(QGraphicsScene *scene);
+    explicit QuitButton(QGraphicsScene *scene);
 
     // destructor
-    ~NewGameButton();
+    ~QuitButton();
 
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
-
 };
 
-#endif // NEWGAMEBUTTON_H
+#endif // QUITBUTTON_H

@@ -13,6 +13,7 @@ SOURCES += \
     Loading.cpp \
     Menu.cpp \
     NewGameButton.cpp \
+    QuitButton.cpp \
     View.cpp \
     main.cpp
 
@@ -21,6 +22,7 @@ HEADERS += \
     Loading.h \
     Menu.h \
     NewGameButton.h \
+    QuitButton.h \
     View.h
 
 # Default rules for deployment.

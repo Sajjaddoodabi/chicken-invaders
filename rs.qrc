@@ -8,6 +8,7 @@
         <file>menu/background1.jpeg</file>
         <file>menu/background2.jpg</file>
         <file>menu/newgame.jpg</file>
+        <file>menu/quitbutton.jpg</file>
     </qresource>
     <qresource prefix="/musics">
         <file>loading/music.mp3</file>

@@ -22,8 +22,8 @@ public:
     ~View();
 
 public slots:
-    // show background
-    void background();
+    // show animated background
+    void animatedBackground();
 
 };
 

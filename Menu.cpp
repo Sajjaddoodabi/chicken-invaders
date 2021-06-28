@@ -26,7 +26,7 @@ Menu::Menu() : QGraphicsView()
 
     // add timer
     menuController->timer = new QTimer();
-    menuController->timer->start(100);
+    menuController->timer->start(10);
     connect(menuController->timer , SIGNAL(timeout()) , this , SLOT(schedule()));
 
     // create newgamebutton
@@ -43,11 +43,14 @@ Menu::~Menu()
     delete newGameButton;
 }
 
+// restart music and change view
 void Menu::schedule()
 {
+    // restart music
     if(menuController->media->state() == QMediaPlayer::StoppedState )
                 menuController->media->play();
 
+    // change view
     if(newGameButton->click == 1 || quitButton->click == 1){
         menuController->timer->stop();
         menuController->media->stop();

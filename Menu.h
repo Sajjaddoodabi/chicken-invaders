@@ -25,6 +25,7 @@ public:
     ~Menu();
 
 public slots:
+    // restart music and change view
     void schedule();
 
 };

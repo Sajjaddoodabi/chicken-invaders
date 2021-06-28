@@ -1,13 +1,23 @@
 <RCC>
     <qresource prefix="/images">
-        <file>game/background1.jpg</file>
         <file>loading/background1.jpg</file>
         <file>loading/background2.jpg</file>
         <file>loading/background3.jpg</file>
         <file>loading/background4.jpg</file>
         <file>menu/background1.jpeg</file>
         <file>menu/background2.jpg</file>
-        <file>menu/newgame.jpg</file>
+        <file>game/space1.jpg</file>
+        <file>game/space2.jpg</file>
+        <file>game/space3.jpg</file>
+        <file>game/space4.jpg</file>
+        <file>game/space5.jpg</file>
+        <file>game/space6.jpg</file>
+        <file>game/space7.jpg</file>
+        <file>game/space8.jpg</file>
+        <file>game/space9.jpg</file>
+        <file>game/space10.jpg</file>
+        <file>game/space11.jpg</file>
+        <file>menu/newgamebutton.jpg</file>
         <file>menu/quitbutton.jpg</file>
     </qresource>
     <qresource prefix="/musics">

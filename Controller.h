@@ -5,6 +5,9 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QGraphicsRectItem>
+#include <Chicken.h>
+#include <Meat.h>
+#include <Score.h>
 #include <QMediaPlayer>
 
 class Controller : public QObject
@@ -21,8 +24,14 @@ class Controller : public QObject
 private:
     // private members
     QGraphicsScene * scene;
-    QTimer * timer;
+
+    QGraphicsPixmapItem *scoreBoard;
+    Score *controllerScore;
+    QTimer * cTimer;
     QGraphicsRectItem * holder;
+    //list of our enemyes
+    QList<Chicken *> ChickenList;
+    QList<Meat *> MeatList;
     QMediaPlayer * media;
 
 public:
@@ -31,6 +40,9 @@ public:
 
     // destructor
     ~Controller();
+
+    void addChicken(int speed);
+    void addMeat();
 
 };
 

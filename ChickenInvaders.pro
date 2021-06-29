@@ -9,7 +9,12 @@ CONFIG += c++14
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Chicken.cpp \
     Controller.cpp \
+
+    Meat.cpp \
+    Score.cpp \
+    SpaceShip.cpp \
     Loading.cpp \
     Menu.cpp \
     NewGameButton.cpp \
@@ -18,7 +23,11 @@ SOURCES += \
     main.cpp
 
 HEADERS += \
+    Chicken.h \
     Controller.h \
+    Meat.h \
+    Score.h \
+    SpaceShip.h \
     Loading.h \
     Menu.h \
     NewGameButton.h \

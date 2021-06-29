@@ -11,9 +11,14 @@ CONFIG += c++14
 SOURCES += \
     Chicken.cpp \
     Controller.cpp \
+
     Meat.cpp \
     Score.cpp \
     SpaceShip.cpp \
+    Loading.cpp \
+    Menu.cpp \
+    NewGameButton.cpp \
+    QuitButton.cpp \
     View.cpp \
     main.cpp
 
@@ -23,6 +28,10 @@ HEADERS += \
     Meat.h \
     Score.h \
     SpaceShip.h \
+    Loading.h \
+    Menu.h \
+    NewGameButton.h \
+    QuitButton.h \
     View.h
 
 # Default rules for deployment.
@@ -32,3 +41,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     rs.qrc
+
+FORMS +=

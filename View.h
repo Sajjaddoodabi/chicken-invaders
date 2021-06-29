@@ -1,7 +1,6 @@
 #ifndef VIEW_H
 #define VIEW_H
 
-#include <QObject>
 #include <QGraphicsView>
 #include "Controller.h"
 
@@ -11,9 +10,9 @@ class View : public QGraphicsView
     Q_OBJECT
 
 private:
-    //members class
+    // private members
     Controller * viewController;
-    double viewTime;
+    int viewTime;
 
 public:
     // constructor
@@ -23,7 +22,8 @@ public:
     ~View();
 
 public slots:
-    void background();
+    // show animated background
+    void animatedBackground();
 
 };
 

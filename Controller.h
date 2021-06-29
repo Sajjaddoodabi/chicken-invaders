@@ -15,12 +15,16 @@ class Controller : public QObject
     // macro
     Q_OBJECT
 
-    // add class view to friend
+    // add friend classes
+    friend class Loading;
+    friend class Menu;
     friend class View;
+    friend class NewGameButton;
 
 private:
     // private members
     QGraphicsScene * scene;
+
     QGraphicsPixmapItem *scoreBoard;
     Score *controllerScore;
     QTimer * cTimer;
@@ -28,6 +32,7 @@ private:
     //list of our enemyes
     QList<Chicken *> ChickenList;
     QList<Meat *> MeatList;
+    QMediaPlayer * media;
 
 public:
     // constructor

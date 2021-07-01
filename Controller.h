@@ -24,7 +24,6 @@ class Controller : public QObject
 private:
     // private members
     QGraphicsScene * scene;
-
     QGraphicsPixmapItem *scoreBoard;
     Score *controllerScore;
     QTimer * cTimer;

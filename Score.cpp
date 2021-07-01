@@ -6,7 +6,7 @@ Score::Score(QGraphicsItem *parent)
 {
     setPlainText(QString::number(playerScore));
     setDefaultTextColor(Qt::red);
-    setFont(QFont()); //ToDO
+    setFont(QFont("times", 25));
 
 
 }

@@ -17,6 +17,11 @@ Chicken::Chicken(int speedPerPix, QTimer *timer , QGraphicsItem * parent , int H
 
 }
 
+Chicken::~Chicken()
+{
+
+}
+
 void Chicken::move()
 {
 

@@ -18,6 +18,7 @@ public:
     bool gameOver;
 
     Chicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent , int Health , bool isLord);
+    ~Chicken();
 
 public slots:
     void move();

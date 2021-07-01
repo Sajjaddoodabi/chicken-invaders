@@ -11,7 +11,6 @@ CONFIG += c++14
 SOURCES += \
     Chicken.cpp \
     Controller.cpp \
-
     Meat.cpp \
     Score.cpp \
     SpaceShip.cpp \

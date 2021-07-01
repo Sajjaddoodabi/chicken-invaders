@@ -27,12 +27,13 @@ private:
 
     QGraphicsPixmapItem *scoreBoard;
     Score *controllerScore;
-    QTimer * cTimer;
+    QTimer * timer;
     QGraphicsRectItem * holder;
+    QMediaPlayer * media;
     //list of our enemyes
     QList<Chicken *> ChickenList;
     QList<Meat *> MeatList;
-    QMediaPlayer * media;
+
 
 public:
     // constructor

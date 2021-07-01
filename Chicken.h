@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QTimer>
+#include <QMediaPlayer>
 
 class Chicken : public QObject , public QGraphicsPixmapItem
 {
@@ -12,10 +13,15 @@ private:
     int Health;
     int speedPerPix;
     bool isLord;
+    QMediaPlayer *chickenSound;
 public:
-    Chicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent);
+    bool gameOver;
 
-signals:
+    Chicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent , int Health , bool isLord);
+
+public slots:
+    void move();
+
 
 };
 

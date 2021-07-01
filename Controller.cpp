@@ -16,8 +16,8 @@ Controller::Controller(QObject *parent) : QObject(parent)
     holder->setRect(0, 0, 1920, 1080);
 
     //create and start ctimer
-    cTimer = new QTimer();
-    cTimer->start(40);
+    timer = new QTimer();
+    timer->start(40);
 
     //add scoreBoard
     scoreBoard = new QGraphicsPixmapItem();
@@ -41,12 +41,12 @@ Controller::~Controller()
 
 void Controller::addChicken(int speed)
 {
-    ChickenList.push_back(new Chicken{speed , cTimer , holder});
+    ChickenList.push_back(new Chicken{speed , timer , holder});
     scene->addItem(ChickenList.last());
     ChickenList.last()->setPos(0 , 0);
 }
 
 void Controller::addMeat()
 {
-MeatList.push_back(new Meat{scene,controllerScore,cTimer,holder});
+MeatList.push_back(new Meat{scene,controllerScore,timer,holder});
 }

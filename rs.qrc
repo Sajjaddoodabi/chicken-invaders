@@ -1,8 +1,5 @@
 <RCC>
     <qresource prefix="/images">
-
-        <file>SpaceBackground2.jpg</file>
-        <file>menu.jpeg</file>
         <file>invadres.png</file>
         <file>loading/background1.jpg</file>
         <file>loading/background2.jpg</file>

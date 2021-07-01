@@ -1,4 +1,5 @@
 #include "Chicken.h"
+#include <QGraphicsScene>
 
 Chicken::Chicken(int speedPerPix, QTimer *timer , QGraphicsItem * parent , int Health , bool isLord) :
     QObject() , QGraphicsPixmapItem(parent) , Health{Health} , speedPerPix{speedPerPix} , isLord{isLord}
@@ -31,6 +32,15 @@ Chicken::Chicken(int speedPerPix, QTimer *timer , QGraphicsItem * parent , int H
 Chicken::~Chicken()
 {
     delete chickenSound;
+}
+
+void Chicken::HeathDecrement()
+{
+    if(Health != 0)
+        --Health;
+    if(Health == 0){
+        scene()->removeItem(this);
+    }
 }
 
 void Chicken::move()

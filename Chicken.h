@@ -20,6 +20,7 @@ public:
     Chicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent , int Health , bool isLord);
     ~Chicken();
 
+    void HeathDecrement();
 public slots:
     void move();
 

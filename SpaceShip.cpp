@@ -4,8 +4,7 @@
 SpaceShip::SpaceShip(int Lives, int bulletLevel, QTimer *timer, QGraphicsItem *parent)
     : Lives{Lives} , bulletLevel{bulletLevel} , QGraphicsPixmapItem(parent)
 {
-    setPixmap(QPixmap(":/image/invadres.png"));
-
+    setPixmap(QPixmap(":/image/game/ship.png"));
     setPos(600,600);
 }
 

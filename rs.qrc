@@ -21,6 +21,7 @@
         <file>menu/newgamebutton.jpg</file>
         <file>menu/quitbutton.jpg</file>
         <file>scoreboard.png</file>
+        <file>game/ship.png</file>
     </qresource>
     <qresource prefix="/musics">
         <file>loading/music.mp3</file>

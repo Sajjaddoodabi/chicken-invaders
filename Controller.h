@@ -8,6 +8,7 @@
 #include <Chicken.h>
 #include <Meat.h>
 #include <Score.h>
+#include <SpaceShip.h>
 #include <QMediaPlayer>
 
 class Controller : public QObject
@@ -20,6 +21,7 @@ class Controller : public QObject
     friend class Menu;
     friend class View;
     friend class NewGameButton;
+    friend class SpaceShip;
 
 private:
     // private members

@@ -40,6 +40,7 @@ void Chicken::HeathDecrement()
         --Health;
     if(Health == 0){
         scene()->removeItem(this);
+        chickenSound->setMedia(QUrl("qrc:/music/")); //ToDO
     }
 }
 

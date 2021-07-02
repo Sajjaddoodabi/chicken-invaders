@@ -22,7 +22,7 @@ public:
 
     void HeathDecrement();
 public slots:
-    void move();
+    void move(); //ToDO
 
 
 };

@@ -42,7 +42,7 @@ public:
     // destructor
     ~Controller();
 
-    void addChicken(int speed);
+    void addChicken(int speed , int Health , bool isLord);
     void addMeat();
 
 };

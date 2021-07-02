@@ -39,9 +39,9 @@ Controller::~Controller()
     delete holder;
 }
 
-void Controller::addChicken(int speed)
+void Controller::addChicken(int speed , int Health , bool isLord)
 {
-    ChickenList.push_back(new Chicken{speed , timer , holder});
+    ChickenList.push_back(new Chicken{speed , timer , holder , Health , isLord});
     scene->addItem(ChickenList.last());
     ChickenList.last()->setPos(0 , 0);
 }

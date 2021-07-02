@@ -1,22 +1,20 @@
 #ifndef CHICKEN_H
 #define CHICKEN_H
 
-#include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QTimer>
 
-class Chicken : public QObject , public QGraphicsPixmapItem
+class Chicken : public QGraphicsPixmapItem
 {
-    Q_OBJECT
 private:
+    // private members
     int Health;
     int speedPerPix;
     bool isLord;
+
 public:
+    // constructor
     Chicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent);
-
-signals:
-
 };
 
 #endif // CHICKEN_H

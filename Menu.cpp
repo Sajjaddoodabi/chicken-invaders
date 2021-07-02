@@ -41,6 +41,7 @@ Menu::~Menu()
 {
     delete menuController;
     delete newGameButton;
+    delete quitButton;
 }
 
 // restart music and change view

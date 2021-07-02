@@ -6,17 +6,15 @@
 class Score : public QGraphicsTextItem
 {
 private:
+    // private members
     int playerScore;
+
 public:
-    //constructor
+    // constructor
     explicit Score(QGraphicsItem *parent = 0);
 
-    //add to score function
+    // add to score function
     void addToScore(int score);
-
-
-signals:
-
 };
 
 #endif // SCORE_H

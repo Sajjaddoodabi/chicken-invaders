@@ -28,10 +28,11 @@ private:
     Score *controllerScore;
     QTimer * cTimer;
     QGraphicsRectItem * holder;
-    //list of our enemyes
+    QMediaPlayer * media;
+
+    // lists
     QList<Chicken *> ChickenList;
     QList<Meat *> MeatList;
-    QMediaPlayer * media;
 
 public:
     // constructor
@@ -40,6 +41,7 @@ public:
     // destructor
     ~Controller();
 
+    // to be (add chicken and meat in view)
     void addChicken(int speed);
     void addMeat();
 

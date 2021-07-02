@@ -27,7 +27,7 @@ Controller::~Controller()
     delete scoreBoard;
     delete controllerScore;
     delete liveBoard;
-
+    delete controllerLives;
 }
 
 void Controller::addChicken(int speed , int Health , bool isLord)

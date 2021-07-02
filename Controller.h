@@ -5,10 +5,11 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QGraphicsRectItem>
-#include <Chicken.h>
-#include <Meat.h>
-#include <Score.h>
 #include <QMediaPlayer>
+#include "Chicken.h"
+#include "Meat.h"
+#include "Score.h"
+#include "Lives.h"
 
 class Controller : public QObject
 {
@@ -27,9 +28,14 @@ private:
     QTimer * timer;
     QGraphicsRectItem * holder;
     QMediaPlayer * media;
+
+    // create playerscore
     QGraphicsPixmapItem * scoreBoard;
     Score * controllerScore;
+
+    // create playerlives
     QGraphicsPixmapItem * liveBoard;
+    Lives * controllerLives;
 
     // lists
     QList<Chicken *> ChickenList;

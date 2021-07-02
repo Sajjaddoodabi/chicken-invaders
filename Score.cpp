@@ -7,8 +7,6 @@ Score::Score(QGraphicsItem *parent)
     setPlainText(QString::number(playerScore));
     setDefaultTextColor(Qt::white);
     setFont(QFont("times", 20));
-
-
 }
 
 // add to score function

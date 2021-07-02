@@ -15,6 +15,8 @@ Controller::Controller(QObject *parent) : QObject(parent)
     timer = new QTimer();
     timer->start(40);
 
+    // create spaceship
+    spaceShip = new SpaceShip(timer, holder);
 }
 
 // destructor

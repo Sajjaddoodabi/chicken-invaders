@@ -10,6 +10,7 @@
 #include "Meat.h"
 #include "Score.h"
 #include "Lives.h"
+#include "SpaceShip.h"
 
 class Controller : public QObject
 {
@@ -36,6 +37,9 @@ private:
     // create playerlives
     QGraphicsPixmapItem * liveBoard;
     Lives * controllerLives;
+
+    // create spaceship
+    SpaceShip * spaceShip;
 
     // lists
     QList<Chicken *> ChickenList;

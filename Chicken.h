@@ -3,6 +3,7 @@
 
 #include <QGraphicsPixmapItem>
 #include <QTimer>
+#include <QMediaPlayer>
 
 class Chicken : public QGraphicsPixmapItem
 {
@@ -11,10 +12,21 @@ private:
     int Health;
     int speedPerPix;
     bool isLord;
-
+    QMediaPlayer *chickenSound;
+    
 public:
+    bool gameOver;
     // constructor
-    Chicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent);
+    Chicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent , int Health , bool isLord);
+    
+    // destructor
+    ~Chicken();
+
+    void HeathDecrement();
+    
+public slots:
+    // move to mid
+    void move(); //ToDO
 };
 
 #endif // CHICKEN_H

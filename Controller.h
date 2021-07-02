@@ -26,7 +26,7 @@ private:
     QGraphicsScene * scene;
     QGraphicsPixmapItem *scoreBoard;
     Score *controllerScore;
-    QTimer * cTimer;
+    QTimer * timer;
     QGraphicsRectItem * holder;
     QMediaPlayer * media;
 
@@ -42,7 +42,7 @@ public:
     ~Controller();
 
     // to be (add chicken and meat in view)
-    void addChicken(int speed);
+    void addChicken(int speed , int Health , bool isLord);
     void addMeat();
 
 };

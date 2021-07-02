@@ -16,7 +16,7 @@ private:
     QMediaPlayer *BabyChickenSound;
 public:
     bool gameOver;
-    babyChicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent , int Healt);
+    babyChicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent , int Health);
     ~babyChicken();
 
     void HealthDecrement();

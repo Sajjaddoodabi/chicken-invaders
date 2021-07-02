@@ -1,7 +1,7 @@
 #include "babyChicken.h"
 #include <QGraphicsScene>
 
-babyChicken::babyChicken(int speedPerPix, QTimer *timer, QGraphicsItem *parent, int Healt)
+babyChicken::babyChicken(int speedPerPix, QTimer *timer, QGraphicsItem *parent, int Health)
     : QObject() , QGraphicsPixmapItem(parent) , Health{Health} , speedPerPix{speedPerPix}
 {
     //set picture for baby chicken

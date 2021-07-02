@@ -4,5 +4,9 @@ SpaceShip::SpaceShip(QTimer *timer, QGraphicsItem *parent) : QObject(), QGraphic
 {
     // set picture
     setPixmap(QPixmap(":/images/spaceship/image1.png"));
-    setPos(885, 890);
+}
+
+void SpaceShip::move(QMouseEvent *event)
+{
+    setPos(x() + event->pos().x(), y() + event->pos().y());
 }

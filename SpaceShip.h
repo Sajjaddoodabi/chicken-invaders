@@ -4,6 +4,7 @@
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QTimer>
+#include <QMouseEvent>
 
 class SpaceShip : public QObject, public QGraphicsPixmapItem
 {
@@ -16,6 +17,9 @@ private:
 public:
     // constructor
     SpaceShip(QTimer *timer , QGraphicsItem *parent);
+
+    // move spaceship with mouse
+    void move(QMouseEvent * event);
 };
 
 #endif // SPACESHIP_H

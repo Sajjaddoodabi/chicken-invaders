@@ -41,6 +41,12 @@ View::View() : QGraphicsView()
     viewController->controllerScore = new Score();
     viewController->scene->addItem(viewController->controllerScore);
     viewController->controllerScore->setPos(30, 0);
+
+    // add liveboard
+    viewController->liveBoard = new QGraphicsPixmapItem;
+    viewController->liveBoard->setPixmap(QPixmap(":/images/liveboard.png"));
+    viewController->scene->addItem(viewController->liveBoard);
+    viewController->liveBoard->setPos(0, 1020);
 }
 
 // destructor

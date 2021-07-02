@@ -24,6 +24,7 @@
         <file>bullet/bullet1.png</file>
         <file>bullet/bullet2.png</file>
         <file>bullet/bullet3.png</file>
+        <file>liveboard.png</file>
     </qresource>
     <qresource prefix="/musics">
         <file>loading/music.mp3</file>

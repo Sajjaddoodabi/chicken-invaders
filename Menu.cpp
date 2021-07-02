@@ -25,9 +25,9 @@ Menu::Menu() : QGraphicsView()
     menuController->media->play();
 
     // add timer
-    menuController->cTimer = new QTimer();
-    menuController->cTimer->start(10);
-    connect(menuController->cTimer , SIGNAL(timeout()) , this , SLOT(schedule()));
+    menuController->timer = new QTimer();
+    menuController->timer->start(10);
+    connect(menuController->timer , SIGNAL(timeout()) , this , SLOT(schedule()));
 
     // create newgamebutton
     newGameButton = new NewGameButton(menuController->scene);
@@ -53,7 +53,7 @@ void Menu::schedule()
 
     // change view
     if(newGameButton->click == 1 || quitButton->click == 1){
-        menuController->cTimer->stop();
+        menuController->timer->stop();
         menuController->media->stop();
         menuController->media->setMedia(QUrl("qrc:/musics/menu/click.mp3"));
         menuController->media->play();

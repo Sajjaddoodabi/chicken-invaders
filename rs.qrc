@@ -21,11 +21,15 @@
         <file>menu/newgamebutton.jpg</file>
         <file>menu/quitbutton.jpg</file>
         <file>scoreboard.png</file>
+        <file>bullet/bullet1.png</file>
+        <file>bullet/bullet2.png</file>
+        <file>bullet/bullet3.png</file>
     </qresource>
     <qresource prefix="/musics">
         <file>loading/music.mp3</file>
         <file>menu/music.mp3</file>
         <file>menu/click.mp3</file>
         <file>game/music.mp3</file>
+        <file>bullet/bulletsound.wav</file>
     </qresource>
 </RCC>

@@ -28,8 +28,8 @@ Loading::Loading() : QGraphicsView()
     loadingTime = 0;
 
     // create timer
-    QObject::connect(loadingController->cTimer, SIGNAL(timeout()), this, SLOT(animatedBackground()));
-    loadingController->cTimer->start(1000);
+    QObject::connect(loadingController->timer, SIGNAL(timeout()), this, SLOT(animatedBackground()));
+    loadingController->timer->start(1000);
 }
 
 // destructor
@@ -56,7 +56,7 @@ void Loading::animatedBackground()
 
     // change to menu
     if(loadingTime == 2){// change to 20
-        loadingController->cTimer->stop();
+        loadingController->timer->stop();
         loadingController->media->stop();
         this->close();
         menu = new Menu();

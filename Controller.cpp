@@ -7,15 +7,11 @@ Controller::Controller(QObject *parent) : QObject(parent)
     scene = new QGraphicsScene;
     scene->setSceneRect(0, 0, 1920, 1080);
 
-    // create timer of the game
-    cTimer = new QTimer;
-    cTimer->start(); // to do
-
     // create holder
     holder = new QGraphicsRectItem;
     holder->setRect(0, 0, 1920, 1080);
 
-    //create and start ctimer
+    //create and start timer
     timer = new QTimer();
     timer->start(40);
 
@@ -24,9 +20,13 @@ Controller::Controller(QObject *parent) : QObject(parent)
 // destructor
 Controller::~Controller()
 {
-    delete cTimer;
+    delete timer;
     delete scene;
     delete holder;
+    delete scoreBoard;
+    delete controllerScore;
+    delete media;
+
 }
 
 void Controller::addChicken(int speed , int Health , bool isLord)

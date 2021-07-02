@@ -12,5 +12,8 @@ int main(int argc, char *argv[])
 
     return a.exec();
 }
-// memory leap isnot ok
-// create playbutton in loading
+// memory leap is not ok
+// create animated button
+// loadingtime shoud be 20
+// create continuebutton
+// create stopview in game and savebutton and quitbutton and continuebutton

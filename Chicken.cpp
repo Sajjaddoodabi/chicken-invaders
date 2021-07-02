@@ -6,11 +6,11 @@ Chicken::Chicken(int speedPerPix, QTimer *timer , QGraphicsItem * parent , int H
 {
     //setiing the chicken's pic
     if(isLord == false)
-    setPixmap(QPixmap(":/image/invaders.png"));
+        setPixmap(QPixmap(":/image/invaders.png"));
 
     //setting the Lord's pic
-    if(isLord == true)
-    setPixmap(QPixmap(":/image/"));
+    else if(isLord == true)
+        setPixmap(QPixmap(":/image/"));
 
     //connect timer to move
     connect(timer , SIGNAL(timeout()) , this , SLOT(move()));
@@ -19,12 +19,11 @@ Chicken::Chicken(int speedPerPix, QTimer *timer , QGraphicsItem * parent , int H
     chickenSound = new QMediaPlayer();
     chickenSound->setMedia(QUrl("qrc:/music/"));
 
-    if(chickenSound->state() == QMediaPlayer::PlayingState){
+    if(chickenSound->state() == QMediaPlayer::PlayingState)
         chickenSound->setPosition(0);
-    }
-    else if(chickenSound->state() == QMediaPlayer::StoppedState){
+    else if(chickenSound->state() == QMediaPlayer::StoppedState)
         chickenSound->play();
-    }
+
 
 }
 
@@ -40,6 +39,7 @@ void Chicken::HeathDecrement()
     if(Health == 0){
         scene()->removeItem(this);
         chickenSound->setMedia(QUrl("qrc:/music/")); //ToDO
+        delete this;
     }
 }
 

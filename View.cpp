@@ -48,10 +48,14 @@ View::View() : QGraphicsView()
     viewController->scene->addItem(viewController->liveBoard);
     viewController->liveBoard->setPos(0, 1020);
 
-    //add lives
+    // add lives
     viewController->controllerLives = new Lives();
     viewController->scene->addItem(viewController->controllerLives);
     viewController->controllerLives->setPos(45, 1035);
+
+    // add spaceship
+    viewController->scene->addItem(viewController->spaceShip);
+    viewController->spaceShip->setPos(885, 890);
 }
 
 // destructor

@@ -19,3 +19,17 @@ Bullet::Bullet(QGraphicsItem *parent, QTimer *bulletTimer, QMediaPlayer *bulletS
     connect(bulletTimer, SIGNAL(timeout()), this, SLOT(moveToUp()));
     bulletTimer->start(25);
 }
+
+// move bullet to up
+void Bullet::moveToUp()
+{
+    // move to up
+    y -= 12;
+    setPos(x, y);
+
+    // delete bullet
+    if(y == 0){
+        scene()->removeItem(this);
+        delete this;
+    }
+}

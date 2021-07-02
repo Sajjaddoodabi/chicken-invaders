@@ -20,6 +20,10 @@ private:
 public:
     // constructor
     explicit Bullet(QGraphicsItem *parent, QTimer *bulletTimer, QMediaPlayer *bulletSound, int x, int y);
+
+public slots:
+    // move bullet to up
+    void moveToUp();
 };
 
 #endif // BULLET_H

@@ -1,6 +1,6 @@
 #include "SpaceShip.h"
 
-SpaceShip::SpaceShip()
+SpaceShip::SpaceShip(int Lives, int bulletLevel, QTimer *timer, QGraphicsItem *parent)
 {
 
 }

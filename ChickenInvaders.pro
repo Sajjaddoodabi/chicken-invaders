@@ -26,6 +26,7 @@ SOURCES += \
     NewGameButton.cpp \
     QuitButton.cpp \
     View.cpp \
+    babyChicken.cpp \
     main.cpp
 
 HEADERS += \
@@ -38,7 +39,8 @@ HEADERS += \
     Menu.h \
     NewGameButton.h \
     QuitButton.h \
-    View.h
+    View.h \
+    babyChicken.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

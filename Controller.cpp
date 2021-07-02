@@ -8,8 +8,8 @@ Controller::Controller(QObject *parent) : QObject(parent)
     scene->setSceneRect(0, 0, 1920, 1080);
 
     // create timer of the game
-    cTimer = new QTimer;
-    cTimer->start(); // to do
+    timer = new QTimer;
+    timer->start(); // to do
 
     // create holder
     holder = new QGraphicsRectItem;
@@ -24,7 +24,7 @@ Controller::Controller(QObject *parent) : QObject(parent)
 // destructor
 Controller::~Controller()
 {
-    delete cTimer;
+    delete timer;
     delete scene;
     delete holder;
 }

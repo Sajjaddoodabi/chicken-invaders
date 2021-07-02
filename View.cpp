@@ -47,6 +47,11 @@ View::View() : QGraphicsView()
     viewController->liveBoard->setPixmap(QPixmap(":/images/liveboard.png"));
     viewController->scene->addItem(viewController->liveBoard);
     viewController->liveBoard->setPos(0, 1020);
+
+    //add lives
+    viewController->controllerLives = new Lives();
+    viewController->scene->addItem(viewController->controllerLives);
+    viewController->controllerLives->setPos(45, 1035);
 }
 
 // destructor

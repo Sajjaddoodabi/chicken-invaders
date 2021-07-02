@@ -24,7 +24,7 @@ public:
     // destructor
     ~NewGameButton();
 
-    // muuse event (click)
+    // mouse event (click)
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
 };

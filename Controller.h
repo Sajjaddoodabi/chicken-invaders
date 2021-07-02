@@ -24,16 +24,15 @@ class Controller : public QObject
 private:
     // private members
     QGraphicsScene * scene;
-
     QGraphicsPixmapItem *scoreBoard;
     Score *controllerScore;
     QTimer * timer;
     QGraphicsRectItem * holder;
     QMediaPlayer * media;
-    //list of our enemyes
+
+    // lists
     QList<Chicken *> ChickenList;
     QList<Meat *> MeatList;
-
 
 public:
     // constructor
@@ -42,6 +41,7 @@ public:
     // destructor
     ~Controller();
 
+    // to be (add chicken and meat in view)
     void addChicken(int speed , int Health , bool isLord);
     void addMeat();
 

@@ -20,6 +20,7 @@
         <file>game/space11.jpg</file>
         <file>menu/newgamebutton.jpg</file>
         <file>menu/quitbutton.jpg</file>
+        <file>scoreboard.png</file>
     </qresource>
     <qresource prefix="/musics">
         <file>loading/music.mp3</file>

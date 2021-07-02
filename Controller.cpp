@@ -8,8 +8,8 @@ Controller::Controller(QObject *parent) : QObject(parent)
     scene->setSceneRect(0, 0, 1920, 1080);
 
     // create timer of the game
-    timer = new QTimer;
-    timer->start(); // to do
+    cTimer = new QTimer;
+    cTimer->start(); // to do
 
     // create holder
     holder = new QGraphicsRectItem;
@@ -19,22 +19,12 @@ Controller::Controller(QObject *parent) : QObject(parent)
     timer = new QTimer();
     timer->start(40);
 
-    //add scoreBoard
-    scoreBoard = new QGraphicsPixmapItem();
-    scoreBoard->setPixmap(QPixmap(":/images/")); //ToDO
-    scene->addItem(scoreBoard);
-    //scoreBoard->setPos(0,0);
-
-    //add score
-    controllerScore = new Score();
-    scene->addItem(controllerScore);
-   //controllerScore->setPos(50,100);
 }
 
 // destructor
 Controller::~Controller()
 {
-    delete timer;
+    delete cTimer;
     delete scene;
     delete holder;
 }

@@ -3,7 +3,6 @@
 
 Chicken::Chicken(int speedPerPix, QTimer *timer , QGraphicsItem * parent , int Health , bool isLord) :
     QObject() , QGraphicsPixmapItem(parent) , Health{Health} , speedPerPix{speedPerPix} , isLord{isLord}
-
 {
     //setiing the chicken's pic
     if(isLord == false)

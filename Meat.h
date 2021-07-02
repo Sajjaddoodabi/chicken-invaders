@@ -10,20 +10,29 @@
 
 class Meat : public QObject , public QGraphicsPixmapItem
 {
+    // macro
+    Q_OBJECT
+
 private:
+    // private members
     QGraphicsScene *meatScene;
     Score *meatScore;
     int countMeat;
     int timeIntervals;
+
 public:
-    //constructor
+    // constructor
     Meat(QGraphicsScene *meatScene , Score *meatScore , QTimer *timer
          , QGraphicsItem *parent = nullptr);
 
-    //a mouse event to get meats score
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+    // destructor
+    ~Meat();
+
+    // a mouse event to get meats score
+    void mousePressEvent(QGraphicsSceneMouseEvent *event); // to do
 
 public slots:
+    // move down
     void move();
 };
 

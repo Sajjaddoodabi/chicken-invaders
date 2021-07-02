@@ -23,13 +23,24 @@ View::View() : QGraphicsView()
     viewTime = 0;
 
     // create timer
-    QObject::connect(viewController->timer, SIGNAL(timeout()), this, SLOT(animatedBackground()));
-    viewController->timer->start(60);
+    QObject::connect(viewController->cTimer, SIGNAL(timeout()), this, SLOT(animatedBackground()));
+    viewController->cTimer->start(60);
 
     // add music
     viewController->media = new QMediaPlayer();
     viewController->media->setMedia(QUrl("qrc:/musics/game/music.mp3"));
     viewController->media->play();
+
+    // add scoreboard
+    viewController->scoreBoard = new QGraphicsPixmapItem;
+    viewController->scoreBoard->setPixmap(QPixmap(":/images/scoreboard.png"));
+    viewController->scene->addItem(viewController->scoreBoard);
+    viewController->scoreBoard->setPos(0, 0);
+
+    //add score
+    viewController->controllerScore = new Score();
+    viewController->scene->addItem(viewController->controllerScore);
+    viewController->controllerScore->setPos(30, 0);
 }
 
 // destructor

@@ -7,5 +7,7 @@ Bullet::Bullet(QGraphicsItem *parent, QTimer *bulletTimer, QMediaPlayer *bulletS
 {
     // set level
     level = 0;
-}
 
+    // set sound
+    bulletSound->setMedia(QUrl("qrc:/musics/bullet/bulletsound.wav"));
+}

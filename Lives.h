@@ -13,6 +13,9 @@ private:
 public:
     // constructor
     explicit Lives(QGraphicsItem *parent = 0);
+
+    // low-off live function
+    void lowOffLive();
 };
 
 #endif // LIVES_H

@@ -14,3 +14,14 @@ Lives::Lives(QGraphicsItem *parent)
     // set text's font
     setFont(QFont("times", 20));
 }
+
+
+// low-off live function
+void Lives::lowOffLive()
+{
+    // low-off pleyerLives
+    --playerLives;
+
+    // print
+    setPlainText(QString::number(playerLives));
+}

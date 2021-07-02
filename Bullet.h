@@ -21,6 +21,9 @@ public:
     // constructor
     explicit Bullet(QGraphicsItem *parent, QTimer *bulletTimer, QMediaPlayer *bulletSound, int x, int y);
 
+    // add level and sep picture
+    void addLevel();
+
 public slots:
     // move bullet to up
     void moveToUp();

@@ -20,6 +20,19 @@ Bullet::Bullet(QGraphicsItem *parent, QTimer *bulletTimer, QMediaPlayer *bulletS
     bulletTimer->start(25);
 }
 
+// add level and sep picture
+void Bullet::addLevel()
+{
+    // add level
+    ++level;
+
+    // set picture
+    if(level == 1)
+        setPixmap(QPixmap(":/images/bullet/bullet2.png"));
+    else if(level == 2)
+        setPixmap(QPixmap(":/images/bullet/bullet3.png"));
+}
+
 // move bullet to up
 void Bullet::moveToUp()
 {

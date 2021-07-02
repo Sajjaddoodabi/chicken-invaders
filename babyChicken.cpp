@@ -22,6 +22,11 @@ babyChicken::babyChicken(int speedPerPix, QTimer *timer, QGraphicsItem *parent, 
 
 }
 
+babyChicken::~babyChicken()
+{
+    delete BabyChickenSound;
+}
+
 void babyChicken::move()
 {
 

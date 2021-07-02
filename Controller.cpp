@@ -23,9 +23,10 @@ Controller::~Controller()
     delete timer;
     delete scene;
     delete holder;
+    delete media;
     delete scoreBoard;
     delete controllerScore;
-    delete media;
+    delete liveBoard;
 
 }
 

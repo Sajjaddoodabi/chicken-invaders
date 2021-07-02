@@ -24,11 +24,12 @@ class Controller : public QObject
 private:
     // private members
     QGraphicsScene * scene;
-    QGraphicsPixmapItem *scoreBoard;
-    Score *controllerScore;
     QTimer * timer;
     QGraphicsRectItem * holder;
     QMediaPlayer * media;
+    QGraphicsPixmapItem * scoreBoard;
+    Score * controllerScore;
+    QGraphicsPixmapItem * liveBoard;
 
     // lists
     QList<Chicken *> ChickenList;

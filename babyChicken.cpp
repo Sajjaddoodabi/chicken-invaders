@@ -7,3 +7,8 @@ babyChicken::babyChicken(int speedPerPix, QTimer *timer, QGraphicsItem *parent, 
     setPixmap(QPixmap(":/image/"));
 
 }
+
+void babyChicken::move()
+{
+
+}

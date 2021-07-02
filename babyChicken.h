@@ -17,6 +17,10 @@ private:
 public:
     bool gameOver;
     babyChicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent , int Healt);
+
+public slots:
+    // move
+    void move(); //ToDO
 };
 
 #endif // BABYCHICKEN_H

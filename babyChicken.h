@@ -19,6 +19,8 @@ public:
     babyChicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent , int Healt);
     ~babyChicken();
 
+    void HealthDecrement();
+
 public slots:
     // move
     void move(); //ToDO

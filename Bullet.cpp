@@ -14,4 +14,8 @@ Bullet::Bullet(QGraphicsItem *parent, QTimer *bulletTimer, QMediaPlayer *bulletS
     // set picture
     setPixmap(QPixmap(":/images/bullet/bullet1.png"));
     setPos(x+4, y);
+
+    // connect to movetoup
+    connect(bulletTimer, SIGNAL(timeout()), this, SLOT(moveToUp()));
+    bulletTimer->start(25);
 }

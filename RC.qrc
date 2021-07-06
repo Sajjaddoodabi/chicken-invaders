@@ -29,6 +29,8 @@
         <file>invadres.png</file>
         <file>liveboard.png</file>
         <file>scoreboard.png</file>
+        <file>chickens/babychicken1.png</file>
+        <file>chickens/babychicken2.png</file>
     </qresource>
     <qresource prefix="/musics">
         <file>bullet/bulletsound.wav</file>

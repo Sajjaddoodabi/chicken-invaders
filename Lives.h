@@ -1,8 +1,7 @@
 #ifndef LIVES_H
 #define LIVES_H
 
-
-#include <QGraphicsSimpleTextItem>
+#include <QGraphicsTextItem>
 
 class Lives : public QGraphicsTextItem
 {
@@ -14,7 +13,7 @@ public:
     // constructor
     explicit Lives(QGraphicsItem *parent = 0);
 
-    // low-off live function
+    // lowwing-off live function
     void lowOffLive();
 };
 

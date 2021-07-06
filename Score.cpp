@@ -5,22 +5,22 @@
 Score::Score(QGraphicsItem *parent)
   : QGraphicsTextItem (parent) , playerScore{0}
 {
-    // change playerScore to text
+    // changing playerScore to text and printing
     setPlainText(QString::number(playerScore));
 
-    // set text's color
+    // setting text's color
     setDefaultTextColor(Qt::white);
 
-    // set text's font
+    // setting text's font
     setFont(QFont("times", 20));
 }
 
-// add to score function
+// adding to score function
 void Score::addToScore(int score)
 {
-    // add to score
+    // adding to score
     playerScore += score;
 
-    // print
+    // printing
     setPlainText(QString::number(playerScore));
 }

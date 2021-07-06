@@ -5,23 +5,22 @@
 Lives::Lives(QGraphicsItem *parent)
   : QGraphicsTextItem (parent) , playerLives{3}
 {
-    // change playerScore to text
+    // changing playerScore to text and printing
     setPlainText(QString::number(playerLives));
 
-    // set text's color
+    // setting text's color
     setDefaultTextColor(Qt::white);
 
-    // set text's font
+    // setting text's font
     setFont(QFont("times", 20));
 }
 
-
-// low-off live function
+// lowwing-off live function
 void Lives::lowOffLive()
 {
-    // low-off pleyerLives
+    // lowwing-off pleyerLives
     --playerLives;
 
-    // print
+    // printing
     setPlainText(QString::number(playerLives));
 }

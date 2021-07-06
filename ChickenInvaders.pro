@@ -28,6 +28,7 @@ SOURCES += \
     NewGameButton.cpp \
     QuitButton.cpp \
     View.cpp \
+    babyChicken.cpp \
     main.cpp
 
 HEADERS += \
@@ -42,7 +43,8 @@ HEADERS += \
     Menu.h \
     NewGameButton.h \
     QuitButton.h \
-    View.h
+    View.h \
+    babyChicken.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -50,4 +52,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    rs.qrc
+    RC.qrc

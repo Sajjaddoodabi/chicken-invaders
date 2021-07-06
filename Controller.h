@@ -5,6 +5,10 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QGraphicsRectItem>
+#include <Chicken.h>
+#include <Meat.h>
+#include <Score.h>
+#include <SpaceShip.h>
 #include <QMediaPlayer>
 #include "Chicken.h"
 #include "Meat.h"
@@ -21,6 +25,7 @@ class Controller : public QObject
     friend class Menu;
     friend class View;
     friend class NewGameButton;
+    friend class SpaceShip;
 
 private:
     // private members

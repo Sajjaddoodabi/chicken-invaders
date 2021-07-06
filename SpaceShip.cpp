@@ -2,7 +2,6 @@
 #include "Bullet.h"
 #include <QGraphicsScene>
 
-
 SpaceShip::SpaceShip(QTimer *spaceShipTimer, QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(parent),
     spaceShipTimer{spaceShipTimer}
 {

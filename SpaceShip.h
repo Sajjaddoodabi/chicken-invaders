@@ -1,10 +1,12 @@
 #ifndef SPACESHIP_H
 #define SPACESHIP_H
+<<<<<<< HEAD
 
 #include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QTimer>
 #include <QMouseEvent>
+#include <QKeyEvent>
 #include <QMediaPlayer>
 #include "Bullet.h"
 

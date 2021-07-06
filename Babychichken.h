@@ -6,10 +6,11 @@
 #include <QTimer>
 #include <QMediaPlayer>
 
-class babyChicken : public QObject , public QGraphicsPixmapItem
+class BabyChicken : public QObject , public QGraphicsPixmapItem
 {
     // macro
     Q_OBJECT
+
 private:
     // private members
     int Health;
@@ -18,8 +19,8 @@ private:
 
 public:
     bool gameOver;
-    babyChicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent , int Health);
-    ~babyChicken();
+    BabyChicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent);
+    ~BabyChicken();
 
     void HealthDecrement();
 
@@ -29,3 +30,5 @@ public slots:
 };
 
 #endif // BABYCHICKEN_H
+
+

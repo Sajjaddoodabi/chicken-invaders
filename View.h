@@ -11,8 +11,10 @@ class View : public QGraphicsView
 
 private:
     // private members
-    Controller * viewController;
-    int viewTime;
+    Controller * vController;
+    QMediaPlayer * vMedia;
+    QTimer * vTimer;
+    int vTime;
 
 public:
     // constructor
@@ -22,7 +24,7 @@ public:
     ~View();
 
 public slots:
-    // show animated background
+    // showing animated background
     void animatedBackground();
 
 };

@@ -3,93 +3,90 @@
 // constructor
 View::View() : QGraphicsView()
 {
-    // creat controller
-    viewController = new Controller;
+    // creating controller
+    vController = new Controller;
 
-    // add scnen
-    setScene(viewController->scene);
+    // adding scene
+    setScene(vController->scene);
 
-    // fullsceenig the game window
+    // fullscreening the game window
     setWindowState(Qt::WindowFullScreen);
 
-    // delete scroll bar
+    // deleting scroll bar
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    // adding background
+    // setting background
     setBackgroundBrush(QBrush(QImage(":/images/game/space1.jpg")));
 
-    // initialize viewTime to zero
-    viewTime = 0;
+    // initializing vTime to zero
+    vTime = 0;
 
-    // create timer
-    QObject::connect(viewController->timer, SIGNAL(timeout()), this, SLOT(animatedBackground()));
-    viewController->timer->start(60);
+    // creating vTimer
+    vTimer = new QTimer();
 
-    // add music
-    viewController->media = new QMediaPlayer();
-    viewController->media->setMedia(QUrl("qrc:/musics/game/music.mp3"));
-    viewController->media->play();
+    // connecting vTimer to animatedBackground
+    QObject::connect(vTimer, SIGNAL(timeout()), this, SLOT(animatedBackground()));
 
-    // add scoreboard
-    viewController->scoreBoard = new QGraphicsPixmapItem;
-    viewController->scoreBoard->setPixmap(QPixmap(":/images/scoreboard.png"));
-    viewController->scene->addItem(viewController->scoreBoard);
-    viewController->scoreBoard->setPos(0, 0);
+    // starting vTimer
+    vTimer->start(60);
 
-    //add score
-    viewController->controllerScore = new Score();
-    viewController->scene->addItem(viewController->controllerScore);
-    viewController->controllerScore->setPos(30, 0);
+    // creating vMedia
+    vMedia = new QMediaPlayer();
 
-    // add liveboard
-    viewController->liveBoard = new QGraphicsPixmapItem;
-    viewController->liveBoard->setPixmap(QPixmap(":/images/liveboard.png"));
-    viewController->scene->addItem(viewController->liveBoard);
-    viewController->liveBoard->setPos(0, 1020);
+    // adding music to vMedia
+    vMedia->setMedia(QUrl("qrc:/musics/game/music.mp3"));
 
-    // add lives
-    viewController->controllerLives = new Lives();
-    viewController->scene->addItem(viewController->controllerLives);
-    viewController->controllerLives->setPos(45, 1035);
+    // playing music
+    vMedia->play();
 
-    // hide mouse pointer
+    // hiding mouse pointer
 //    setCursor(Qt::BlankCursor);
 }
 
 // destructor
 View::~View()
 {
-    delete viewController;
+    // deleting pointer
+    delete vController;
+    delete vMedia;
+    delete vTimer;
 }
 
-// show animated background
+// showing animated background
 void View::animatedBackground()
 {
-    // add one to viewtime
-    ++viewTime;
+    // adding one to viewtime
+    ++vTime;
 
-    // change background's images
-    if(viewTime % 11 == 1)
+    // changing background's images
+    if(vTime % 11 == 1)
         setBackgroundBrush(QBrush(QImage(":/images/game/space2.jpg")));
-    else if(viewTime % 11 == 2)
+    else if(vTime % 11 == 2)
         setBackgroundBrush(QBrush(QImage(":/images/game/space3.jpg")));
-    else if(viewTime % 11 == 3)
+    else if(vTime % 11 == 3)
         setBackgroundBrush(QBrush(QImage(":/images/game/space4.jpg")));
-    else if(viewTime % 11 == 4)
+    else if(vTime % 11 == 4)
         setBackgroundBrush(QBrush(QImage(":/images/game/space5.jpg")));
-    else if(viewTime % 11 == 5)
+    else if(vTime % 11 == 5)
         setBackgroundBrush(QBrush(QImage(":/images/game/space6.jpg")));
-    else if(viewTime % 11 == 6)
+    else if(vTime % 11 == 6)
         setBackgroundBrush(QBrush(QImage(":/images/game/space7.jpg")));
-    else if(viewTime % 11 == 7)
+    else if(vTime % 11 == 7)
         setBackgroundBrush(QBrush(QImage(":/images/game/space8.jpg")));
-    else if(viewTime % 11 == 8)
+    else if(vTime % 11 == 8)
         setBackgroundBrush(QBrush(QImage(":/images/game/space9.jpg")));
-    else if(viewTime % 11 == 9)
+    else if(vTime % 11 == 9)
         setBackgroundBrush(QBrush(QImage(":/images/game/space10.jpg")));
-    else if(viewTime % 11 == 10)
+    else if(vTime % 11 == 10)
         setBackgroundBrush(QBrush(QImage(":/images/game/space11.jpg")));
-    else if(viewTime % 11 == 0)
+    else if(vTime % 11 == 0){
         setBackgroundBrush(QBrush(QImage(":/images/game/space1.jpg")));
+        vTime = 0;
+    }
+
+    // adding babychicken
+    if(vTime == 2){
+        vController->addBabyChicken(1);// set velocity
+    }
 }

@@ -1,48 +1,63 @@
 #include "Controller.h"
-#include "SpaceShip.h"
 
 // constructor
 Controller::Controller(QObject *parent) : QObject(parent)
 {
-    // create scene
+    // creating scene
     scene = new QGraphicsScene;
     scene->setSceneRect(0, 0, 1920, 1080);
 
-    // create holder
+    // creating holder
     holder = new QGraphicsRectItem;
     holder->setRect(0, 0, 1920, 1080);
 
-    //create and start timer
+    //creating and starting timer
     timer = new QTimer();
     timer->start(40);
 
-    // test spaceship
-    auto spaceship = new SpaceShip(timer,holder);
-    scene->addItem(spaceship);
-    spaceship->setPos(885, 890);
+    // adding scoreboard
+    scoreBoard = new QGraphicsPixmapItem;
+    scoreBoard->setPixmap(QPixmap(":/images/scoreboard.png"));
+    scene->addItem(scoreBoard);
+    scoreBoard->setPos(0, 0);
+
+    //adding score
+    controllerScore = new Score();
+    scene->addItem(controllerScore);
+    controllerScore->setPos(30, 0);
+
+    // adding liveboard
+    liveBoard = new QGraphicsPixmapItem;
+    liveBoard->setPixmap(QPixmap(":/images/liveboard.png"));
+    scene->addItem(liveBoard);
+    liveBoard->setPos(0, 1020);
+
+    // adding lives
+    controllerLives = new Lives();
+    scene->addItem(controllerLives);
+    controllerLives->setPos(45, 1035);
 }
 
 // destructor
 Controller::~Controller()
 {
+    // deleting pointers
     delete timer;
     delete scene;
     delete holder;
-    delete media;
     delete scoreBoard;
     delete controllerScore;
     delete liveBoard;
     delete controllerLives;
 }
 
-void Controller::addChicken(int speed , int Health , bool isLord)
+// adding babychicken function
+void Controller::addBabyChicken(int velocity)
 {
-    ChickenList.push_back(new Chicken{speed , timer , holder , Health , isLord});
-    scene->addItem(ChickenList.last());
-    ChickenList.last()->setPos(0 , 0);
-}
+    // creating list of babychicken
+    babychickenList.push_back(new BabyChicken(velocity, timer, holder));
 
-void Controller::addMeat()
-{
-MeatList.push_back(new Meat{scene,controllerScore,timer,holder});
+    // adding to scene
+    scene->addItem(babychickenList.last());
+    babychickenList.last()->setPos(0,0);// set random
 }

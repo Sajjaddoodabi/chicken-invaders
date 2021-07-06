@@ -53,12 +53,8 @@ View::View() : QGraphicsView()
     viewController->scene->addItem(viewController->controllerLives);
     viewController->controllerLives->setPos(45, 1035);
 
-    // add spaceship
-    viewController->scene->addItem(viewController->spaceShip);
-    viewController->spaceShip->setPos(885, 890);
-
     // hide mouse pointer
-    setCursor(Qt::BlankCursor);
+//    setCursor(Qt::BlankCursor);
 }
 
 // destructor

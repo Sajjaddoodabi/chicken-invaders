@@ -14,12 +14,10 @@ class Bullet : public QObject, public QGraphicsPixmapItem
 private:
     // private members
     int level;
-    int x;
-    int y;
 
 public:
     // constructor
-    explicit Bullet(QGraphicsItem *parent, QTimer *bulletTimer, QMediaPlayer *bulletSound, int x, int y);
+    explicit Bullet(QTimer *bulletTimer, QMediaPlayer *bulletSound, QGraphicsItem *parent = nullptr);
 
     // add level and set picture
     void addLevel();

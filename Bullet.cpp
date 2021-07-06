@@ -2,18 +2,18 @@
 #include <QGraphicsScene>
 
 // constructor
-Bullet::Bullet(QGraphicsItem *parent, QTimer *bulletTimer, QMediaPlayer *bulletSound, int x, int y)
-    : QObject(), QGraphicsPixmapItem(parent), x{x}, y{y}
+Bullet::Bullet(QTimer *bulletTimer, QMediaPlayer *bulletSound, QGraphicsItem *parent)
+    : QObject(), QGraphicsPixmapItem(parent)
 {
     // set level
     level = 0;
 
     // set sound
+    bulletSound = new QMediaPlayer;
     bulletSound->setMedia(QUrl("qrc:/musics/bullet/bulletsound.wav"));
 
     // set picture
     setPixmap(QPixmap(":/images/bullet/bullet1.png"));
-    setPos(x+4, y);
 
     // connect to movetoup
     connect(bulletTimer, SIGNAL(timeout()), this, SLOT(moveToUp()));
@@ -50,11 +50,10 @@ void Bullet::lowOffLevel()
 void Bullet::moveToUp()
 {
     // move to up
-    y -= 12;
-    setPos(x, y);
+    setPos(x(), y() - 12);
 
     // delete bullet
-    if(y == 0){
+    if(y() == 0){
         scene()->removeItem(this);
         delete this;
     }

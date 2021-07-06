@@ -1,4 +1,5 @@
 #include "Controller.h"
+#include "SpaceShip.h"
 
 // constructor
 Controller::Controller(QObject *parent) : QObject(parent)
@@ -15,8 +16,10 @@ Controller::Controller(QObject *parent) : QObject(parent)
     timer = new QTimer();
     timer->start(40);
 
-    // create spaceship
-    spaceShip = new SpaceShip(timer, holder);
+    // test spaceship
+    auto spaceship = new SpaceShip(timer,holder);
+    scene->addItem(spaceship);
+    spaceship->setPos(885, 890);
 }
 
 // destructor

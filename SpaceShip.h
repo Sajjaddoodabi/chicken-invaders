@@ -5,6 +5,8 @@
 #include <QGraphicsPixmapItem>
 #include <QTimer>
 #include <QMouseEvent>
+#include <QMediaPlayer>
+#include "Bullet.h"
 
 class SpaceShip : public QObject, public QGraphicsPixmapItem
 {
@@ -13,13 +15,18 @@ class SpaceShip : public QObject, public QGraphicsPixmapItem
 
 private:
     // private members
+    QTimer * spaceShipTimer;
+    QMediaPlayer * spaceShipMedia;
+    Bullet * bullet;
 
 public:
     // constructor
-    SpaceShip(QTimer *timer , QGraphicsItem *parent);
+    SpaceShip(QTimer *spaceShipTimer, QGraphicsItem *parent = nullptr);
 
-    // move spaceship with mouse
-    void move(QMouseEvent * event);
+    // destructor
+    ~SpaceShip();
+
+    void keyPressEvent(QKeyEvent * event);
 };
 
 #endif // SPACESHIP_H

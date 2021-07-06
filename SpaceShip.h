@@ -1,6 +1,5 @@
 #ifndef SPACESHIP_H
 #define SPACESHIP_H
-<<<<<<< HEAD
 
 #include <QObject>
 #include <QGraphicsPixmapItem>

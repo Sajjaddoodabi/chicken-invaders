@@ -3,11 +3,12 @@
 // constructor
 Loading::Loading() : QGraphicsView()
 {
-    // creat controller
-    loadingController = new Controller;
+    // create scene
+    lScene = new QGraphicsScene();
+    lScene->setSceneRect(0, 0, 1920, 1080);
 
     // add scnen
-    setScene(loadingController->scene);
+    setScene(lScene);
 
     // fullsceenig the game window
     setWindowState(Qt::WindowFullScreen);
@@ -20,21 +21,32 @@ Loading::Loading() : QGraphicsView()
     setBackgroundBrush(QBrush(QImage(":/images/loading/background1.jpg")));
 
     //create loading music
-    loadingController->media = new QMediaPlayer();
-    loadingController->media->setMedia(QUrl("qrc:/musics/loading/music.mp3"));
-    loadingController->media->play();
+    lMedia = new QMediaPlayer();
+
+    // set music to lMedia
+    lMedia->setMedia(QUrl("qrc:/musics/loading/music.mp3"));
+
+    // play lMedia
+    lMedia->play();
 
     // initialize viewTime to zero
     loadingTime = 0;
 
     // create timer
-    QObject::connect(loadingController->timer, SIGNAL(timeout()), this, SLOT(animatedBackground()));
-    loadingController->timer->start(1000);
+    lTimer = new QTimer();
+
+    // connect to animatedBackground
+    QObject::connect(lTimer, SIGNAL(timeout()), this, SLOT(animatedBackground()));
+
+    // start timer
+    lTimer->start(1000);
 }
 
 // destructor
 Loading::~Loading(){
-    delete loadingController;
+    delete lScene;
+    delete lMedia;
+    delete lTimer;
     delete menu;
 }
 
@@ -56,8 +68,8 @@ void Loading::animatedBackground()
 
     // change to menu
     if(loadingTime == 2){// change to 20
-        loadingController->timer->stop();
-        loadingController->media->stop();
+        lTimer->stop();
+        lMedia->stop();
         this->close();
         menu = new Menu();
         menu->show();

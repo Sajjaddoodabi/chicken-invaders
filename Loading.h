@@ -14,7 +14,9 @@ class Loading : public QGraphicsView
 
 private:
     // private members
-    Controller * loadingController;
+    QGraphicsScene * lScene;
+    QMediaPlayer * lMedia;
+    QTimer * lTimer;
     int loadingTime;
     Menu * menu;
 

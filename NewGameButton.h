@@ -3,7 +3,6 @@
 
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
-#include <QGraphicsScene>
 #include "View.h"
 
 class NewGameButton : public QGraphicsPixmapItem

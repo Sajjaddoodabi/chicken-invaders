@@ -3,8 +3,10 @@
 // constructor
 NewGameButton::NewGameButton(QGraphicsScene *scene) :  QGraphicsPixmapItem(), buttonScene{scene}, click{0}
 {
-    // create scene
+    // setting picture
     setPixmap(QPixmap(":/images/menu/newgamebutton.jpg"));
+
+    // adding to scene
     buttonScene->addItem(this);
     setPos(665, 603);
 }
@@ -12,6 +14,7 @@ NewGameButton::NewGameButton(QGraphicsScene *scene) :  QGraphicsPixmapItem(), bu
 // destructor
 NewGameButton::~NewGameButton()
 {
+    // deleting pointers
     delete buttonScene;
     delete view;
 }
@@ -19,7 +22,12 @@ NewGameButton::~NewGameButton()
 // muuse event (click)
 void NewGameButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
+    // changing click to 1
     click = 1;
-    view = new View;
+
+    // creating view
+    view = new View();
+
+    // showing view's window
     view->show();
 }

@@ -9,9 +9,6 @@ class Loading : public QGraphicsView
     // macro
     Q_OBJECT
 
-    // friend class
-    friend class NewGameButton;
-
 private:
     // private members
     QGraphicsScene * lScene;
@@ -28,7 +25,7 @@ public:
     ~Loading();
 
 public slots:
-    // show animated background
+    // showing animated background
     void animatedBackground();
 };
 

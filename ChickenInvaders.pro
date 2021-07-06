@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Babychichken.cpp \
     Bullet.cpp \
     Chicken.cpp \
     Controller.cpp \
@@ -28,10 +29,10 @@ SOURCES += \
     NewGameButton.cpp \
     QuitButton.cpp \
     View.cpp \
-    babyChicken.cpp \
     main.cpp
 
 HEADERS += \
+    Babychichken.h \
     Bullet.h \
     Chicken.h \
     Controller.h \
@@ -43,8 +44,7 @@ HEADERS += \
     Menu.h \
     NewGameButton.h \
     QuitButton.h \
-    View.h \
-    babyChicken.h
+    View.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

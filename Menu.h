@@ -4,6 +4,7 @@
 #include <QGraphicsView>
 #include "NewGameButton.h"
 #include "Quitbutton.h"
+#include "View.h"
 
 class Menu : public QGraphicsView
 {
@@ -17,6 +18,7 @@ private:
     QTimer * mTimer;
     NewGameButton * newGameButton;
     QuitButton * quitButton;
+    View * view;
 
 public:
     // constructor

@@ -3,7 +3,8 @@
 
 #include <QGraphicsPixmapItem>
 #include <QGraphicsSceneMouseEvent>
-#include "View.h"
+#include <QMediaPlayer>
+#include <QGraphicsScene>
 
 class QuitButton : public QGraphicsPixmapItem
 {
@@ -13,7 +14,7 @@ class QuitButton : public QGraphicsPixmapItem
 private:
     // private members
     QGraphicsScene * buttonScene;
-    View * view;
+    QMediaPlayer * buttonMedia;
     int click;
 
 public:

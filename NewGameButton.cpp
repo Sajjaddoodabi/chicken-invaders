@@ -9,6 +9,9 @@ NewGameButton::NewGameButton(QGraphicsScene *scene) :  QGraphicsPixmapItem(), bu
     // adding to scene
     buttonScene->addItem(this);
     setPos(665, 603);
+
+    // creating media
+    buttonMedia = new QMediaPlayer();
 }
 
 // destructor
@@ -16,7 +19,6 @@ NewGameButton::~NewGameButton()
 {
     // deleting pointers
     delete buttonScene;
-    delete view;
 }
 
 // muuse event (click)
@@ -25,9 +27,16 @@ void NewGameButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
     // changing click to 1
     click = 1;
 
-    // creating view
-    view = new View();
+    // setting picture
+    setPixmap(QPixmap(":/images/menu/newgamebutton2.jpg"));
 
-    // showing view's window
-    view->show();
+    // adding to scene
+    buttonScene->addItem(this);
+    setPos(755, 618);
+
+    // setting clicksound to mMedia
+    buttonMedia->setMedia(QUrl("qrc:/musics/menu/click.mp3"));
+
+    // playing clicksound
+    buttonMedia->play();
 }

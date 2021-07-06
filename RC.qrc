@@ -18,10 +18,12 @@
         <file>loading/background2.jpg</file>
         <file>loading/background3.jpg</file>
         <file>loading/background4.jpg</file>
-        <file>menu/background1.jpeg</file>
+        <file>menu/background1.jpg</file>
         <file>menu/background2.jpg</file>
         <file>menu/newgamebutton.jpg</file>
+        <file>menu/newgamebutton2.jpg</file>
         <file>menu/quitbutton.jpg</file>
+        <file>menu/quitbutton2.jpg</file>
         <file>spaceship/image1.png</file>
         <file>spaceship/image2.png</file>
         <file>invadres.png</file>
@@ -32,7 +34,7 @@
         <file>bullet/bulletsound.wav</file>
         <file>game/music.mp3</file>
         <file>loading/music.mp3</file>
-        <file>menu/music.mp3</file>
         <file>menu/click.mp3</file>
+        <file>menu/music.mp3</file>
     </qresource>
 </RCC>

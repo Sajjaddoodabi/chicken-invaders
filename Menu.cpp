@@ -18,7 +18,7 @@ Menu::Menu() : QGraphicsView()
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     // adding background
-    setBackgroundBrush(QBrush(QImage(":/images/menu/background1.jpeg")));
+    setBackgroundBrush(QBrush(QImage(":/images/menu/background1.jpg")));
 
     // creating mMedia
     mMedia = new QMediaPlayer();
@@ -36,7 +36,7 @@ Menu::Menu() : QGraphicsView()
     connect(mTimer , SIGNAL(timeout()) , this , SLOT(schedule()));
 
     // starting lTimer
-    mTimer->start(10);
+    mTimer->start(1000);
 
     // creating newgamebutton
     newGameButton = new NewGameButton(mScene);
@@ -70,14 +70,18 @@ void Menu::schedule()
         mTimer->stop();
         mMedia->stop();
 
-        // setting clicksound to mMedia
-        mMedia->setMedia(QUrl("qrc:/musics/menu/click.mp3"));
-
-        // playing clicksound
-        mMedia->play();
-
         // closing menu's window
         this->close();
+
+        // creating view
+        view = new View();
+
+        // showing view's window
+        view->show();
+    }
+    else if(quitButton->click == 1){
+        // exiting the game
+        exit(0);
     }
 }
 

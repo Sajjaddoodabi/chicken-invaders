@@ -11,22 +11,30 @@ class Bullet : public QObject, public QGraphicsPixmapItem
     // macro
     Q_OBJECT
 
+    // friend class
+    friend class SpaceShip;
+
 private:
     // private members
     int level;
+    QMediaPlayer * bulletSound;
+    QTimer * bulletTimer;
 
 public:
     // constructor
-    explicit Bullet(QTimer *bulletTimer, QMediaPlayer *bulletSound, QGraphicsItem *parent = nullptr);
+    explicit Bullet(QGraphicsItem *parent = nullptr);
 
-    // add level and set picture
+    // destructor
+    ~Bullet();
+
+    // adding level and setting picture
     void addLevel();
 
-    // low-off level and set picture
+    // lowwing-off level and setting picture
     void lowOffLevel();
 
 public slots:
-    // move bullet to up
+    // moving bullet to up
     void moveToUp();
 };
 

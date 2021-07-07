@@ -2,57 +2,68 @@
 #include <QGraphicsScene>
 
 // constructor
-Bullet::Bullet(QTimer *bulletTimer, QMediaPlayer *bulletSound, QGraphicsItem *parent)
+Bullet::Bullet(QGraphicsItem *parent)
     : QObject(), QGraphicsPixmapItem(parent)
 {
-    // set level
+    // setting level
     level = 0;
 
-    // set sound
+    // creating and setting sound
     bulletSound = new QMediaPlayer;
     bulletSound->setMedia(QUrl("qrc:/musics/bullet/bulletsound.wav"));
 
-    // set picture
+    // setting picture
     setPixmap(QPixmap(":/images/bullet/bullet1.png"));
 
-    // connect to movetoup
+    // creating bulletTimer
+    bulletTimer = new QTimer();
+
+    // connecting to movetoup and starting
     connect(bulletTimer, SIGNAL(timeout()), this, SLOT(moveToUp()));
     bulletTimer->start(25);
 }
 
-// add level and sep picture
+// destructor
+Bullet::~Bullet()
+{
+    // deleting pointer
+    delete bulletSound;
+    delete bulletTimer;
+}
+
+// adding level and setting picture
 void Bullet::addLevel()
 {
-    // add level
+    // adding level
     ++level;
 
-    // set picture
+    // setting picture
     if(level == 1)
         setPixmap(QPixmap(":/images/bullet/bullet2.png"));
     else if(level == 2)
         setPixmap(QPixmap(":/images/bullet/bullet3.png"));
 }
 
-// low-off level and set picture
+// lowwing-off level and setting picture
 void Bullet::lowOffLevel()
 {
-    // low-off level
-    ++level;
+    // lowwing-off level
+    --level;
 
-    // set picture
+    // setting picture
     if(level == 1)
         setPixmap(QPixmap(":/images/bullet/bullet2.png"));
     else if(level == 0)
         setPixmap(QPixmap(":/images/bullet/bullet1.png"));
 }
 
-// move bullet to up
+// moving bullet to up
 void Bullet::moveToUp()
 {
-    // move to up
+    // moving to up
     setPos(x(), y() - 12);
 
-    // delete bullet
+    // deleting bullet
     if(y() == 0){
         scene()->removeItem(this);
         delete this;

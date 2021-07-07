@@ -19,3 +19,4 @@ int main(int argc, char *argv[])
 // fasele close ta show ziade
 // set random in controller
 // set velocity in view
+// delete lists in controller

@@ -9,12 +9,11 @@ class Loading : public QGraphicsView
     // macro
     Q_OBJECT
 
-    // friend class
-    friend class NewGameButton;
-
 private:
     // private members
-    Controller * loadingController;
+    QGraphicsScene * lScene;
+    QMediaPlayer * lMedia;
+    QTimer * lTimer;
     int loadingTime;
     Menu * menu;
 
@@ -26,7 +25,7 @@ public:
     ~Loading();
 
 public slots:
-    // show animated background
+    // showing animated background
     void animatedBackground();
 };
 

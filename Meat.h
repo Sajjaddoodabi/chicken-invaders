@@ -28,9 +28,6 @@ public:
     // destructor
     ~Meat();
 
-    // a mouse event to get meats score
-    void mousePressEvent(QGraphicsSceneMouseEvent *event); // to do
-
 public slots:
     // move down
     void move();

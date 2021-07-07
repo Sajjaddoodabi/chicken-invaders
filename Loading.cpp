@@ -3,48 +3,61 @@
 // constructor
 Loading::Loading() : QGraphicsView()
 {
-    // creat controller
-    loadingController = new Controller;
+    // creating scene
+    lScene = new QGraphicsScene();
+    lScene->setSceneRect(0, 0, 1920, 1080);
 
-    // add scnen
-    setScene(loadingController->scene);
+    // adding scene
+    setScene(lScene);
 
-    // fullsceenig the game window
+    // fullscreening the game window
     setWindowState(Qt::WindowFullScreen);
 
-    // delete scroll bar
+    // deleting scrollbars
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     // adding background
     setBackgroundBrush(QBrush(QImage(":/images/loading/background1.jpg")));
 
-    //create loading music
-    loadingController->media = new QMediaPlayer();
-    loadingController->media->setMedia(QUrl("qrc:/musics/loading/music.mp3"));
-    loadingController->media->play();
+    // creating lMedia
+    lMedia = new QMediaPlayer();
 
-    // initialize viewTime to zero
+    // setting music to lMedia
+    lMedia->setMedia(QUrl("qrc:/musics/loading/music.mp3"));
+
+    // playing music
+    lMedia->play();
+
+    // initializing loadingTime to zero
     loadingTime = 0;
 
-    // create timer
-    QObject::connect(loadingController->cTimer, SIGNAL(timeout()), this, SLOT(animatedBackground()));
-    loadingController->cTimer->start(1000);
+    // creating lTimer
+    lTimer = new QTimer();
+
+    // connecting lTimer to animatedBackground
+    QObject::connect(lTimer, SIGNAL(timeout()), this, SLOT(animatedBackground()));
+
+    // starting lTimer
+    lTimer->start(1000);
 }
 
 // destructor
 Loading::~Loading(){
-    delete loadingController;
+    // deleting pointers
+    delete lScene;
+    delete lMedia;
+    delete lTimer;
     delete menu;
 }
 
-// show animated background
+// showing animated background
 void Loading::animatedBackground()
 {
-    // add one to loadingtime
+    // adding one to loadingtime
     ++loadingTime;
 
-    // change background's images
+    // changing background's images
     if(loadingTime % 4 == 1)
         setBackgroundBrush(QBrush(QImage(":/images/loading/background2.jpg")));
     else if(loadingTime % 4 == 2)
@@ -54,12 +67,19 @@ void Loading::animatedBackground()
     else if(loadingTime % 4 == 0)
         setBackgroundBrush(QBrush(QImage(":/images/loading/background1.jpg")));
 
-    // change to menu
+    // changing to menu
     if(loadingTime == 2){// change to 20
-        loadingController->cTimer->stop();
-        loadingController->media->stop();
+        // stopping ltimer and music
+        lTimer->stop();
+        lMedia->stop();
+
+        // closing loading's window
         this->close();
+
+        // creating menu
         menu = new Menu();
+
+        // showing menu's window
         menu->show();
     }
 }

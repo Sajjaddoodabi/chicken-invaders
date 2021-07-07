@@ -1,38 +1,35 @@
 #ifndef CONTROLLER_H
 #define CONTROLLER_H
 
-#include <QObject>
 #include <QGraphicsScene>
-#include <QTimer>
-#include <QGraphicsRectItem>
-#include <Chicken.h>
-#include <Meat.h>
-#include <Score.h>
-#include <QMediaPlayer>
+#include "Babychichken.h"
+#include "Score.h"
+#include "Lives.h"
+#include "SpaceShip.h"
 
 class Controller : public QObject
 {
     // macro
     Q_OBJECT
 
-    // add friend classes
-    friend class Loading;
-    friend class Menu;
+    // adding friend classes
     friend class View;
-    friend class NewGameButton;
 
 private:
     // private members
     QGraphicsScene * scene;
-    QGraphicsPixmapItem *scoreBoard;
-    Score *controllerScore;
     QTimer * timer;
     QGraphicsRectItem * holder;
-    QMediaPlayer * media;
 
-    // lists
-    QList<Chicken *> ChickenList;
-    QList<Meat *> MeatList;
+    QList<BabyChicken *> babychickenList;
+
+    QGraphicsPixmapItem * scoreBoard;
+    Score * controllerScore;
+
+    QGraphicsPixmapItem * liveBoard;
+    Lives * controllerLives;
+
+    SpaceShip * spaceShip;
 
 public:
     // constructor
@@ -41,10 +38,8 @@ public:
     // destructor
     ~Controller();
 
-    // to be (add chicken and meat in view)
-    void addChicken(int speed , int Health , bool isLord);
-    void addMeat();
-
+    // adding babychicken function
+    void addBabyChicken(int velocity);
 };
 
 #endif // CONTROLLER_H

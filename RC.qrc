@@ -1,0 +1,42 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>bullet/bullet1.png</file>
+        <file>bullet/bullet2.png</file>
+        <file>bullet/bullet3.png</file>
+        <file>game/space1.jpg</file>
+        <file>game/space2.jpg</file>
+        <file>game/space3.jpg</file>
+        <file>game/space4.jpg</file>
+        <file>game/space5.jpg</file>
+        <file>game/space6.jpg</file>
+        <file>game/space7.jpg</file>
+        <file>game/space8.jpg</file>
+        <file>game/space9.jpg</file>
+        <file>game/space10.jpg</file>
+        <file>game/space11.jpg</file>
+        <file>loading/background1.jpg</file>
+        <file>loading/background2.jpg</file>
+        <file>loading/background3.jpg</file>
+        <file>loading/background4.jpg</file>
+        <file>menu/background1.jpg</file>
+        <file>menu/background2.jpg</file>
+        <file>menu/newgamebutton.jpg</file>
+        <file>menu/newgamebutton2.jpg</file>
+        <file>menu/quitbutton.jpg</file>
+        <file>menu/quitbutton2.jpg</file>
+        <file>spaceship/image1.png</file>
+        <file>spaceship/image2.png</file>
+        <file>invadres.png</file>
+        <file>liveboard.png</file>
+        <file>scoreboard.png</file>
+        <file>chickens/babychicken1.png</file>
+        <file>chickens/babychicken2.png</file>
+    </qresource>
+    <qresource prefix="/musics">
+        <file>bullet/bulletsound.wav</file>
+        <file>game/music.mp3</file>
+        <file>loading/music.mp3</file>
+        <file>menu/click.mp3</file>
+        <file>menu/music.mp3</file>
+    </qresource>
+</RCC>

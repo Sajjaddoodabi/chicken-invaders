@@ -4,7 +4,7 @@
 #include <QGraphicsView>
 #include "NewGameButton.h"
 #include "Quitbutton.h"
-#include "Controller.h"
+#include "View.h"
 
 class Menu : public QGraphicsView
 {
@@ -13,9 +13,12 @@ class Menu : public QGraphicsView
 
 private:
     // private members
-    Controller * menuController;
+    QGraphicsScene * mScene;
+    QMediaPlayer * mMedia;
+    QTimer * mTimer;
     NewGameButton * newGameButton;
     QuitButton * quitButton;
+    View * view;
 
 public:
     // constructor
@@ -25,7 +28,7 @@ public:
     ~Menu();
 
 public slots:
-    // restart music and change view
+    // restarting music and changing window
     void schedule();
 
 };

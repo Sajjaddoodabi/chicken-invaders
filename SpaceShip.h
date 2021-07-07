@@ -1,15 +1,33 @@
 #ifndef SPACESHIP_H
 #define SPACESHIP_H
-#include <QGraphicsItem>
 
-class SpaceShip
+#include <QObject>
+#include <QGraphicsPixmapItem>
+#include <QTimer>
+#include <QMouseEvent>
+#include <QKeyEvent>
+#include <QMediaPlayer>
+#include "Bullet.h"
+
+class SpaceShip : public QObject, public QGraphicsPixmapItem
 {
+    // macro
+    Q_OBJECT
+
 private:
-    int Lives;
-    int bulletLevel;
+    // private members
+    QTimer * spaceShipTimer;
+    QMediaPlayer * spaceShipMedia;
+    Bullet * bullet;
 
 public:
-    SpaceShip(int Lives , int bulletLevel , QTimer *timer , QGraphicsItem *parent);
+    // constructor
+    SpaceShip(QTimer *spaceShipTimer, QGraphicsItem *parent = nullptr);
+
+    // destructor
+    ~SpaceShip();
+
+    void keyPressEvent(QKeyEvent * event);
 };
 
 #endif // SPACESHIP_H

@@ -16,8 +16,11 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Babychichken.cpp \
+    Bullet.cpp \
     Chicken.cpp \
     Controller.cpp \
+    Lives.cpp \
     Meat.cpp \
     Score.cpp \
     SpaceShip.cpp \
@@ -29,8 +32,11 @@ SOURCES += \
     main.cpp
 
 HEADERS += \
+    Babychichken.h \
+    Bullet.h \
     Chicken.h \
     Controller.h \
+    Lives.h \
     Meat.h \
     Score.h \
     SpaceShip.h \
@@ -46,4 +52,4 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    rs.qrc
+    RC.qrc

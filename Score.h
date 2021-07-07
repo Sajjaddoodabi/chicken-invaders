@@ -1,7 +1,7 @@
 #ifndef SCORE_H
 #define SCORE_H
 
-#include <QGraphicsSimpleTextItem>
+#include <QGraphicsTextItem>
 
 class Score : public QGraphicsTextItem
 {
@@ -13,7 +13,7 @@ public:
     // constructor
     explicit Score(QGraphicsItem *parent = 0);
 
-    // add to score function
+    // adding to score function
     void addToScore(int score);
 };
 

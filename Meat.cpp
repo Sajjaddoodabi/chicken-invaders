@@ -23,18 +23,6 @@ Meat::~Meat()
     delete meatScore;
 }
 
-void Meat::mousePressEvent(QGraphicsSceneMouseEvent *event)
-{
-    countMeat++;
-    if(countMeat == 30){
-        countMeat = 0;
-        meatScore->addToScore(50);
-    }
-
-    meatScene->removeItem(this);
-    delete this;
-}
-
 void Meat::move()
 {
    ++timeIntervals;

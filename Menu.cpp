@@ -3,61 +3,86 @@
 // constructor
 Menu::Menu() : QGraphicsView()
 {
-    // create controller
-    menuController = new Controller;
+    // creating scene
+    mScene = new QGraphicsScene();
+    mScene->setSceneRect(0, 0, 1920, 1080);
 
-    // add scene
-    setScene(menuController->scene);
+    // adding scene
+    setScene(mScene);
 
-    // fullsceenig the game window
+    // fullscreening the game window
     setWindowState(Qt::WindowFullScreen);
 
-    // delete scroll bar
+    // deleting scrollbars
     setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     // adding background
-    setBackgroundBrush(QBrush(QImage(":/images/menu/background1.jpeg")));
+    setBackgroundBrush(QBrush(QImage(":/images/menu/background1.jpg")));
 
-    // add music
-    menuController->media = new QMediaPlayer();
-    menuController->media->setMedia(QUrl("qrc:/musics/menu/music.mp3"));
-    menuController->media->play();
+    // creating mMedia
+    mMedia = new QMediaPlayer();
 
-    // add timer
-    menuController->cTimer = new QTimer();
-    menuController->cTimer->start(10);
-    connect(menuController->cTimer , SIGNAL(timeout()) , this , SLOT(schedule()));
+    // setting music to mMedia
+    mMedia->setMedia(QUrl("qrc:/musics/menu/music.mp3"));
 
-    // create newgamebutton
-    newGameButton = new NewGameButton(menuController->scene);
+    // playing music
+    mMedia->play();
 
-    // create quitbutton
-    quitButton = new QuitButton(menuController->scene);
+    // creating mTimer
+    mTimer = new QTimer();
+
+    // connecting mTimer to schedule
+    connect(mTimer , SIGNAL(timeout()) , this , SLOT(schedule()));
+
+    // starting lTimer
+    mTimer->start(1000);
+
+    // creating newgamebutton
+    newGameButton = new NewGameButton(mScene);
+
+    // creating quitbutton
+    quitButton = new QuitButton(mScene);
 }
 
 // destructor
 Menu::~Menu()
 {
-    delete menuController;
+    // deleting pointers
+    delete mScene;
+    delete mMedia;
+    delete mTimer;
     delete newGameButton;
     delete quitButton;
+    delete view;
 }
 
-// restart music and change view
+// restarting music and change window
 void Menu::schedule()
 {
-    // restart music
-    if(menuController->media->state() == QMediaPlayer::StoppedState )
-                menuController->media->play();
+    // restarting music
+    if(mMedia->state() == QMediaPlayer::StoppedState )
+        mMedia->play();
 
-    // change view
-    if(newGameButton->click == 1 || quitButton->click == 1){
-        menuController->cTimer->stop();
-        menuController->media->stop();
-        menuController->media->setMedia(QUrl("qrc:/musics/menu/click.mp3"));
-        menuController->media->play();
+    // changing window
+    if(newGameButton->click == 1){
+
+        // stopping mTimer and music
+        mTimer->stop();
+        mMedia->stop();
+
+        // closing menu's window
         this->close();
+
+        // creating view
+        view = new View();
+
+        // showing view's window
+        view->show();
+    }
+    else if(quitButton->click == 1){
+        // exiting the game
+        exit(0);
     }
 }
 

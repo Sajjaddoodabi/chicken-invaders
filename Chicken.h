@@ -1,12 +1,17 @@
 #ifndef CHICKEN_H
 #define CHICKEN_H
 
+#include <QObject>
 #include <QGraphicsPixmapItem>
+#include <QObject>
 #include <QTimer>
 #include <QMediaPlayer>
 
-class Chicken : public QGraphicsPixmapItem
+class Chicken : public QObject, public QGraphicsPixmapItem
 {
+    // macro
+    Q_OBJECT
+
 private:
     // private members
     int Health;

@@ -54,6 +54,7 @@ Menu::~Menu()
     delete mTimer;
     delete newGameButton;
     delete quitButton;
+    delete view;
 }
 
 // restarting music and change window

@@ -19,6 +19,7 @@ NewGameButton::~NewGameButton()
 {
     // deleting pointers
     delete buttonScene;
+    delete buttonMedia;
 }
 
 // muuse event (click)

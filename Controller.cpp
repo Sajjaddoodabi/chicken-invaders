@@ -11,7 +11,7 @@ Controller::Controller(QObject *parent) : QObject(parent)
     holder = new QGraphicsRectItem;
     holder->setRect(0, 0, 1920, 1080);
 
-    //creating and starting timer
+    // creating and starting timer
     timer = new QTimer();
     timer->start(40);
 
@@ -21,7 +21,7 @@ Controller::Controller(QObject *parent) : QObject(parent)
     scene->addItem(scoreBoard);
     scoreBoard->setPos(0, 0);
 
-    //adding score
+    // adding score
     controllerScore = new Score();
     scene->addItem(controllerScore);
     controllerScore->setPos(30, 0);

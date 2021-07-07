@@ -1,24 +1,16 @@
 #include "SpaceShip.h"
-#include "Bullet.h"
 #include <QGraphicsScene>
 
-SpaceShip::SpaceShip(QTimer *spaceShipTimer, QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(parent),
-    spaceShipTimer{spaceShipTimer}
+SpaceShip::SpaceShip(QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(parent)
 {
-    // set picture
+    // setting picture
     setPixmap(QPixmap(":/images/spaceship/image1.png"));
 }
 
-// destructor
-SpaceShip::~SpaceShip()
-{
-    delete spaceShipTimer;
-    delete spaceShipMedia;
-    delete bullet;
-}
-
+// keyboard's events
 void SpaceShip::keyPressEvent(QKeyEvent *event)
 {
+    // moving spaceship with keyboard
     if(event->key() == Qt::Key_Left)
         setPos(x() - 10, y());
     else if(event->key() == Qt::Key_Up)
@@ -27,9 +19,20 @@ void SpaceShip::keyPressEvent(QKeyEvent *event)
         setPos(x(), y() + 10);
     else if(event->key() == Qt::Key_Right)
         setPos(x() + 10, y());
+
+    // shooting with keyboard
     else if(event->key() == Qt::Key_Space){
-        auto bullet = new Bullet(spaceShipTimer, spaceShipMedia);
+
+        // creating bullet and adding to scene
+        auto bullet = new Bullet();
         scene()->addItem(bullet);
-        setPos(x() + 65, y());
+
+        // setting bullet's position
+        if(bullet->level == 1)
+            setPos(x() + 65, y());
+        else if(bullet->level == 2)
+            setPos(x() + 56, y());
+        else if(bullet->level == 3)
+            setPos(x() + 47, y());
     }
 }

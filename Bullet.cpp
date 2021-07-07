@@ -12,6 +12,9 @@ Bullet::Bullet(QGraphicsItem *parent)
     bulletSound = new QMediaPlayer;
     bulletSound->setMedia(QUrl("qrc:/musics/bullet/bulletsound.wav"));
 
+    // playing sound
+    bulletSound->play();
+
     // setting picture
     setPixmap(QPixmap(":/images/bullet/bullet1.png"));
 

@@ -5,6 +5,7 @@
 #include "Babychichken.h"
 #include "Score.h"
 #include "Lives.h"
+#include "SpaceShip.h"
 
 class Controller : public QObject
 {
@@ -27,6 +28,8 @@ private:
 
     QGraphicsPixmapItem * liveBoard;
     Lives * controllerLives;
+
+    SpaceShip * spaceShip;
 
 public:
     // constructor

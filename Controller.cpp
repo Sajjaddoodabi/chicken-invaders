@@ -36,6 +36,11 @@ Controller::Controller(QObject *parent) : QObject(parent)
     controllerLives = new Lives();
     scene->addItem(controllerLives);
     controllerLives->setPos(45, 1035);
+
+    // creating spaceship and adding to scene and setting position
+    spaceShip = new SpaceShip(holder);
+    scene->addItem(spaceShip);
+    spaceShip->setPos(885, 890);
 }
 
 // destructor
@@ -49,6 +54,7 @@ Controller::~Controller()
     delete controllerScore;
     delete liveBoard;
     delete controllerLives;
+    delete spaceShip;
 }
 
 // adding babychicken function

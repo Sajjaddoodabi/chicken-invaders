@@ -6,7 +6,7 @@ Bullet::Bullet(QGraphicsItem *parent)
     : QObject(), QGraphicsPixmapItem(parent)
 {
     // setting level
-    level = 0;
+    level = 1;
 
     // creating and setting sound
     bulletSound = new QMediaPlayer;
@@ -38,9 +38,9 @@ void Bullet::addLevel()
     ++level;
 
     // setting picture
-    if(level == 1)
+    if(level == 2)
         setPixmap(QPixmap(":/images/bullet/bullet2.png"));
-    else if(level == 2)
+    else if(level == 3)
         setPixmap(QPixmap(":/images/bullet/bullet3.png"));
 }
 
@@ -51,9 +51,9 @@ void Bullet::lowOffLevel()
     --level;
 
     // setting picture
-    if(level == 1)
+    if(level == 2)
         setPixmap(QPixmap(":/images/bullet/bullet2.png"));
-    else if(level == 0)
+    else if(level == 1)
         setPixmap(QPixmap(":/images/bullet/bullet1.png"));
 }
 

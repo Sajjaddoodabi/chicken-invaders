@@ -22,7 +22,7 @@ private:
 
 public:
     // constructor
-    explicit Bullet(QGraphicsItem *parent = nullptr);
+    explicit Bullet(QTimer *bulletTimer , QMediaPlayer * bulletSound , QGraphicsItem *parent = nullptr);
 
     // destructor
     ~Bullet();

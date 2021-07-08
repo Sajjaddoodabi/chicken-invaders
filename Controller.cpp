@@ -38,7 +38,7 @@ Controller::Controller(QObject *parent) : QObject(parent)
     controllerLives->setPos(45, 1035);
 
     // creating spaceship and adding to scene and setting position
-    spaceShip = new SpaceShip(holder);
+    spaceShip = new SpaceShip(timer , holder);
     scene->addItem(spaceShip);
     spaceShip->setPos(885, 890);
 }

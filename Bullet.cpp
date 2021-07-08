@@ -2,8 +2,8 @@
 #include <QGraphicsScene>
 
 // constructor
-Bullet::Bullet(QGraphicsItem *parent)
-    : QObject(), QGraphicsPixmapItem(parent)
+Bullet::Bullet(QTimer *bulletTimer , QMediaPlayer * bulletSound , QGraphicsItem *parent)
+    : QObject() , QGraphicsPixmapItem(parent)
 {
     // setting level
     level = 1;

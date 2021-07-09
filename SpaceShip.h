@@ -1,7 +1,6 @@
 #ifndef SPACESHIP_H
 #define SPACESHIP_H
 
-#include <QMouseEvent>
 #include <QKeyEvent>
 #include "Bullet.h"
 
@@ -16,6 +15,9 @@ public:
 
     // keyboard's events
     void keyPressEvent(QKeyEvent * event);
+
+    void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
 };
 
 #endif // SPACESHIP_H

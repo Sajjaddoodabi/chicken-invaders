@@ -3,7 +3,7 @@
 
 // constructor
 Bullet::Bullet(QGraphicsItem *parent)
-    : QObject(), QGraphicsPixmapItem(parent)
+    : QObject() , QGraphicsPixmapItem(parent)
 {
     // setting level
     level = 1;

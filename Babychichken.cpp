@@ -1,4 +1,5 @@
 #include "Babychichken.h"
+#include <QGraphicsScene>
 
 BabyChicken::BabyChicken(int speedPerPix, QTimer *timer, QGraphicsItem *parent)
     : QObject(), QGraphicsPixmapItem(parent), speedPerPix{speedPerPix}
@@ -26,12 +27,8 @@ BabyChicken::~BabyChicken()
 
 void BabyChicken::HealthDecrement()
 {
-//    if(Health != 0)
-//        --Health;
-//    if(Health == 0){
-//        scene()->removeItem(this);
-//        BabyChickenSound->setMedia(QUrl("qrc:/music/")); //ToDO
-//    }
+    scene()->removeItem(this);
+    delete this;
 }
 
 

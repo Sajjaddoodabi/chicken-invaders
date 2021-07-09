@@ -23,7 +23,7 @@ Bullet::Bullet(QGraphicsItem *parent)
 
     // connecting to movetoup and starting
     connect(bulletTimer, SIGNAL(timeout()), this, SLOT(moveToUp()));
-    bulletTimer->start(25);
+    bulletTimer->start(50);
 }
 
 // destructor
@@ -64,10 +64,10 @@ void Bullet::lowOffLevel()
 void Bullet::moveToUp()
 {
     // moving to up
-    setPos(x(), y() - 12);
+    setPos(x(), y() - 27);
 
     // deleting bullet
-    if(y() == 0){
+    if(y() <= 0){
         scene()->removeItem(this);
         delete this;
     }

@@ -6,15 +6,14 @@
 #include <QTimer>
 #include <QGraphicsPixmapItem>
 
-class Egg : public QObject
+class Egg : public QObject , public QGraphicsPixmapItem
 {
     Q_OBJECT
 private:
     QGraphicsScene *EggScene;
-    QTimer *timer;
 
 public:
-     Egg(QObject *parent = nullptr);
+    Egg(QGraphicsScene *EggScene , QTimer *timer , QGraphicsItem *parent = nullptr);
 
 signals:
 

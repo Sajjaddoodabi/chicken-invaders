@@ -1,6 +1,9 @@
 #include "Egg.h"
 
-Egg::Egg(QObject *parent) : QObject(parent)
+Egg::Egg(QGraphicsScene *EggScene, QTimer *timer, QGraphicsItem *parent) : QObject()
+  , QGraphicsPixmapItem (parent) , EggScene(EggScene)
+
 {
+
 
 }

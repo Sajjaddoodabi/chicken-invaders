@@ -39,7 +39,7 @@ public:
     ~Controller();
 
     // adding babychicken function
-    void addBabyChicken(int velocity);
-};
+    void addBabyChicken();
+ };
 
 #endif // CONTROLLER_H

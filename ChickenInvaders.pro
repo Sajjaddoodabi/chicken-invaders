@@ -20,6 +20,8 @@ SOURCES += \
     Bullet.cpp \
     Chicken.cpp \
     Controller.cpp \
+    Egg.cpp \
+    Gift.cpp \
     Lives.cpp \
     Meat.cpp \
     Score.cpp \
@@ -36,6 +38,8 @@ HEADERS += \
     Bullet.h \
     Chicken.h \
     Controller.h \
+    Egg.h \
+    Gift.h \
     Lives.h \
     Meat.h \
     Score.h \

@@ -13,8 +13,14 @@ Meat::Meat(QGraphicsScene *meatScene , Score *meatScore , QTimer *timer
     meatScene->addItem(this);
     setPos(20 , 50);  //ToDO
 
+    //creating timer
+    timer = new QTimer;
+
     // connect timer to move
     connect(timer , SIGNAL(timeout()) , this , SLOT(move()));
+
+    //start the timer
+    timer->start();
 }
 
 Meat::~Meat()

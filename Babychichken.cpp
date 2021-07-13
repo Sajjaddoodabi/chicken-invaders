@@ -1,8 +1,8 @@
 #include "Babychichken.h"
 #include <QGraphicsScene>
 
-BabyChicken::BabyChicken(int speedPerPix, QTimer *timer, QGraphicsItem *parent)
-    : QObject(), QGraphicsPixmapItem(parent), speedPerPix{speedPerPix}
+BabyChicken::BabyChicken(QTimer *timer, QGraphicsItem *parent)
+    : QObject(), QGraphicsPixmapItem(parent)
 {
     // setting picture
     setPixmap(QPixmap(":/images/chickens/babychicken1.png"));
@@ -18,6 +18,9 @@ BabyChicken::BabyChicken(int speedPerPix, QTimer *timer, QGraphicsItem *parent)
 
     // palying sound
     BabyChickenSound->play();
+
+    //intializing time
+    time = 0;
 }
 
 BabyChicken::~BabyChicken()
@@ -35,5 +38,10 @@ void BabyChicken::HealthDecrement()
 //ToDO
 void BabyChicken::move()
 {
+    ++time;
 
+    if(time % 6 == 0)
+        setPixmap(QPixmap(":/images/chickens/babychicken2.png"));
+    else if(time % 6 == 2)
+        setPixmap(QPixmap(":/images/chickens/babychicken1.png"));
 }

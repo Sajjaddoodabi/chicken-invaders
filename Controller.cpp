@@ -55,15 +55,16 @@ Controller::~Controller()
     delete liveBoard;
     delete controllerLives;
     delete spaceShip;
+    delete babychickenList.last();
 }
 
 // adding babychicken function
-void Controller::addBabyChicken(int velocity)
+void Controller::addBabyChicken()
 {
     // creating list of babychicken
-    babychickenList.push_back(new BabyChicken(velocity, timer, holder));
+    babychickenList.push_back(new BabyChicken(timer, holder));
 
     // adding to scene
     scene->addItem(babychickenList.last());
-    babychickenList.last()->setPos(0,0);// set random
+    babychickenList.last()->setPos(500,500);// set random
 }

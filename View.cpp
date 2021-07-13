@@ -87,6 +87,6 @@ void View::animatedBackground()
 
     // adding babychicken
     if(vTime == 2){
-        vController->addBabyChicken(1);// set velocity
+        vController->addBabyChicken();// set velocity
     }
 }

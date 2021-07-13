@@ -38,9 +38,9 @@ void SpaceShip::keyPressEvent(QKeyEvent *event)
     }
 }
 
-void SpaceShip::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+void SpaceShip::mouseMoveEvent(QMouseEvent *event)
 {
-    setPos(event->lastScenePos());
+    >setGeometry(QRect(origin, event->pos()).normalized())
 }
 
 void SpaceShip::mousePressEvent(QGraphicsSceneMouseEvent *event)

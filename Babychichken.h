@@ -13,13 +13,12 @@ class BabyChicken : public QObject , public QGraphicsPixmapItem
 
 private:
     // private members
-    int Health;
-    int speedPerPix;
+    int time;
     QMediaPlayer *BabyChickenSound;
 
 public:
     bool gameOver;
-    BabyChicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent);
+    BabyChicken(QTimer *timer , QGraphicsItem *parent);
     ~BabyChicken();
 
     void HealthDecrement();

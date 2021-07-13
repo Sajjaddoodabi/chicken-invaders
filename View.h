@@ -26,7 +26,6 @@ public:
 public slots:
     // showing animated background
     void animatedBackground();
-
 };
 
 #endif // VIEW_H

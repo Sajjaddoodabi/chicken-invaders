@@ -11,7 +11,7 @@ class Egg : public QObject , public QGraphicsPixmapItem
     Q_OBJECT
 private:
     QGraphicsScene *EggScene;
-
+    int timeIntervals;
 public:
     Egg(QGraphicsScene *EggScene , QTimer *timer , QGraphicsItem *parent = nullptr);
     ~Egg();

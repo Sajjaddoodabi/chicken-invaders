@@ -20,6 +20,8 @@ Egg::Egg(QGraphicsScene *EggScene, QTimer *timer, QGraphicsItem *parent) : QObje
 
     //start the timer
     timer -> start(); //ToDO
+
+    timeIntervals = 0;
 }
 
 Egg::~Egg()
@@ -29,5 +31,12 @@ Egg::~Egg()
 
 void Egg::move()
 {
+    ++timeIntervals;
+     setPos(x() , y()+6);
 
+     //if(//ToDO)
+     {
+         EggScene->removeItem(this);
+         delete this;
+     }
 }

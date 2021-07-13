@@ -5,6 +5,12 @@ Egg::Egg(QGraphicsScene *EggScene, QTimer *timer, QGraphicsItem *parent) : QObje
 
 {
     // set meat picture
-    setPixmap(QPixmap(":/images/")); //ToDO}
+    setPixmap(QPixmap(":/images/")); //ToDO
+
+    //scene
+    EggScene = new QGraphicsScene;
+    EggScene->addItem(this);
+    setPos(20 , 50);  //ToDO
+
 
 }

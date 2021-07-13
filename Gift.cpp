@@ -1,6 +1,7 @@
 #include "Gift.h"
 
-Gift::Gift(QObject *parent) : QObject(parent)
+Gift::Gift(QGraphicsScene *GiftScene, QTimer *timer, QGraphicsItem *parent) : QObject() ,
+       QGraphicsPixmapItem (parent) , GiftScene(GiftScene)
 {
 
 }

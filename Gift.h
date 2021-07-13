@@ -2,14 +2,18 @@
 #define GIFT_H
 
 #include <QObject>
+#include <QGraphicsItem>
+#include <QGraphicsPixmapItem>
+#include <QGraphicsScene>
 #include <QTimer>
 
-class Gift : public QObject
+class Gift : public QObject , public QGraphicsPixmapItem
 {
     Q_OBJECT
+private:
+    QGraphicsScene * GiftScene;
 public:
-    explicit Gift(QObject *parent = nullptr);
-
+    Gift(QGraphicsScene *GiftScene , QTimer *timer , QGraphicsItem *parent = nullptr);
 signals:
 
 };

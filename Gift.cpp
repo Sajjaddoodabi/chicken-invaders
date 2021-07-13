@@ -5,4 +5,9 @@ Gift::Gift(QGraphicsScene *GiftScene, QTimer *timer, QGraphicsItem *parent) : QO
 {
     // set meat picture
     setPixmap(QPixmap(":/images/")); //ToDO
+
+    //scene
+    GiftScene = new QGraphicsScene;
+    GiftScene->addItem(this);
+    setPos(20 , 50);  //ToDO
 }

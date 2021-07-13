@@ -4,6 +4,7 @@ Egg::Egg(QGraphicsScene *EggScene, QTimer *timer, QGraphicsItem *parent) : QObje
   , QGraphicsPixmapItem (parent) , EggScene(EggScene)
 
 {
-
+    // set meat picture
+    setPixmap(QPixmap(":/images/")); //ToDO}
 
 }

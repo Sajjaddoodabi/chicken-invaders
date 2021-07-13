@@ -7,6 +7,8 @@
 #include <QTimer>
 #include <QGraphicsSceneMouseEvent>
 #include <QGraphicsScene>
+#include <QMouseEvent>
+#include <QMediaPlayer>
 
 class Meat : public QObject , public QGraphicsPixmapItem
 {
@@ -27,6 +29,8 @@ public:
 
     // destructor
     ~Meat();
+
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
 public slots:
     // move down

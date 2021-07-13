@@ -7,7 +7,7 @@ Meat::Meat(QGraphicsScene *meatScene , Score *meatScore , QTimer *timer
         meatScene(meatScene) , meatScore(meatScore) ,countMeat{0} , timeIntervals{0}
 {
     // set meat picture
-    setPixmap(QPixmap(":/images/")); //ToDO
+    setPixmap(QPixmap(":/images/invadres.png")); //ToDO
 
     // add to scene
     meatScene->addItem(this);
@@ -21,6 +21,8 @@ Meat::Meat(QGraphicsScene *meatScene , Score *meatScore , QTimer *timer
 
     //start the timer
     timer->start();//ToDO
+
+    countMeat = 0;
 }
 
 Meat::~Meat()
@@ -29,12 +31,27 @@ Meat::~Meat()
     delete meatScore;
 }
 
+void Meat::mousePressEvent(QGraphicsSceneMouseEvent *event)
+{
+     countMeat++;
+
+    meatScore->getScorePlayer()->play();
+
+    meatScene->removeItem(this);
+    delete this;
+
+    if(countMeat == 30){
+        meatScore->addToScore(50);
+        countMeat = 0;
+    }
+}
+
 void Meat::move()
 {
    ++timeIntervals;
     setPos(x() , y()+6);
 
-    //if(//ToDO)
+    if(x() > 1080)
     {
         meatScene->removeItem(this);
         delete this;

@@ -12,5 +12,15 @@ Egg::Egg(QGraphicsScene *EggScene, QTimer *timer, QGraphicsItem *parent) : QObje
     EggScene->addItem(this);
     setPos(20 , 50);  //ToDO
 
+    //timer
+    timer = new QTimer;
+
+    //connect timer with move
+    connect(timer , SIGNAL(timeout()) , this , SLOT(move()));
+    timer -> start(); //ToDO
+}
+
+void Egg::move()
+{
 
 }

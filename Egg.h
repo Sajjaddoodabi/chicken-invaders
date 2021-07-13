@@ -15,7 +15,9 @@ private:
 public:
     Egg(QGraphicsScene *EggScene , QTimer *timer , QGraphicsItem *parent = nullptr);
 
-signals:
+public slots:
+    // move down
+    void move();
 
 };
 

@@ -19,6 +19,8 @@ Gift::Gift(QGraphicsScene *GiftScene, QTimer *timer, QGraphicsItem *parent) : QO
 
     //start the timer
     timer -> start(); //ToDO
+
+    timeIntervals = 0;
 }
 
 Gift::~Gift()
@@ -28,5 +30,12 @@ Gift::~Gift()
 
 void Gift::move()
 {
+    ++timeIntervals;
+     setPos(x() , y()+6);
 
+     //if(//ToDO)
+     {
+         GiftScene->removeItem(this);
+         delete this;
+     }
 }

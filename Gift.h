@@ -12,6 +12,7 @@ class Gift : public QObject , public QGraphicsPixmapItem
     Q_OBJECT
 private:
     QGraphicsScene * GiftScene;
+    int timeIntervals;
 public:
     Gift(QGraphicsScene *GiftScene , QTimer *timer , QGraphicsItem *parent = nullptr);
     ~Gift();

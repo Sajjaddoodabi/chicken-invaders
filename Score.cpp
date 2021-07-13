@@ -13,6 +13,20 @@ Score::Score(QGraphicsItem *parent)
 
     // setting text's font
     setFont(QFont("times", 20));
+
+    //media
+    scorePlayer = new QMediaPlayer;
+    scorePlayer->setMedia(QUrl("qrc:/musics/")); //ToDo
+}
+
+Score::~Score()
+{
+    delete scorePlayer;
+}
+
+QMediaPlayer *Score::getScorePlayer()
+{
+    return scorePlayer;
 }
 
 // adding to score function

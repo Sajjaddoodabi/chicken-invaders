@@ -17,6 +17,8 @@ Egg::Egg(QGraphicsScene *EggScene, QTimer *timer, QGraphicsItem *parent) : QObje
 
     //connect timer with move
     connect(timer , SIGNAL(timeout()) , this , SLOT(move()));
+
+    //start the timer
     timer -> start(); //ToDO
 }
 

@@ -11,7 +11,14 @@ Gift::Gift(QGraphicsScene *GiftScene, QTimer *timer, QGraphicsItem *parent) : QO
     GiftScene->addItem(this);
     setPos(20 , 50);  //ToDO
 
+    //timer
+    timer = new QTimer;
 
+    //connect timer with move
+    connect(timer , SIGNAL(timeout()) , this , SLOT(move()));
+
+    //start the timer
+    timer -> start(); //ToDO
 }
 
 void Gift::move()

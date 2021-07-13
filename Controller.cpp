@@ -55,7 +55,6 @@ Controller::~Controller()
     delete liveBoard;
     delete controllerLives;
     delete spaceShip;
-    delete babychickenList.last();
 }
 
 // adding babychicken function
@@ -67,4 +66,9 @@ void Controller::addBabyChicken()
     // adding to scene
     scene->addItem(babychickenList.last());
     babychickenList.last()->setPos(500,500);// set random
+}
+
+void Controller::addMeat()
+{
+    MeatList.push_back(new Meat(scene , controllerScore , timer ,holder));
 }

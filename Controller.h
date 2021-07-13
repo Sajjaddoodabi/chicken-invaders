@@ -6,6 +6,7 @@
 #include "Score.h"
 #include "Lives.h"
 #include "SpaceShip.h"
+#include "Meat.h"
 
 class Controller : public QObject
 {
@@ -22,6 +23,7 @@ private:
     QGraphicsRectItem * holder;
 
     QList<BabyChicken *> babychickenList;
+    QList<Meat *> MeatList;
 
     QGraphicsPixmapItem * scoreBoard;
     Score * controllerScore;
@@ -40,6 +42,7 @@ public:
 
     // adding babychicken function
     void addBabyChicken();
+    void addMeat();
  };
 
 #endif // CONTROLLER_H

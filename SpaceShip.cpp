@@ -12,7 +12,7 @@ SpaceShip::SpaceShip(QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(par
 void SpaceShip::keyPressEvent(QKeyEvent *event)
 {
     // moving spaceship with keyboard
-    if(event->key() == Qt::Key_A)
+    if(event->key() == Qt::Key_Left)
         setPos(x() - 10, y());
     else if(event->key() == Qt::Key_Up)
         setPos(x(), y() - 10);
@@ -40,7 +40,7 @@ void SpaceShip::keyPressEvent(QKeyEvent *event)
 
 void SpaceShip::mouseMoveEvent(QMouseEvent *event)
 {
-    >setGeometry(QRect(origin, event->pos()).normalized())
+
 }
 
 void SpaceShip::mousePressEvent(QGraphicsSceneMouseEvent *event)

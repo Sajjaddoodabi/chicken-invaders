@@ -14,6 +14,7 @@ private:
     QGraphicsScene * GiftScene;
 public:
     Gift(QGraphicsScene *GiftScene , QTimer *timer , QGraphicsItem *parent = nullptr);
+    ~Gift();
 
 public slots:
     // move down

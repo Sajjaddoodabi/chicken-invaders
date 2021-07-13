@@ -21,6 +21,11 @@ Gift::Gift(QGraphicsScene *GiftScene, QTimer *timer, QGraphicsItem *parent) : QO
     timer -> start(); //ToDO
 }
 
+Gift::~Gift()
+{
+    delete GiftScene;
+}
+
 void Gift::move()
 {
 

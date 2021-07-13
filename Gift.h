@@ -14,8 +14,10 @@ private:
     QGraphicsScene * GiftScene;
 public:
     Gift(QGraphicsScene *GiftScene , QTimer *timer , QGraphicsItem *parent = nullptr);
-signals:
 
+public slots:
+    // move down
+    void move();
 };
 
 #endif // GIFT_H

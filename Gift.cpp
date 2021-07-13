@@ -10,4 +10,11 @@ Gift::Gift(QGraphicsScene *GiftScene, QTimer *timer, QGraphicsItem *parent) : QO
     GiftScene = new QGraphicsScene;
     GiftScene->addItem(this);
     setPos(20 , 50);  //ToDO
+
+
+}
+
+void Gift::move()
+{
+
 }

@@ -20,6 +20,11 @@ Egg::Egg(QGraphicsScene *EggScene, QTimer *timer, QGraphicsItem *parent) : QObje
     timer -> start(); //ToDO
 }
 
+Egg::~Egg()
+{
+    delete EggScene;
+}
+
 void Egg::move()
 {
 

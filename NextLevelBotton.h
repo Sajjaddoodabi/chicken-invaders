@@ -18,6 +18,9 @@ public:
 
     //destructor
     ~NextLevelBotton();
+
+    // mouse event (click)
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
 };
 
 #endif // NEXTLEVELBOTTON_H

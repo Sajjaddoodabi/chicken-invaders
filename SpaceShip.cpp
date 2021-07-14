@@ -1,6 +1,7 @@
 #include "SpaceShip.h"
 #include <QGraphicsScene>
 #include <QMouseEvent>
+#include <QGraphicsSceneMouseEvent>
 
 SpaceShip::SpaceShip(QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(parent)
 {
@@ -10,6 +11,7 @@ SpaceShip::SpaceShip(QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(par
 
 void SpaceShip::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
+    if (event->button() == Qt::MouseButton::LeftButton){
     // creating bullet and adding to scene
     auto bullet = new Bullet();
     scene()->addItem(bullet);
@@ -21,4 +23,5 @@ void SpaceShip::mousePressEvent(QGraphicsSceneMouseEvent *event)
         bullet->setPos(x() + 56, y());
     else if(bullet->level == 3)
         bullet->setPos(x() + 47, y());
+    }
 }

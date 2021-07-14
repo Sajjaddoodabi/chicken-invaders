@@ -24,7 +24,7 @@ Menu::Menu() : QGraphicsView()
     mMedia = new QMediaPlayer();
 
     // setting music to mMedia
-    mMedia->setMedia(QUrl("qrc:/musics/menu/music.mp3"));
+    mMedia->setMedia(QUrl("qrc:/musics/menu/"));
 
     // playing music
     mMedia->play();

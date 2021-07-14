@@ -19,5 +19,13 @@ AfterLevel::AfterLevel() : QGraphicsView()
     // adding background
     setBackgroundBrush(QBrush(QImage(":/images/menu/")));
 
+    // creating mMedia
+    mMedia = new QMediaPlayer();
+
+    // setting music to mMedia
+    mMedia->setMedia(QUrl("qrc:/musics/menu/"));
+
+    // playing music
+    mMedia->play();
 
 }

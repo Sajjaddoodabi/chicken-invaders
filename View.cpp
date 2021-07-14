@@ -180,7 +180,7 @@ void View::schedule()
               vMedia->stop();
               gameOverMusic->play();
 
-             QGraphicsPixmapItem * gameover = new QGraphicsPixmapItem();
+              QGraphicsPixmapItem * gameover = new QGraphicsPixmapItem();
               gameover->setPixmap(QPixmap(":/images/.png"));
               vController->scene->addItem(gameover);
               gameover->setPos(0,0);
@@ -190,7 +190,7 @@ void View::schedule()
     }
 
     //win scene
-    else{
+    if(vController->babychickenList.size() == 0){
               stopGame();
               vMedia->stop();
               winMusic->play();

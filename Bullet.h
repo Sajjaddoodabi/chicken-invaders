@@ -5,6 +5,7 @@
 #include <QGraphicsPixmapItem>
 #include <QTimer>
 #include <QMediaPlayer>
+#include "Score.h"
 
 class Bullet : public QObject, public QGraphicsPixmapItem
 {
@@ -19,10 +20,11 @@ private:
     int level;
     QMediaPlayer * bulletSound;
     QTimer * bulletTimer;
+    Score  * score;
 
 public:
     // constructor
-    explicit Bullet(QGraphicsItem *parent = nullptr);
+    explicit Bullet(Score  *score, QGraphicsItem *parent = nullptr);
 
     // destructor
     ~Bullet();

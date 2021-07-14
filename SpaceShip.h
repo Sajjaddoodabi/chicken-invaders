@@ -2,17 +2,19 @@
 #define SPACESHIP_H
 
 #include "Bullet.h"
+#include "Score.h"
 
 class SpaceShip : public QObject, public QGraphicsPixmapItem
 {
     // macro
     Q_OBJECT
-
+private:
+    Score * score;
 public:
     // constructor
-    SpaceShip(QGraphicsItem *parent = nullptr);
+    SpaceShip(Score *score, QGraphicsItem *parent = nullptr);
 
-    // shooting
+    //
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 };
 

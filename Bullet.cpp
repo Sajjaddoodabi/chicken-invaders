@@ -2,10 +2,11 @@
 #include <QGraphicsScene>
 #include <QList>
 #include "Babychichken.h"
+#include "Controller.h"
 
 // constructor
-Bullet::Bullet(QGraphicsItem *parent)
-    : QObject() , QGraphicsPixmapItem(parent)
+Bullet::Bullet(Score  *score, QGraphicsItem *parent)
+    : QObject() , QGraphicsPixmapItem(parent), score{score}
 {
     // setting level
     level = 1;
@@ -71,6 +72,8 @@ void Bullet::moveToUp()
     for(size_t i{0} ; i < collidingList.size() ; ++i){
         if(typeid (*(collidingList[i])) == typeid (BabyChicken)){
             dynamic_cast<BabyChicken *>(collidingList[i])->HealthDecrement();
+
+            score->addToScore(5);
 
             scene()->removeItem(this);
             delete this;

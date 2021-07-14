@@ -2,7 +2,8 @@
 #include <QGraphicsScene>
 #include <QGraphicsSceneMouseEvent>
 
-SpaceShip::SpaceShip(QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(parent)
+SpaceShip::SpaceShip(Score *score, QGraphicsItem *parent) : QObject(), QGraphicsPixmapItem(parent),
+    score{score}
 {
     // setting picture
     setPixmap(QPixmap(":/images/spaceship/image1.png"));
@@ -12,7 +13,7 @@ void SpaceShip::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     if (event->button() == Qt::MouseButton::LeftButton){
         // creating bullet and adding to scene
-        auto bullet = new Bullet();
+        auto bullet = new Bullet(score);
         scene()->addItem(bullet);
 
         // setting bullet's position

@@ -12,3 +12,11 @@ MainMenuBotton::MainMenuBotton(QGraphicsScene *scene) : QGraphicsPixmapItem(), b
     // creating media
     buttonMedia = new QMediaPlayer();
 }
+
+MainMenuBotton::~MainMenuBotton()
+{
+    delete buttonMedia;
+    delete buttonScene;
+}
+
+

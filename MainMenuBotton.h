@@ -13,7 +13,11 @@ private:
     int click;
 
 public:
+    //constructor
     MainMenuBotton(QGraphicsScene *scene);
+
+    //destructor
+    ~MainMenuBotton();
 };
 
 #endif // MAINMENUBOTTON_H

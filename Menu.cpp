@@ -24,7 +24,7 @@ Menu::Menu() : QGraphicsView()
     mMedia = new QMediaPlayer();
 
     // setting music to mMedia
-    mMedia->setMedia(QUrl("qrc:/musics/menu/"));
+    mMedia->setMedia(QUrl("qrc:/musics/menu/music.mp3"));
 
     // playing music
     mMedia->play();
@@ -55,6 +55,11 @@ Menu::~Menu()
     delete newGameButton;
     delete quitButton;
     delete view;
+}
+
+View *Menu::getView()
+{
+    return view;
 }
 
 // restarting music and change window

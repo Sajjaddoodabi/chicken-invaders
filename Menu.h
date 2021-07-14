@@ -27,10 +27,11 @@ public:
     // destructor
     ~Menu();
 
+    View *getView();
+
 public slots:
     // restarting music and changing window
     void schedule();
-
 };
 
 #endif // MENU_H

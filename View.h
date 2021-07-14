@@ -16,6 +16,10 @@ private:
     QTimer * vTimer;
     int vTime;
 
+    int deathTime;
+    QTimer * deathTimer;
+    QMediaPlayer * deathMedia;
+
 public:
     // constructor
     explicit View();
@@ -28,6 +32,7 @@ public:
 public slots:
     // showing animated background
     void animatedBackground();
+    void death();
 };
 
 #endif // VIEW_H

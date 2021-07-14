@@ -44,6 +44,17 @@ View::View() : QGraphicsView()
 
     // hiding mouse pointer
     setCursor(Qt::BlankCursor);
+
+    //
+    deathTime = 0;
+
+    //
+    deathTimer = new QTimer();
+    connect(deathTimer, SIGNAL(timeout()), this, SLOT(death()));
+
+    //
+    deathMedia = new QMediaPlayer();
+    deathMedia->setMedia(QUrl("qrc:/musics/spaceship/deathsound.mp3"));
 }
 
 // destructor
@@ -58,16 +69,6 @@ View::~View()
 void View::mouseMoveEvent(QMouseEvent *event)
 {
     vController->spaceShip->setPos(event->x()-75, event->y()-90);
-
-    // collecting all colliding objects in a list
-    QList<QGraphicsItem *> collidingList = vController->spaceShip->collidingItems();
-
-    for(size_t i{0} ; collidingList.size() ; i++){
-        if(typeid (*(collidingList[i])) == typeid (BabyChicken)){
-
-            vController->controllerLives->lowOffLive();
-        }
-     }
 }
 
 // showing animated background
@@ -112,4 +113,47 @@ void View::animatedBackground()
 
     if(vTime == 352)
         vTime = 341;
+
+    // collecting all colliding objects in a list
+    QList<QGraphicsItem *> spaceShipCollidingList = vController->spaceShip->collidingItems();
+
+    for(size_t i{0} ; i < spaceShipCollidingList.size() ; i++){
+        if(typeid (*(spaceShipCollidingList[i])) == typeid (BabyChicken) && !(deathTimer->isActive())){
+
+            scene()->removeItem(dynamic_cast<BabyChicken *>(spaceShipCollidingList[i]));
+            delete dynamic_cast<BabyChicken *>(spaceShipCollidingList[i]);
+
+            deathMedia->stop();
+            deathMedia->play();
+
+            vController->controllerLives->lowOffLive();
+
+            vController->spaceShip->setPixmap(QPixmap(":/images/spaceship/death.png"));
+
+            deathTimer->start(500);
+        }
+     }
+}
+
+void View::death()
+{
+    ++deathTime;
+
+    if (deathTime == 1)
+        vController->spaceShip->setPixmap(QPixmap(":/images/spaceship/image1.png"));
+    else if (deathTime == 2)
+        vController->spaceShip->setPixmap(QPixmap());
+    else if (deathTime == 3)
+        vController->spaceShip->setPixmap(QPixmap(":/images/spaceship/image1.png"));
+    else if (deathTime == 4)
+        vController->spaceShip->setPixmap(QPixmap());
+    else if (deathTime == 5)
+        vController->spaceShip->setPixmap(QPixmap(":/images/spaceship/image1.png"));
+    else if (deathTime == 6)
+        vController->spaceShip->setPixmap(QPixmap());
+    else if (deathTime == 7){
+        vController->spaceShip->setPixmap(QPixmap(":/images/spaceship/image1.png"));
+        deathTimer->stop();
+        deathTime = 0;
+    }
 }

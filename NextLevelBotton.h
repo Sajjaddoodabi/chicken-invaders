@@ -13,7 +13,11 @@ private:
     int click;
 
 public:
+    //constructor
     NextLevelBotton(QGraphicsScene *scene);
+
+    //destructor
+    ~NextLevelBotton();
 };
 
 #endif // NEXTLEVELBOTTON_H

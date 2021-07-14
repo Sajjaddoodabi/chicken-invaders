@@ -12,3 +12,10 @@ NextLevelBotton::NextLevelBotton(QGraphicsScene *scene) : QGraphicsPixmapItem(),
     // creating media
     buttonMedia = new QMediaPlayer();
 }
+
+NextLevelBotton::~NextLevelBotton()
+{
+    delete buttonMedia;
+    delete buttonScene;
+}
+

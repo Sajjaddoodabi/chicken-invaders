@@ -8,7 +8,7 @@ SaveBotton::SaveBotton(QGraphicsScene *scene) : QGraphicsPixmapItem(), buttonSce
 
     // adding to scene
     buttonScene->addItem(this);
-    setPos(47, 938);
+    setPos(0, 0); //ToDO
 
     // creating media
     buttonMedia = new QMediaPlayer();

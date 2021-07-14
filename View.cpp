@@ -64,9 +64,6 @@ View::View(int season , int level) : QGraphicsView() ,  level{level} , season{se
     //
     deathMedia = new QMediaPlayer();
     deathMedia->setMedia(QUrl("qrc:/musics/spaceship/deathsound.mp3"));
-
-    // showing mouse pointer
-    setCursor(Qt::ArrowCursor);
 }
 
 // destructor
@@ -188,8 +185,21 @@ void View::schedule()
 
     if(season == 1 && level == 2){
         // adding babychicken
+        if(vTime % 17 == 0 && vTime <= 17)
+            for (int i = 0; i < 9 ; ++i)
+                vController->addBabyChicken(1500+vTime, 0, 285+((i)*150), 160);
+        else if(vTime % 17 == 0 && vTime <= 34)
+            for (int i = 9; i < 18 ; ++i)
+                vController->addBabyChicken(1500+vTime, 0, 285+((i-5)*150), 285);
+        else if(vTime % 17 == 0 && vTime <= 51)
+            for (int i = 18; i < 27 ; ++i)
+                vController->addBabyChicken(1500+vTime, 0, 285+((i-10)*150), 410);
+        else if(vTime % 17 == 0 && vTime <= 68)
+            for (int i = 27; i < 36 ; ++i)
+                vController->addBabyChicken(1500+vTime, 0, 285+((i-15)*150), 535);
 
-            vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-16)*150), 535);
+        if(vTime == 80)
+            vTime = 69;
 
     }
 
@@ -211,6 +221,9 @@ void View::schedule()
 
          mainmenuButton = new MainMenuButton(vController->scene);
          saveButton = new SaveButton(vController->scene);
+
+         // showing mouse pointer
+         setCursor(Qt::ArrowCursor);
     }
 
     //win scene
@@ -227,5 +240,8 @@ void View::schedule()
          nextlevelButton = new NextLevelButton(vController->scene , season , level);
          mainmenuButton = new MainMenuButton(vController->scene);
          saveButton = new SaveButton(vController->scene);
+
+         // showing mouse pointer
+         setCursor(Qt::ArrowCursor);
     }
 }

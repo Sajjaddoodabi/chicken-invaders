@@ -176,33 +176,33 @@ void View::schedule()
 {
     //game over scene
     if(vController->controllerLives->isOver() == true ){
-              stopGame();
-              vMedia->stop();
-              gameOverMusic->play();
+         stopGame();
+         vMedia->stop();
+         gameOverMusic->play();
 
-              QGraphicsPixmapItem * gameover = new QGraphicsPixmapItem();
-              gameover->setPixmap(QPixmap(":/images/.png"));
-              vController->scene->addItem(gameover);
-              gameover->setPos(0,0);
+         QGraphicsPixmapItem * gameover = new QGraphicsPixmapItem();
+         gameover->setPixmap(QPixmap(":/images/.png"));
+         vController->scene->addItem(gameover);
+         gameover->setPos(0,0);
 
-              mainmenuButton = new MainMenuButton(vController->scene);
-              saveButton = new SaveButton(vController->scene);
+         mainmenuButton = new MainMenuButton(vController->scene);
+         saveButton = new SaveButton(vController->scene);
     }
 
     //win scene
     if(vController->babychickenList.size() == 0){
-              stopGame();
-              vMedia->stop();
-              winMusic->play();
+         stopGame();
+         vMedia->stop();
+         winMusic->play();
 
-              QGraphicsPixmapItem * win = new QGraphicsPixmapItem();
-              win->setPixmap(QPixmap(":/images/.png"));
-              vController->scene->addItem(win);
-              win->setPos(0,0);
+         QGraphicsPixmapItem * win = new QGraphicsPixmapItem();
+         win->setPixmap(QPixmap(":/images/.png"));
+         vController->scene->addItem(win);
+         win->setPos(0,0);
 
-              nextlevelButton = new NextLevelButton(vController->scene);
-              mainmenuButton = new MainMenuButton(vController->scene);
-              saveButton = new SaveButton(vController->scene);
+         nextlevelButton = new NextLevelButton(vController->scene);
+         mainmenuButton = new MainMenuButton(vController->scene);
+         saveButton = new SaveButton(vController->scene);
     }
 }
 

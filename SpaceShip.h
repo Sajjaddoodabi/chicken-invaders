@@ -1,8 +1,6 @@
 #ifndef SPACESHIP_H
 #define SPACESHIP_H
 
-#include <QKeyEvent>
-#include <QMouseEvent>
 #include "Bullet.h"
 
 class SpaceShip : public QObject, public QGraphicsPixmapItem
@@ -14,7 +12,7 @@ public:
     // constructor
     SpaceShip(QGraphicsItem *parent = nullptr);
 
-    //
+    // shooting
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 };
 

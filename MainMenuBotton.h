@@ -18,6 +18,9 @@ public:
 
     //destructor
     ~MainMenuBotton();
+
+    // mouse event (click)
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
 };
 
 #endif // MAINMENUBOTTON_H

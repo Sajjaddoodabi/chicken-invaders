@@ -1,5 +1,6 @@
 #include "NextLevelBotton.h"
 
+//constructor
 NextLevelBotton::NextLevelBotton(QGraphicsScene *scene) : QGraphicsPixmapItem(), buttonScene{scene}, click{0}
 {
     // setting picture
@@ -13,12 +14,14 @@ NextLevelBotton::NextLevelBotton(QGraphicsScene *scene) : QGraphicsPixmapItem(),
     buttonMedia = new QMediaPlayer();
 }
 
+//destructor
 NextLevelBotton::~NextLevelBotton()
 {
     delete buttonMedia;
     delete buttonScene;
 }
 
+//mouse event
 void NextLevelBotton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     // changing click to 1

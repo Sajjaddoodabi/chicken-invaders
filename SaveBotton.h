@@ -2,6 +2,7 @@
 #define SAVEBOTTON_H
 
 #include <QGraphicsPixmapItem>
+#include <QGraphicsScene>
 #include <QMediaPlayer>
 
 class SaveBotton : public QGraphicsPixmapItem

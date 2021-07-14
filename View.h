@@ -23,6 +23,8 @@ public:
     // destructor
     ~View();
 
+    void mouseMoveEvent(QMouseEvent *event);
+
 public slots:
     // showing animated background
     void animatedBackground();

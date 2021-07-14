@@ -1,4 +1,6 @@
 #include "View.h"
+#include <QList>
+#include "Babychichken.h"
 
 // constructor
 View::View() : QGraphicsView()
@@ -41,7 +43,7 @@ View::View() : QGraphicsView()
     vMedia->play();
 
     // hiding mouse pointer
-//    setCursor(Qt::BlankCursor);
+    setCursor(Qt::BlankCursor);
 }
 
 // destructor
@@ -51,6 +53,21 @@ View::~View()
     delete vController;
     delete vMedia;
     delete vTimer;
+}
+
+void View::mouseMoveEvent(QMouseEvent *event)
+{
+    vController->spaceShip->setPos(event->x()-75, event->y()-90);
+
+    // collecting all colliding objects in a list
+    QList<QGraphicsItem *> collidingList = vController->spaceShip->collidingItems();
+
+    for(size_t i{0} ; collidingList.size() ; i++){
+        if(typeid (*(collidingList[i])) == typeid (BabyChicken)){
+
+            vController->controllerLives->lowOffLive();
+        }
+     }
 }
 
 // showing animated background
@@ -80,13 +97,19 @@ void View::animatedBackground()
         setBackgroundBrush(QBrush(QImage(":/images/game/space10.jpg")));
     else if(vTime % 11 == 10)
         setBackgroundBrush(QBrush(QImage(":/images/game/space11.jpg")));
-    else if(vTime % 11 == 0){
+    else if(vTime % 11 == 0)
         setBackgroundBrush(QBrush(QImage(":/images/game/space1.jpg")));
-        vTime = 0;
-    }
 
     // adding babychicken
-    if(vTime == 2){
-        vController->addBabyChicken();// set velocity
-    }
+    if(vTime % 17 == 0 && vTime <= 85)
+        vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-1)*150), 160);
+    else if(vTime % 17 == 0 && vTime <= 170)
+        vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-6)*150), 285);
+    else if(vTime % 17 == 0 && vTime <= 255)
+        vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-11)*150), 410);
+    else if(vTime % 17 == 0 && vTime <= 340)
+        vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-16)*150), 535);
+
+    if(vTime == 352)
+        vTime = 341;
 }

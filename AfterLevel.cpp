@@ -8,4 +8,16 @@ AfterLevel::AfterLevel() : QGraphicsView()
 
     // adding scene
     setScene(Scene);
+
+    // fullscreening the game window
+    setWindowState(Qt::WindowFullScreen);
+
+    // deleting scrollbars
+    setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+    // adding background
+    setBackgroundBrush(QBrush(QImage(":/images/menu/")));
+
+
 }

@@ -1,5 +1,7 @@
 #include "Bullet.h"
 #include <QGraphicsScene>
+#include <QList>
+#include "Babychichken.h"
 
 // constructor
 Bullet::Bullet(QGraphicsItem *parent)
@@ -63,11 +65,24 @@ void Bullet::lowOffLevel()
 // moving bullet to up
 void Bullet::moveToUp()
 {
+    // collecting all colliding objects in a list
+    QList<QGraphicsItem *> collidingList = collidingItems();
+
+    for(int i=0 ; i < collidingList.size() ; ++i){
+        if(typeid (*(collidingList[i])) == typeid (BabyChicken)){
+            dynamic_cast<BabyChicken *>(collidingList[i])->HealthDecrement();
+
+//            scene()->removeItem(this);
+//            delete this;
+//            return;
+        }
+     }
+
     // moving to up
     setPos(x(), y() - 27);
 
     // deleting bullet
-    if(y() <= 0){
+    if(y() <= -27){
         scene()->removeItem(this);
         delete this;
     }

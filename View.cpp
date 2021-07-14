@@ -42,6 +42,14 @@ View::View() : QGraphicsView()
     // playing music
     vMedia->play();
 
+    //gameover music
+    gameOverMusic = new QMediaPlayer();
+    gameOverMusic->setMedia(QUrl("qrc:/musics/game/"));
+
+    //win music
+    winMusic = new QMediaPlayer();
+    winMusic->setMedia(QUrl("qrc:/musics/game/"));
+
     // hiding mouse pointer
     setCursor(Qt::BlankCursor);
 
@@ -64,6 +72,12 @@ View::~View()
     delete vController;
     delete vMedia;
     delete vTimer;
+}
+
+void View::stopGame()
+{
+    vTimer->stop();
+    vController->timer->stop();
 }
 
 void View::mouseMoveEvent(QMouseEvent *event)
@@ -157,3 +171,39 @@ void View::death()
         deathTime = 0;
     }
 }
+
+void View::schedule()
+{
+    //game over scene
+    if(vController->controllerLives->isOver() == true ){
+              stopGame();
+              vMedia->stop();
+              gameOverMusic->play();
+
+             QGraphicsPixmapItem * gameover = new QGraphicsPixmapItem();
+              gameover->setPixmap(QPixmap(":/images/.png"));
+              vController->scene->addItem(gameover);
+              gameover->setPos(0,0);
+
+              mainmenuButton = new MainMenuButton(vController->scene);
+              saveButton = new SaveButton(vController->scene);
+    }
+
+    //win scene
+    else{
+              stopGame();
+              vMedia->stop();
+              winMusic->play();
+
+              QGraphicsPixmapItem * win = new QGraphicsPixmapItem();
+              win->setPixmap(QPixmap(":/images/.png"));
+              vController->scene->addItem(win);
+              win->setPos(0,0);
+
+              nextlevelButton = new NextLevelButton(vController->scene);
+              mainmenuButton = new MainMenuButton(vController->scene);
+              saveButton = new SaveButton(vController->scene);
+    }
+}
+
+

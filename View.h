@@ -3,6 +3,9 @@
 
 #include <QGraphicsView>
 #include "Controller.h"
+#include "MainMenuButton.h"
+#include "NextLevelButton.h"
+#include "SaveButton.h"
 
 class View : public QGraphicsView
 {
@@ -16,9 +19,16 @@ private:
     QTimer * vTimer;
     int vTime;
 
+    QMediaPlayer *gameOverMusic;
+    QMediaPlayer *winMusic;
+
     int deathTime;
     QTimer * deathTimer;
     QMediaPlayer * deathMedia;
+
+    MainMenuButton *mainmenuButton;
+    NextLevelButton *nextlevelButton;
+    SaveButton *saveButton;
 
 public:
     // constructor
@@ -28,11 +38,13 @@ public:
     ~View();
 
     void mouseMoveEvent(QMouseEvent *event);
+    void stopGame();
 
 public slots:
     // showing animated background
     void animatedBackground();
     void death();
+    void schedule();
 };
 
 #endif // VIEW_H

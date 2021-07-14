@@ -1,8 +1,9 @@
 #include "Babychichken.h"
 #include <QGraphicsScene>
 
-BabyChicken::BabyChicken(QTimer *timer, QGraphicsItem *parent)
-    : QObject(), QGraphicsPixmapItem(parent)
+// constructor
+BabyChicken::BabyChicken(QTimer * timer, int x, int y, QGraphicsItem *parent)
+    : QObject(), QGraphicsPixmapItem(parent), a{x}, b{y}
 {
     // setting picture
     setPixmap(QPixmap(":/images/chickens/babychicken1.png"));
@@ -10,38 +11,71 @@ BabyChicken::BabyChicken(QTimer *timer, QGraphicsItem *parent)
     // connecting timer to move
     connect(timer, SIGNAL(timeout()), this, SLOT(move()));
 
-    // creating BabyChickenSound
-    BabyChickenSound = new QMediaPlayer();
+    // creating babyTimer
+    babyTimer = new QTimer();
 
-    // adding sound
-    BabyChickenSound->setMedia(QUrl("qrc:/music/"));
-
-    // palying sound
-    BabyChickenSound->play();
+    // connecting babyTimer to movetopos and starting
+    connect(babyTimer, SIGNAL(timeout()), this, SLOT(moveToPos()));
+    babyTimer->start(100);
 
     //intializing time
     time = 0;
 }
 
+// destructor
 BabyChicken::~BabyChicken()
 {
-    delete BabyChickenSound;
+    // deleting pointer
+    delete babyTimer;
 }
 
+// deleting BabyChicken
 void BabyChicken::HealthDecrement()
 {
+    // removing at scene
     scene()->removeItem(this);
+
+    // deleting BabyChicken
     delete this;
 }
 
-
-//ToDO
+// animating
 void BabyChicken::move()
 {
+    // adding one to time
     ++time;
 
-    if(time % 6 == 0)
+    // animating
+    if(time % 8 == 2){
         setPixmap(QPixmap(":/images/chickens/babychicken2.png"));
-    else if(time % 6 == 2)
+        setPos(x()+5,y());
+    } else if(time % 8 == 4){
         setPixmap(QPixmap(":/images/chickens/babychicken1.png"));
+        setPos(x(),y()+5);
+    } else if(time % 8 == 6){
+        setPixmap(QPixmap(":/images/chickens/babychicken2.png"));
+        setPos(x()-5,y());
+    } else if(time % 8 == 0){
+        setPixmap(QPixmap(":/images/chickens/babychicken1.png"));
+        setPos(x(),y()-5);
+        time = 0;
+    }
+}
+
+// moving
+void BabyChicken::moveToPos()
+{
+    // moving
+    if (x() - a <= 27 && a - x( ) <= 27 && x() != 0)
+        setPos(a, y());
+    else if (x() < a)
+        setPos(x()+27, y());
+    else if (x() > a)
+        setPos(x()-27, y());
+    if (b - y() <= 27 && y() != 0)
+        setPos(x(), b);
+    else if (y() > b)
+        setPos(x(), y()-27);
+    else if (y() < b)
+        setPos(x(), y()+27);
 }

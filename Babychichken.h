@@ -13,19 +13,24 @@ class BabyChicken : public QObject , public QGraphicsPixmapItem
 
 private:
     // private members
-    int time;
-    QMediaPlayer *BabyChickenSound;
+    int time, a, b;
+    QTimer * babyTimer;
 
 public:
-    bool gameOver;
-    BabyChicken(QTimer *timer , QGraphicsItem *parent);
+    // constructor
+    BabyChicken(QTimer * timer, int x, int y, QGraphicsItem *parent = nullptr);
+
+    // destructor
     ~BabyChicken();
 
+    // deleting BabyChicken
     void HealthDecrement();
 
 public slots:
-    // move
-    void move(); //ToDO
+    // animating
+    void move();
+    // moving
+    void moveToPos();
 };
 
 #endif // BABYCHICKEN_H

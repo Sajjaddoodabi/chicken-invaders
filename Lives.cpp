@@ -13,6 +13,8 @@ Lives::Lives(QGraphicsItem *parent)
 
     // setting text's font
     setFont(QFont("times", 20));
+
+    gameOver = false;
 }
 
 // lowwing-off live function
@@ -23,4 +25,13 @@ void Lives::lowOffLive()
 
     // printing
     setPlainText(QString::number(playerLives));
+
+}
+
+bool Lives::isOver()
+{
+    if(playerLives == 0){
+        gameOver = true;
+    }
+    return gameOver;
 }

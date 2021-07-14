@@ -10,11 +10,14 @@ private:
     int playerLives;
 
 public:
+    bool gameOver;
     // constructor
     explicit Lives(QGraphicsItem *parent = 0);
 
     // lowwing-off live function
     void lowOffLive();
+
+    bool isOver();
 };
 
 #endif // LIVES_H

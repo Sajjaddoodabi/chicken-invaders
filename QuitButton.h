@@ -24,7 +24,7 @@ public:
     // destructor
     ~QuitButton();
 
-    // muuse event (click)
+    // mouse event (click)
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 };
 

@@ -1,39 +1,36 @@
-#include "QuitButton.h"
+#include "SaveBotton.h"
 
 // constructor
-QuitButton::QuitButton(QGraphicsScene *scene) : QGraphicsPixmapItem(), buttonScene{scene}, click{0}
+SaveBotton::SaveBotton(QGraphicsScene *scene) : QGraphicsPixmapItem(), buttonScene{scene}, click{0}
 {
     // setting picture
-    setPixmap(QPixmap(":/images/menu/quitbutton.jpg"));
+    setPixmap(QPixmap(":/images/menu/"));
 
     // adding to scene
     buttonScene->addItem(this);
-    setPos(47, 938);
+    setPos(0, 0); //ToDO
 
     // creating media
     buttonMedia = new QMediaPlayer();
 }
 
-// destructor
-QuitButton::~QuitButton()
+SaveBotton::~SaveBotton()
 {
-    // deleting pointers
     delete buttonScene;
     delete buttonMedia;
 }
 
-// muuse event (click)
-void QuitButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void SaveBotton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     // changing click to 1
     click = 1;
 
     // setting picture
-    setPixmap(QPixmap(":/images/menu/quitbutton2.jpg"));
+    setPixmap(QPixmap(":/images/menu/.jpg"));
 
     // adding to scene
     buttonScene->addItem(this);
-    setPos(102, 953);
+    setPos(755, 618);
 
     // setting clicksound to mMedia
     buttonMedia->setMedia(QUrl("qrc:/musics/menu/click.mp3"));

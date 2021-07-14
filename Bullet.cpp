@@ -68,13 +68,13 @@ void Bullet::moveToUp()
     // collecting all colliding objects in a list
     QList<QGraphicsItem *> collidingList = collidingItems();
 
-    for(int i=0 ; i < collidingList.size() ; ++i){
+    for(size_t i{0} ; i < collidingList.size() ; ++i){
         if(typeid (*(collidingList[i])) == typeid (BabyChicken)){
             dynamic_cast<BabyChicken *>(collidingList[i])->HealthDecrement();
 
-//            scene()->removeItem(this);
-//            delete this;
-//            return;
+            scene()->removeItem(this);
+            delete this;
+            return;
         }
      }
 

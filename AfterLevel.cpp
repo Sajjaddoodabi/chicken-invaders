@@ -28,6 +28,16 @@ AfterLevel::AfterLevel() : QGraphicsView()
     // playing music
     mMedia->play();
 
+    // creating mTimer
+    mTimer = new QTimer();
+
+    // connecting mTimer to schedule
+    connect(mTimer , SIGNAL(timeout()) , this , SLOT(schedule()));
+
+    // starting lTimer
+    mTimer->start(1000);
+
+
 }
 
 void AfterLevel::schedule()

@@ -13,7 +13,7 @@ Controller::Controller(QObject *parent) : QObject(parent)
 
     // creating and starting timer
     timer = new QTimer();
-    timer->start(40);
+    timer->start(70);
 
     // adding scoreboard
     scoreBoard = new QGraphicsPixmapItem;
@@ -58,17 +58,12 @@ Controller::~Controller()
 }
 
 // adding babychicken function
-void Controller::addBabyChicken()
+void Controller::addBabyChicken(int x, int y, int a, int b)
 {
     // creating list of babychicken
-    babychickenList.push_back(new BabyChicken(timer, holder));
+    babychickenList.push_back(new BabyChicken(timer, a, b, holder));
 
     // adding to scene
     scene->addItem(babychickenList.last());
-    babychickenList.last()->setPos(500,500);// set random
-}
-
-void Controller::addMeat()
-{
-    MeatList.push_back(new Meat(scene , controllerScore , timer ,holder));
+    babychickenList.last()->setPos(x, y);
 }

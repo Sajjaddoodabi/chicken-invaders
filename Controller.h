@@ -41,7 +41,7 @@ public:
     ~Controller();
 
     // adding babychicken function
-    void addBabyChicken();
+    void addBabyChicken(int x, int y, int a, int b);
     void addMeat();
  };
 

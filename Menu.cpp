@@ -80,7 +80,7 @@ void Menu::schedule()
         this->close();
 
         // creating view
-        view = new View(1 , 1);
+        view = new View(1, 1);
 
         // showing view's window
         view->show();

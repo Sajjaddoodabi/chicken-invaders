@@ -3,7 +3,7 @@
 #include "Babychichken.h"
 
 // constructor
-View::View(int season , int level) : QGraphicsView() ,  level{1} , season{1}
+View::View(int season , int level) : QGraphicsView() ,  level{level} , season{season}
 {
     // creating controller
     vController = new Controller;
@@ -28,7 +28,8 @@ View::View(int season , int level) : QGraphicsView() ,  level{1} , season{1}
     vTimer = new QTimer();
 
     // connecting vTimer to animatedBackground
-    QObject::connect(vTimer, SIGNAL(timeout()), this, SLOT(animatedBackground()));
+    connect(vTimer, SIGNAL(timeout()), this, SLOT(animatedBackground()));
+    connect(vTimer, SIGNAL(timeout()), this, SLOT(schedule()));
 
     // starting vTimer
     vTimer->start(60);
@@ -64,7 +65,8 @@ View::View(int season , int level) : QGraphicsView() ,  level{1} , season{1}
     deathMedia = new QMediaPlayer();
     deathMedia->setMedia(QUrl("qrc:/musics/spaceship/deathsound.mp3"));
 
-    connect(vController->timer , SIGNAL(timeout()) , this , SLOT(schedule()));
+    // showing mouse pointer
+    setCursor(Qt::ArrowCursor);
 }
 
 // destructor
@@ -84,7 +86,8 @@ void View::stopGame()
 
 void View::mouseMoveEvent(QMouseEvent *event)
 {
-    vController->spaceShip->setPos(event->x()-75, event->y()-90);
+    if (vTimer->isActive())
+        vController->spaceShip->setPos(event->x()-75, event->y()-90);
 }
 
 // showing animated background
@@ -166,18 +169,21 @@ void View::schedule()
 
     if(season == 1 && level == 1){
         // adding babychicken
-        if(vTime % 17 == 0 && vTime <= 85)
-            vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-1)*150), 160);
-        else if(vTime % 17 == 0 && vTime <= 170)
-            vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-6)*150), 285);
-        else if(vTime % 17 == 0 && vTime <= 255)
-            vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-11)*150), 410);
-        else if(vTime % 17 == 0 && vTime <= 340)
-            vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-16)*150), 535);
+        if(vTime % 17 == 0 && vTime <= 17)
+            for (int i = 0; i < 5 ; ++i)
+                vController->addBabyChicken(500+vTime, 0, 585+((i)*150), 160);
+        else if(vTime % 17 == 0 && vTime <= 34)
+            for (int i = 5; i < 10 ; ++i)
+                vController->addBabyChicken(500+vTime, 0, 585+((i-5)*150), 285);
+        else if(vTime % 17 == 0 && vTime <= 51)
+            for (int i = 10; i < 15 ; ++i)
+                vController->addBabyChicken(500+vTime, 0, 585+((i-10)*150), 410);
+        else if(vTime % 17 == 0 && vTime <= 68)
+            for (int i = 15; i < 20 ; ++i)
+                vController->addBabyChicken(500+vTime, 0, 585+((i-15)*150), 535);
 
-        if(vTime == 352)
-            vTime = 341;
-
+        if(vTime == 80)
+            vTime = 69;
     }
 
     if(season == 1 && level == 2){
@@ -193,7 +199,7 @@ void View::schedule()
     if(season == 3 && level == 2){}
 
     //game over scene
-    if(vController->controllerLives->isOver() == true ){
+    if(vController->controllerLives->isOver()){
          stopGame();
          vMedia->stop();
          gameOverMusic->play();
@@ -222,7 +228,4 @@ void View::schedule()
          mainmenuButton = new MainMenuButton(vController->scene);
          saveButton = new SaveButton(vController->scene);
     }
-
-    // showing mouse pointer
-    setCursor(Qt::ArrowCursor);
 }

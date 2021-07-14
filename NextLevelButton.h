@@ -1,10 +1,10 @@
-#ifndef MAINMENUBOTTON_H
-#define MAINMENUBOTTON_H
+#ifndef NEXTLEVELBUTTON_H
+#define NEXTLEVELBUTTON_H
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
 #include <QMediaPlayer>
 
-class MainMenuBotton : public QGraphicsPixmapItem
+class NextLevelButton : public QGraphicsPixmapItem
 {
     friend class AfterLevel;
 private:
@@ -14,13 +14,13 @@ private:
 
 public:
     //constructor
-    MainMenuBotton(QGraphicsScene *scene);
+    NextLevelButton(QGraphicsScene *scene);
 
     //destructor
-    ~MainMenuBotton();
+    ~NextLevelButton();
 
     // mouse event (click)
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 };
 
-#endif // MAINMENUBOTTON_H
+#endif // NEXTLEVELBUTTON_H

@@ -38,13 +38,13 @@ AfterLevel::AfterLevel() : QGraphicsView()
     Timer->start(1000);
 
     //creat next level button
-    nextlevelButton = new NextLevelBotton(Scene);
+    nextlevelButton = new NextLevelButton(Scene);
 
     //creat main menu button
-    mainmenuBotton = new MainMenuBotton(Scene);
+    mainmenuBotton = new MainMenuButton(Scene);
 
     //creat save button
-    saveButton = new SaveBotton(Scene);
+    saveButton = new SaveButton(Scene);
 
 }
 
@@ -61,5 +61,25 @@ AfterLevel::~AfterLevel()
 
 void AfterLevel::schedule()
 {
+    // restarting music
+    if(Media->state() == QMediaPlayer::StoppedState )
+        Media->play();
 
+    //change window
+    if(mainmenuBotton->click == 1){
+        Media->stop();
+        Timer->stop();
+
+        this->close();
+
+        menu->getView()->show();
+    }
+
+    if(nextlevelButton->click == 1){
+
+    }
+
+    if(saveButton->click == 1){
+
+    }
 }

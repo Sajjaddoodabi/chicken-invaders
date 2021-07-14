@@ -1,7 +1,7 @@
-#include "MainMenuBotton.h"
+#include "SaveButton.h"
 
-//contructor
-MainMenuBotton::MainMenuBotton(QGraphicsScene *scene) : QGraphicsPixmapItem(), buttonScene{scene}, click{0}
+// constructor
+SaveButton::SaveButton(QGraphicsScene *scene) : QGraphicsPixmapItem(), buttonScene{scene}, click{0}
 {
     // setting picture
     setPixmap(QPixmap(":/images/menu/"));
@@ -14,15 +14,13 @@ MainMenuBotton::MainMenuBotton(QGraphicsScene *scene) : QGraphicsPixmapItem(), b
     buttonMedia = new QMediaPlayer();
 }
 
-//destructor
-MainMenuBotton::~MainMenuBotton()
+SaveButton::~SaveButton()
 {
-    delete buttonMedia;
     delete buttonScene;
+    delete buttonMedia;
 }
 
-//mouse event
-void MainMenuBotton::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void SaveButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     // changing click to 1
     click = 1;

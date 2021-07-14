@@ -2,9 +2,10 @@
 #define AFTERLEVEL_H
 #include <QGraphicsView>
 #include <QMediaPlayer>
-#include "SaveBotton.h"
-#include "MainMenuBotton.h"
-#include "NextLevelBotton.h"
+#include "SaveButton.h"
+#include "MainMenuButton.h"
+#include "NextLevelButton.h"
+#include "Menu.h"
 #include "View.h"
 
 class AfterLevel : public QGraphicsView
@@ -17,9 +18,10 @@ private:
     QGraphicsScene * Scene;
     QMediaPlayer * Media;
     QTimer * Timer;
-    NextLevelBotton * nextlevelButton;
-    MainMenuBotton * mainmenuBotton;
-    SaveBotton * saveButton;
+    Menu *menu;
+    NextLevelButton * nextlevelButton;
+    MainMenuButton * mainmenuBotton;
+    SaveButton * saveButton;
     View * view;
 
 public:

@@ -1,11 +1,11 @@
-#ifndef SAVEBOTTON_H
-#define SAVEBOTTON_H
+#ifndef SAVEBUTTON_H
+#define SAVEBUTTON_H
 
 #include <QGraphicsPixmapItem>
 #include <QGraphicsScene>
 #include <QMediaPlayer>
 
-class SaveBotton : public QGraphicsPixmapItem
+class SaveButton : public QGraphicsPixmapItem
 {
     friend class AfterLevel;
 private:
@@ -15,14 +15,14 @@ private:
 
 public:
     //constructor
-    SaveBotton(QGraphicsScene *scene);
+    SaveButton(QGraphicsScene *scene);
 
     //destructor
-    ~SaveBotton();
+    ~SaveButton();
 
     // mouse event (click)
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
 };
 
-#endif // SAVEBOTTON_H
+#endif // SAVEBUTTON_H

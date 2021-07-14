@@ -24,10 +24,10 @@ SOURCES += \
     Egg.cpp \
     Gift.cpp \
     Lives.cpp \
-    MainMenuBotton.cpp \
+    MainMenuButton.cpp \
     Meat.cpp \
-    NextLevelBotton.cpp \
-    SaveBotton.cpp \
+    NextLevelButton.cpp \
+    SaveButton.cpp \
     Score.cpp \
     SpaceShip.cpp \
     Loading.cpp \
@@ -46,10 +46,10 @@ HEADERS += \
     Egg.h \
     Gift.h \
     Lives.h \
-    MainMenuBotton.h \
+    MainMenuButton.h \
     Meat.h \
-    NextLevelBotton.h \
-    SaveBotton.h \
+    NextLevelButton.h \
+    SaveButton.h \
     Score.h \
     SpaceShip.h \
     Loading.h \

@@ -1,7 +1,7 @@
-#include "SaveBotton.h"
+#include "NextLevelButton.h"
 
-// constructor
-SaveBotton::SaveBotton(QGraphicsScene *scene) : QGraphicsPixmapItem(), buttonScene{scene}, click{0}
+//constructor
+NextLevelButton::NextLevelButton(QGraphicsScene *scene) : QGraphicsPixmapItem(), buttonScene{scene}, click{0}
 {
     // setting picture
     setPixmap(QPixmap(":/images/menu/"));
@@ -14,13 +14,15 @@ SaveBotton::SaveBotton(QGraphicsScene *scene) : QGraphicsPixmapItem(), buttonSce
     buttonMedia = new QMediaPlayer();
 }
 
-SaveBotton::~SaveBotton()
+//destructor
+NextLevelButton::~NextLevelButton()
 {
-    delete buttonScene;
     delete buttonMedia;
+    delete buttonScene;
 }
 
-void SaveBotton::mousePressEvent(QGraphicsSceneMouseEvent *event)
+//mouse event
+void NextLevelButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     // changing click to 1
     click = 1;
@@ -38,3 +40,4 @@ void SaveBotton::mousePressEvent(QGraphicsSceneMouseEvent *event)
     // playing clicksound
     buttonMedia->play();
 }
+

@@ -14,10 +14,7 @@ public:
     // constructor
     SpaceShip(QGraphicsItem *parent = nullptr);
 
-    // keyboard's events
-    void keyPressEvent(QKeyEvent * event);
-
-    void mouseMoveEvent(QMouseEvent *event);
+    //
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 };
 

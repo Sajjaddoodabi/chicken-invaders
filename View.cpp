@@ -63,6 +63,8 @@ View::View() : QGraphicsView()
     //
     deathMedia = new QMediaPlayer();
     deathMedia->setMedia(QUrl("qrc:/musics/spaceship/deathsound.mp3"));
+
+    connect(vController->timer , SIGNAL(timeout()) , this , SLOT(schedule()));
 }
 
 // destructor
@@ -174,6 +176,7 @@ void View::death()
 
 void View::schedule()
 {
+
     //game over scene
     if(vController->controllerLives->isOver() == true ){
          stopGame();
@@ -190,7 +193,7 @@ void View::schedule()
     }
 
     //win scene
-    if(vController->babychickenList.size() == 0){
+    if(*vController->countBabyChicken == 0 && vTime > 60){
          stopGame();
          vMedia->stop();
          winMusic->play();
@@ -205,5 +208,3 @@ void View::schedule()
          saveButton = new SaveButton(vController->scene);
     }
 }
-
-

@@ -81,6 +81,9 @@ void Menu::schedule()
         view->show();
     }
     else if(quitButton->click == 1){
+        // deleting view
+        delete view;
+
         // exiting the game
         exit(0);
     }

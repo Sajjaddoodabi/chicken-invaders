@@ -17,6 +17,9 @@ public:
     //constructor
     SaveBotton(QGraphicsScene *scene);
 
+    //destructor
+    ~SaveBotton();
+
     // mouse event (click)
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
 

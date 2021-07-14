@@ -14,6 +14,12 @@ SaveBotton::SaveBotton(QGraphicsScene *scene) : QGraphicsPixmapItem(), buttonSce
     buttonMedia = new QMediaPlayer();
 }
 
+SaveBotton::~SaveBotton()
+{
+    delete buttonScene;
+    delete buttonMedia;
+}
+
 void SaveBotton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     // changing click to 1

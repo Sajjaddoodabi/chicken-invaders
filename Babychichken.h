@@ -14,12 +14,13 @@ class BabyChicken : public QObject , public QGraphicsPixmapItem
 private:
     // private members
     int time, a, b;
+    int *countBabyChicken;
     QTimer * babyTimer;
 
 public:
     bool gameOver;
     // constructor
-    BabyChicken(QTimer * timer, int x, int y, QGraphicsItem *parent = nullptr);
+    BabyChicken(int *countBabyChicken ,QTimer * timer, int x, int y, QGraphicsItem *parent = nullptr);
 
     // destructor
     ~BabyChicken();

@@ -23,6 +23,7 @@ private:
     QGraphicsRectItem * holder;
 
     QList<BabyChicken *> babychickenList;
+    int *countBabyChicken;
     QList<Meat *> MeatList;
 
     QGraphicsPixmapItem * scoreBoard;

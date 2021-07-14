@@ -30,6 +30,8 @@ void Lives::lowOffLive()
 
 bool Lives::isOver()
 {
+    gameOver = false;
+
     if(playerLives == 0){
         gameOver = true;
     }

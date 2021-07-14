@@ -11,6 +11,7 @@ private:
 
 public:
     bool gameOver;
+
     // constructor
     explicit Lives(QGraphicsItem *parent = 0);
 

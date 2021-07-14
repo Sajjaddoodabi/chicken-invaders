@@ -41,6 +41,9 @@ Controller::Controller(QObject *parent) : QObject(parent)
     spaceShip = new SpaceShip(controllerScore, holder);
     scene->addItem(spaceShip);
     spaceShip->setPos(885, 890);
+
+    countBabyChicken = new int();
+    *countBabyChicken = 0;
 }
 
 // destructor
@@ -61,9 +64,11 @@ Controller::~Controller()
 void Controller::addBabyChicken(int x, int y, int a, int b)
 {
     // creating list of babychicken
-    babychickenList.push_back(new BabyChicken(timer, a, b, holder));
+    babychickenList.push_back(new BabyChicken(countBabyChicken , timer, a, b, holder));
 
     // adding to scene
     scene->addItem(babychickenList.last());
     babychickenList.last()->setPos(x, y);
+
+    *countBabyChicken += 1;
 }

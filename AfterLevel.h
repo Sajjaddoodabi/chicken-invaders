@@ -15,15 +15,19 @@ class AfterLevel : public QGraphicsView
 private:
     // private members
     QGraphicsScene * Scene;
-    QMediaPlayer * mMedia;
-    QTimer * mTimer;
+    QMediaPlayer * Media;
+    QTimer * Timer;
     NextLevelBotton * nextlevelButton;
     MainMenuBotton * mainmenuBotton;
     SaveBotton * saveButton;
     View * view;
 
 public:
+    //constructor
     AfterLevel();
+
+    //destructor
+    ~AfterLevel();
 
 public slots:
     void schedule();

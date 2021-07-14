@@ -20,22 +20,22 @@ AfterLevel::AfterLevel() : QGraphicsView()
     setBackgroundBrush(QBrush(QImage(":/images/menu/")));
 
     // creating mMedia
-    mMedia = new QMediaPlayer();
+    Media = new QMediaPlayer();
 
     // setting music to mMedia
-    mMedia->setMedia(QUrl("qrc:/musics/menu/"));
+    Media->setMedia(QUrl("qrc:/musics/menu/"));
 
     // playing music
-    mMedia->play();
+    Media->play();
 
     // creating mTimer
-    mTimer = new QTimer();
+    Timer = new QTimer();
 
     // connecting mTimer to schedule
-    connect(mTimer , SIGNAL(timeout()) , this , SLOT(schedule()));
+    connect(Timer , SIGNAL(timeout()) , this , SLOT(schedule()));
 
     // starting lTimer
-    mTimer->start(1000);
+    Timer->start(1000);
 
     //creat next level button
     nextlevelButton = new NextLevelBotton(Scene);
@@ -46,6 +46,17 @@ AfterLevel::AfterLevel() : QGraphicsView()
     //creat save button
     saveButton = new SaveBotton(Scene);
 
+}
+
+AfterLevel::~AfterLevel()
+{
+    delete Scene;
+    delete Media;
+    delete Timer;
+    delete nextlevelButton;
+    delete mainmenuBotton;
+    delete saveButton;
+    delete view;
 }
 
 void AfterLevel::schedule()

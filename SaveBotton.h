@@ -14,8 +14,11 @@ private:
     int click;
 
 public:
+    //constructor
     SaveBotton(QGraphicsScene *scene);
 
+    // mouse event (click)
+    void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
 };
 

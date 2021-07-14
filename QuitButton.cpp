@@ -1,4 +1,4 @@
-#include "Quitbutton.h"
+#include "QuitButton.h"
 
 // constructor
 QuitButton::QuitButton(QGraphicsScene *scene) : QGraphicsPixmapItem(), buttonScene{scene}, click{0}

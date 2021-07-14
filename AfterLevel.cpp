@@ -1,6 +1,9 @@
 #include "AfterLevel.h"
 
-AfterLevel::AfterLevel()
+AfterLevel::AfterLevel() : QGraphicsView()
 {
+    // creating scene
+    Scene = new QGraphicsScene();
+    Scene->setSceneRect(0, 0, 1920, 1080);
 
 }

@@ -3,7 +3,7 @@
 
 #include <QGraphicsView>
 #include "NewGameButton.h"
-#include "Quitbutton.h"
+#include "QuitButton.h"
 #include "View.h"
 
 class Menu : public QGraphicsView

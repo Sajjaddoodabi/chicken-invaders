@@ -29,3 +29,8 @@ AfterLevel::AfterLevel() : QGraphicsView()
     mMedia->play();
 
 }
+
+void AfterLevel::schedule()
+{
+
+}

@@ -24,6 +24,9 @@ private:
 
 public:
     AfterLevel();
+
+public slots:
+    void schedule();
 };
 
 #endif // AFTERLEVEL_H

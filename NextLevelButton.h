@@ -11,10 +11,12 @@ private:
     QGraphicsScene * buttonScene;
     QMediaPlayer * buttonMedia;
     int click;
+    int season;
+    int level;
 
 public:
     //constructor
-    NextLevelButton(QGraphicsScene *scene);
+    NextLevelButton(QGraphicsScene *scene , int season , int level);
 
     //destructor
     ~NextLevelButton();

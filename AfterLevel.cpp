@@ -1,6 +1,6 @@
 #include "AfterLevel.h"
 
-AfterLevel::AfterLevel() : QGraphicsView()
+AfterLevel::AfterLevel(int season , int level) : QGraphicsView() , level{1} , season{1}
 {
     // creating scene
     Scene = new QGraphicsScene();
@@ -38,14 +38,13 @@ AfterLevel::AfterLevel() : QGraphicsView()
     Timer->start(1000);
 
     //creat next level button
-    nextlevelButton = new NextLevelButton(Scene);
+    nextlevelButton = new NextLevelButton(Scene , season , level);
 
     //creat main menu button
-    mainmenuBotton = new MainMenuButton(Scene);
+    mainmenuButton = new MainMenuButton(Scene);
 
     //creat save button
     saveButton = new SaveButton(Scene);
-
 }
 
 AfterLevel::~AfterLevel()
@@ -54,7 +53,7 @@ AfterLevel::~AfterLevel()
     delete Media;
     delete Timer;
     delete nextlevelButton;
-    delete mainmenuBotton;
+    delete mainmenuButton;
     delete saveButton;
     delete view;
 }
@@ -66,7 +65,7 @@ void AfterLevel::schedule()
         Media->play();
 
     //change window
-    if(mainmenuBotton->click == 1){
+    if(mainmenuButton->click == 1){
         Media->stop();
         Timer->stop();
 
@@ -77,7 +76,7 @@ void AfterLevel::schedule()
 
     if(nextlevelButton->click == 1){
 
-    }
+        }
 
     if(saveButton->click == 1){
 

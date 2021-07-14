@@ -15,18 +15,20 @@ class AfterLevel : public QGraphicsView
 
 private:
     // private members
+    int level;
+    int season;
     QGraphicsScene * Scene;
     QMediaPlayer * Media;
     QTimer * Timer;
     Menu *menu;
     NextLevelButton * nextlevelButton;
-    MainMenuButton * mainmenuBotton;
+    MainMenuButton * mainmenuButton;
     SaveButton * saveButton;
     View * view;
 
 public:
     //constructor
-    AfterLevel();
+    AfterLevel(int season , int level);
 
     //destructor
     ~AfterLevel();

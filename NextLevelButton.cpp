@@ -1,10 +1,12 @@
 #include "NextLevelButton.h"
+#include "View.h"
 
 //constructor
-NextLevelButton::NextLevelButton(QGraphicsScene *scene) : QGraphicsPixmapItem(), buttonScene{scene}, click{0}
+NextLevelButton::NextLevelButton(QGraphicsScene *scene ,int season , int level) : QGraphicsPixmapItem()
+  , buttonScene{scene}, click{0} , season{season} , level{level}
 {
     // setting picture
-    setPixmap(QPixmap(":/images/menu/"));
+    setPixmap(QPixmap(":/images/menu/newgamebutton.jpg"));
 
     // adding to scene
     buttonScene->addItem(this);
@@ -39,5 +41,31 @@ void NextLevelButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
     // playing clicksound
     buttonMedia->play();
+
+    if(season == 1 && level == 1 ){
+
+        auto myView = new View(1,2);
+        myView->show();
+    }
+
+    if(season == 1 && level == 2 ){
+        auto myView = new View(2 , 1);
+        myView->show();
+    }
+
+    if(season == 2 && level == 1 ){
+        auto myView = new View(2 , 2);
+        myView->show();
+    }
+
+    if(season == 2 && level == 2 ){
+        auto myView = new View(3 , 1);
+        myView->show();
+    }
+
+    if(season == 3 && level == 1 ){
+        auto myView = new View(3 , 2);
+        myView->show();
+    }
 }
 

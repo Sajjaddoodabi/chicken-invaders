@@ -37,6 +37,14 @@ AfterLevel::AfterLevel() : QGraphicsView()
     // starting lTimer
     mTimer->start(1000);
 
+    //creat next level button
+    nextlevelButton = new NextLevelBotton(Scene);
+
+    //creat main menu button
+    mainmenuBotton = new MainMenuBotton(Scene);
+
+    //creat save button
+    saveButton = new SaveBotton(Scene);
 
 }
 

@@ -17,6 +17,7 @@ private:
     QTimer * babyTimer;
 
 public:
+    bool gameOver;
     // constructor
     BabyChicken(QTimer * timer, int x, int y, QGraphicsItem *parent = nullptr);
 

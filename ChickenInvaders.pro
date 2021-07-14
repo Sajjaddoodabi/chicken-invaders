@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    AfterLevel.cpp \
     Babychichken.cpp \
     Bullet.cpp \
     Chicken.cpp \
@@ -23,7 +24,10 @@ SOURCES += \
     Egg.cpp \
     Gift.cpp \
     Lives.cpp \
+    MainMenuBotton.cpp \
     Meat.cpp \
+    NextLevelBotton.cpp \
+    SaveBotton.cpp \
     Score.cpp \
     SpaceShip.cpp \
     Loading.cpp \
@@ -34,6 +38,7 @@ SOURCES += \
     main.cpp
 
 HEADERS += \
+    AfterLevel.h \
     Babychichken.h \
     Bullet.h \
     Chicken.h \
@@ -41,7 +46,10 @@ HEADERS += \
     Egg.h \
     Gift.h \
     Lives.h \
+    MainMenuBotton.h \
     Meat.h \
+    NextLevelBotton.h \
+    SaveBotton.h \
     Score.h \
     SpaceShip.h \
     Loading.h \

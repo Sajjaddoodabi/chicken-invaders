@@ -8,4 +8,7 @@ MainMenuBotton::MainMenuBotton(QGraphicsScene *scene) : QGraphicsPixmapItem(), b
     // adding to scene
     buttonScene->addItem(this);
     setPos(0, 0); //ToDO
+
+    // creating media
+    buttonMedia = new QMediaPlayer();
 }

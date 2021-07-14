@@ -14,6 +14,9 @@ class View : public QGraphicsView
 
 private:
     // private members
+    int level;
+    int season;
+
     Controller * vController;
     QMediaPlayer * vMedia;
     QTimer * vTimer;
@@ -32,7 +35,7 @@ private:
 
 public:
     // constructor
-    explicit View();
+    explicit View(int season , int level);
 
     // destructor
     ~View();

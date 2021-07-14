@@ -3,7 +3,7 @@
 #include "Babychichken.h"
 
 // constructor
-View::View() : QGraphicsView()
+View::View(int season , int level) : QGraphicsView() ,  level{1} , season{1}
 {
     // creating controller
     vController = new Controller;
@@ -117,19 +117,6 @@ void View::animatedBackground()
     else if(vTime % 11 == 0)
         setBackgroundBrush(QBrush(QImage(":/images/game/space1.jpg")));
 
-    // adding babychicken
-    if(vTime % 17 == 0 && vTime <= 85)
-        vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-1)*150), 160);
-    else if(vTime % 17 == 0 && vTime <= 170)
-        vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-6)*150), 285);
-    else if(vTime % 17 == 0 && vTime <= 255)
-        vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-11)*150), 410);
-    else if(vTime % 17 == 0 && vTime <= 340)
-        vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-16)*150), 535);
-
-    if(vTime == 352)
-        vTime = 341;
-
     // collecting all colliding objects in a list
     QList<QGraphicsItem *> spaceShipCollidingList = vController->spaceShip->collidingItems();
 
@@ -177,6 +164,34 @@ void View::death()
 void View::schedule()
 {
 
+    if(season == 1 && level == 1){
+        // adding babychicken
+        if(vTime % 17 == 0 && vTime <= 85)
+            vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-1)*150), 160);
+        else if(vTime % 17 == 0 && vTime <= 170)
+            vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-6)*150), 285);
+        else if(vTime % 17 == 0 && vTime <= 255)
+            vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-11)*150), 410);
+        else if(vTime % 17 == 0 && vTime <= 340)
+            vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-16)*150), 535);
+
+        if(vTime == 352)
+            vTime = 341;
+
+    }
+
+    if(season == 1 && level == 2){
+        // adding babychicken
+
+            vController->addBabyChicken(500+vTime, 0, 585+(((vTime/17)-16)*150), 535);
+
+    }
+
+    if(season == 2 && level == 1){}
+    if(season == 2 && level == 2){}
+    if(season == 3 && level == 1){}
+    if(season == 3 && level == 2){}
+
     //game over scene
     if(vController->controllerLives->isOver() == true ){
          stopGame();
@@ -203,8 +218,11 @@ void View::schedule()
          vController->scene->addItem(win);
          win->setPos(0,0);
 
-         nextlevelButton = new NextLevelButton(vController->scene);
+         nextlevelButton = new NextLevelButton(vController->scene , season , level);
          mainmenuButton = new MainMenuButton(vController->scene);
          saveButton = new SaveButton(vController->scene);
     }
+
+    // showing mouse pointer
+    setCursor(Qt::ArrowCursor);
 }

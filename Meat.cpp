@@ -1,8 +1,8 @@
 #include "Meat.h"
 
 // constructor
-Meat::Meat(Score *score, QGraphicsItem *parent)
-    : QObject () , QGraphicsPixmapItem (parent), meatScore{score}
+Meat::Meat(QGraphicsItem *parent)
+    : QObject () , QGraphicsPixmapItem (parent)
 {
     // set meat picture
     setPixmap(QPixmap(":/images/meat.png"));

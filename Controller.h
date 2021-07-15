@@ -8,7 +8,7 @@
 #include "SpaceShip.h"
 #include "Meat.h"
 #include "Chicken.h"
-#include "Bullet.h"
+#include "Meats.h"
 
 class Controller : public QObject
 {
@@ -28,17 +28,15 @@ private:
     QList<Chicken *> chickenList;
     int *countChicken;
 
-    QList<Meat *> MeatList;
-
     QGraphicsPixmapItem * scoreBoard;
     Score * controllerScore;
 
     QGraphicsPixmapItem * liveBoard;
     Lives * controllerLives;
 
-    SpaceShip * spaceShip;
+    Meats * controllerMeats;
 
-    Bullet *bullet;
+    SpaceShip * spaceShip;
 
 public:
     // constructor

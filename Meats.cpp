@@ -1,29 +1,29 @@
 #include "Meats.h"
 #include <QFont>
 
-Meats::Meats(Score *score, QGraphicsItem *parent)
-    : QGraphicsTextItem (parent) , playerMeats{0}, score{score}
-  {
-      // changing playerScore to text and printing
-      setPlainText(QString::number(playerMeats));
+Meats::Meats(Score * score, QGraphicsItem *parent)
+    : QGraphicsTextItem (parent) , playerMeat{0}, score{score}
+{
+    // changing playerScore to text and printing
+    setPlainText(QString::number(playerMeat));
 
-      // setting text's color
-      setDefaultTextColor(Qt::white);
+    // setting text's color
+    setDefaultTextColor(Qt::white);
 
-      // setting text's font
-      setFont(QFont("times", 20));
+    // setting text's font
+    setFont(QFont("times", 20));
 }
 
-void Meats::addMeat(int meat)
+void Meats::addToMeat(int meat)
 {
     // adding to score
-    playerMeats += meat;
+    playerMeat += meat;
 
     // printing
-    setPlainText(QString::number(playerMeats));
+    setPlainText(QString::number(playerMeat));
 
-    if (playerMeats >= 30){
-        playerMeats -= 30;
+    if (playerMeat >= 30){
+        playerMeat -= 30;
         score->addToScore(50);
     }
 }

@@ -164,16 +164,20 @@ void View::schedule()
             vController->spaceShip->setPixmap(QPixmap(":/images/spaceship/death.png"));
 
             deathTimer->start(500);
-        }
-     else if(typeid (*(spaceShipCollidingList[i])) == typeid (Gift)){
+        }else if(typeid (*(spaceShipCollidingList[i])) == typeid (Meat)){
+        scene()->removeItem(dynamic_cast<Meat *>(spaceShipCollidingList[i]));
+        delete dynamic_cast<Meat *>(spaceShipCollidingList[i]);
+
+        vController->controllerMeats->addToMeat(1);
+    }else if(typeid (*(spaceShipCollidingList[i])) == typeid (Gift)){
         scene()->removeItem(dynamic_cast<Gift *>(spaceShipCollidingList[i]));
         delete dynamic_cast<Gift *>(spaceShipCollidingList[i]);
 
-        vController->bullet->increaseLevel();
+//        vController->bullet->increaseLevel();
     }
   }
 
-    if(vController->controllerScore->getChickenKilled() >= 155){
+    if(vController->controllerScore->getChickenKilled() == 155){
 
     }else if(vController->controllerScore->getChickenKilled() >= 128){
 

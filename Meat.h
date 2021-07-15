@@ -15,12 +15,11 @@ class Meat : public QObject , public QGraphicsPixmapItem
 private:
     // private members
     QTimer * meatTimer;
-    Score * meatScore;
     int time;
 
 public:
     // constructor
-    Meat(Score *score, QGraphicsItem *parent = nullptr);
+    Meat(QGraphicsItem *parent = nullptr);
 
     // destructor
     ~Meat();

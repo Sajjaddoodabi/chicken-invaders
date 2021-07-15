@@ -5,6 +5,7 @@
 #include <QObject>
 #include <QTimer>
 #include <QMediaPlayer>
+#include "Score.h"
 
 class BabyChicken : public QObject , public QGraphicsPixmapItem
 {
@@ -16,11 +17,12 @@ private:
     int time, a, b;
     int *countBabyChicken;
     QTimer * babyTimer;
+    Score * score;
 
 public:
     bool gameOver;
     // constructor
-    BabyChicken(int *countBabyChicken ,QTimer * timer, int x, int y, QGraphicsItem *parent = nullptr);
+    BabyChicken(Score *score, int *countBabyChicken ,QTimer * timer, int x, int y, QGraphicsItem *parent = nullptr);
 
     // destructor
     ~BabyChicken();

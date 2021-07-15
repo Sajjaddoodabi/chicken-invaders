@@ -2,8 +2,8 @@
 #include <QGraphicsScene>
 
 // constructor
-BabyChicken::BabyChicken(int *countBabyChicken , QTimer * timer, int x, int y, QGraphicsItem *parent)
-    : QObject(), QGraphicsPixmapItem(parent), a{x}, b{y} , countBabyChicken{countBabyChicken}
+BabyChicken::BabyChicken(Score *score, int *countBabyChicken , QTimer * timer, int x, int y, QGraphicsItem *parent)
+    : QObject(), QGraphicsPixmapItem(parent), a{x}, b{y}, countBabyChicken{countBabyChicken}, score{score}
 {
     // setting picture
     setPixmap(QPixmap(":/images/chickens/babychicken1.png"));
@@ -32,6 +32,8 @@ BabyChicken::~BabyChicken()
 // deleting BabyChicken
 void BabyChicken::HealthDecrement()
 {
+    score->addToScore(5);
+
     *countBabyChicken -= 1;
     // removing at scene
     scene()->removeItem(this);

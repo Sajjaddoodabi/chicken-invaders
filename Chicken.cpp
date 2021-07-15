@@ -1,8 +1,8 @@
 #include "Chicken.h"
 #include <QGraphicsScene>
 
-Chicken::Chicken(int *countChicken, QTimer *timer, int x, int y, bool isLord, QGraphicsItem *parent) :
-    QObject() , QGraphicsPixmapItem(parent) , a{x}, b{y}, countChicken{countChicken}
+Chicken::Chicken(Score *score, int *countChicken, QTimer *timer, int x, int y, bool isLord, QGraphicsItem *parent) :
+    QObject() , QGraphicsPixmapItem(parent) , a{x}, b{y}, countChicken{countChicken}, score{score}
 {
     this->isLord = isLord;
 
@@ -39,11 +39,11 @@ Chicken::~Chicken()
 
 void Chicken::HealthDecrement()
 {
-    *countChicken -= 1;
-
     if(Health != 0)
         --Health;
     if(Health == 0){
+        score->addToScore(10);
+        *countChicken -= 1;
         scene()->removeItem(this);
         delete this;
     }

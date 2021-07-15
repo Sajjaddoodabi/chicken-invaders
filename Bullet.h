@@ -20,11 +20,10 @@ private:
     int level;
     QMediaPlayer * bulletSound;
     QTimer * bulletTimer;
-    Score  * score;
 
 public:
     // constructor
-    explicit Bullet(Score  *score, QGraphicsItem *parent = nullptr);
+    explicit Bullet(QGraphicsItem *parent = nullptr);
 
     // destructor
     ~Bullet();

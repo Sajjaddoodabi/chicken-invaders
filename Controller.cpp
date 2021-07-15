@@ -38,7 +38,7 @@ Controller::Controller(QObject *parent) : QObject(parent)
     controllerLives->setPos(45, 1035);
 
     // creating spaceship and adding to scene and setting position
-    spaceShip = new SpaceShip(controllerScore, holder);
+    spaceShip = new SpaceShip(holder);
     scene->addItem(spaceShip);
     spaceShip->setPos(885, 890);
 
@@ -64,7 +64,7 @@ Controller::~Controller()
 void Controller::addBabyChicken(int x, int y, int a, int b)
 {
     // creating list of babychicken
-    babychickenList.push_back(new BabyChicken(countChicken , timer, a, b, holder));
+    babychickenList.push_back(new BabyChicken(controllerScore,countChicken , timer, a, b, holder));
 
     // adding to scene
     scene->addItem(babychickenList.last());
@@ -76,7 +76,7 @@ void Controller::addBabyChicken(int x, int y, int a, int b)
 void Controller::addChicken(int x, int y, int a, int b, bool isLord)
 {
     // creating list of babychicken
-    chickenList.push_back(new Chicken(countChicken , timer, a, b, isLord, holder));
+    chickenList.push_back(new Chicken(controllerScore, countChicken , timer, a, b, isLord, holder));
 
     // adding to scene
     scene->addItem(chickenList.last());

@@ -5,7 +5,7 @@
 #include "Egg.h"
 
 // constructor
-View::View() : QGraphicsView()
+View::View() : QGraphicsView(), level{0}
 {
     // creating controller
     vController = new Controller;
@@ -65,14 +65,6 @@ View::View() : QGraphicsView()
     //
     deathMedia = new QMediaPlayer();
     deathMedia->setMedia(QUrl("qrc:/musics/spaceship/deathsound.mp3"));
-
-    is = true;
-
-
-    mainmenuButton = new MainMenuButton();
-
-    score = new Score();
-
 }
 
 // destructor
@@ -82,11 +74,6 @@ View::~View()
     delete vController;
     delete vMedia;
     delete vTimer;
-}
-
-void View::stopGame()
-{
-    vTimer->stop();
 }
 
 void View::mouseMoveEvent(QMouseEvent *event)
@@ -153,8 +140,7 @@ void View::schedule()
     for(size_t i{0} ; i < spaceShipCollidingList.size() ; i++){
         if(typeid (*(spaceShipCollidingList[i])) == typeid (BabyChicken) && !(deathTimer->isActive())){
 
-            scene()->removeItem(dynamic_cast<BabyChicken *>(spaceShipCollidingList[i]));
-            delete dynamic_cast<BabyChicken *>(spaceShipCollidingList[i]);
+            dynamic_cast<BabyChicken *>(spaceShipCollidingList[i])->HealthDecrement();
 
             deathMedia->stop();
             deathMedia->play();
@@ -166,8 +152,7 @@ void View::schedule()
             deathTimer->start(500);
         }else if(typeid (*(spaceShipCollidingList[i])) == typeid (Egg) && !(deathTimer->isActive())){
 
-            scene()->removeItem(dynamic_cast<Egg *>(spaceShipCollidingList[i]));
-            delete dynamic_cast<Egg *>(spaceShipCollidingList[i]);
+            dynamic_cast<Egg *>(spaceShipCollidingList[i])->HealthDecrement();
 
             deathMedia->stop();
             deathMedia->play();
@@ -180,51 +165,56 @@ void View::schedule()
         }
      }
 
+    if(vController->controllerScore->getChickenKilled() >= 155){
 
-    // season 1 , level 1
-if(score->getChickenKilled() == 0){
-        // adding babychicken
-        if(vTime == 80)
-            for (int i = 0; i < 5 ; ++i)
-                vController->addBabyChicken(500, 0, 585+((i)*150), 160);
-        else if(vTime == 90)
-            for (int i = 5; i < 10 ; ++i)
-                vController->addBabyChicken(500, 0, 585+((i-5)*150), 285);
-        else if(vTime == 100)
-            for (int i = 10; i < 15 ; ++i)
-                vController->addBabyChicken(500, 0, 585+((i-10)*150), 410);
-        else if(vTime == 110)
-            for (int i = 15; i < 20 ; ++i)
-                vController->addBabyChicken(500, 0, 585+((i-15)*150), 535);
+    }else if(vController->controllerScore->getChickenKilled() >= 128){
 
-        if(vTime == 122)
-            vTime = 111;
-}
-qInfo() << score->getChickenKilled();
-    if(score->getChickenKilled() == 20){
+    }else if(vController->controllerScore->getChickenKilled() >= 110){
+
+    }else if(vController->controllerScore->getChickenKilled() >= 80){
+        if(vTime == 112)
+            vTime = 101;
+
+        if (vTime%11==0 && level==2){
+            vTime = 0;
+            ++level;
+        }
 
         // adding babychicken
         if(vTime == 80)
-            for (int i = 0; i < 9 ; ++i)
-                vController->addBabyChicken(1500+vTime, 0, 285+((i)*150), 160);
+            for (int i = 0; i < 4 ; ++i)
+                vController->addBabyChicken(1000+vTime, 0, 285+(i*450), 160);
         else if(vTime == 90)
-            for (int i = 9; i < 18 ; ++i)
-                vController->addBabyChicken(1500+vTime, 0, 285+((i-9)*150), 285);
+            for (int i = 0; i < 4 ; ++i)
+                vController->addBabyChicken(1000+vTime, 0, 285+(i*450), 285);
         else if(vTime == 100)
-            for (int i = 18; i < 27 ; ++i)
-                vController->addBabyChicken(1500+vTime, 0, 285+((i-18)*150), 410);
-        else if(vTime == 110)
-            for (int i = 27; i < 36 ; ++i)
-                vController->addBabyChicken(1500+vTime, 0, 285+((i-27)*150), 535);
+            for (int i = 0; i < 4 ; ++i)
+                vController->addBabyChicken(1000+vTime, 0, 285+(i*450), 410);
 
-        if(vTime == 122)
-            vTime = 111;
-    }
+        // adding chicken
+        if(vTime == 80)
+            for (int i = 0; i < 3 ; ++i){
+                vController->addChicken(1500+vTime, 0, 435+(i*450), 160, false);
+                vController->addChicken(1500+vTime, 0, 585+(i*450), 160, false);
+        }else if(vTime == 90)
+            for (int i = 0; i < 3 ; ++i){
+                vController->addChicken(1500+vTime, 0, 435+(i*450), 285, false);
+                vController->addChicken(1500+vTime, 0, 585+(i*450), 285, false);
+        }else if(vTime == 100)
+            for (int i = 0; i < 3 ; ++i){
+                vController->addChicken(1500+vTime, 0, 435+(i*450), 410, false);
+                vController->addChicken(1500+vTime, 0, 585+(i*450), 410, false);
+            }
+    }else if(vController->controllerScore->getChickenKilled() >= 56){
+        if(vTime == 112)
+            vTime = 101;
 
-    if(score->getChickenKilled() == 56){
+        if (vTime%11==0 && level==1){
+            vTime = 0;
+            ++level;
+        }
+
         // adding babychicken
-
-
         if(vTime == 80)
             for (int i = 0; i < 4 ; ++i)
                 vController->addBabyChicken(1500+vTime, 0, 285+(i*300), 160);
@@ -246,16 +236,54 @@ qInfo() << score->getChickenKilled();
             for (int i = 0; i < 4 ; ++i)
                 vController->addChicken(1500+vTime, 0, 435+(i*300), 410, false);
 
-        if(vTime == 112)
-            vTime = 101;
-    }
+    }else if(vController->controllerScore->getChickenKilled() >= 20){
+        if(vTime == 122)
+            vTime = 111;
 
-//    if(season == 2 && level == 2){}
-//    if(season == 3 && level == 1){}
-//    if(season == 3 && level == 2){}
+        if (vTime%11==0 && level==0){
+            vTime = 0;
+            ++level;
+        }
+            // adding babychicken
+            if(vTime == 80)
+                for (int i = 0; i < 9 ; ++i)
+                    vController->addBabyChicken(1500+vTime, 0, 285+((i)*150), 160);
+            else if(vTime == 90)
+                for (int i = 9; i < 18 ; ++i)
+                    vController->addBabyChicken(1500+vTime, 0, 285+((i-9)*150), 285);
+            else if(vTime == 100)
+                for (int i = 18; i < 27 ; ++i)
+                    vController->addBabyChicken(1500+vTime, 0, 285+((i-18)*150), 410);
+            else if(vTime == 110)
+                for (int i = 27; i < 36 ; ++i)
+                    vController->addBabyChicken(1500+vTime, 0, 285+((i-27)*150), 535);
 
-    //win scene
-//    if(*vController->countChicken == 0 && vTime > 100 && is){
+
+        }else if(vController->controllerScore->getChickenKilled() >= 0){
+            // adding babychicken
+            if(vTime == 80)
+                for (int i = 0; i < 5 ; ++i)
+                    vController->addBabyChicken(500, 0, 585+((i)*150), 160);
+            else if(vTime == 90)
+                for (int i = 5; i < 10 ; ++i)
+                    vController->addBabyChicken(500, 0, 585+((i-5)*150), 285);
+            else if(vTime == 100)
+                for (int i = 10; i < 15 ; ++i)
+                    vController->addBabyChicken(500, 0, 585+((i-10)*150), 410);
+            else if(vTime == 110)
+                for (int i = 15; i < 20 ; ++i)
+                    vController->addBabyChicken(500, 0, 585+((i-15)*150), 535);
+
+            if(vTime == 122)
+                vTime = 111;
+        }
+
+
+
+
+
+//    // win scene
+//    if(*vController->countChicken == 0 && vTime > 100){
 //         stopGame();
 //         vMedia->stop();
 //         winMusic->play();
@@ -267,20 +295,13 @@ qInfo() << score->getChickenKilled();
 //         vController->scene->addItem(gameover);
 //         gameover->setPos(500,400);
 
-//         // adding to scene
-//         scene()->addItem(mainmenuButton);
-//         mainmenuButton->setPos(655, 618);
-//         // adding to scene
-
 //         // showing mouse pointer
 //         setCursor(Qt::ArrowCursor);
-
-//         is = false;
 //    }
 
-//    //game over scene
-//    if(vController->controllerLives->isOver() && is){
-//         stopGame();
+//    // game over scene
+//    if(vController->controllerLives->isOver()){
+//         vTimer->stop();
 //         vMedia->stop();
 //         gameOverMusic->play();
 
@@ -291,13 +312,5 @@ qInfo() << score->getChickenKilled();
 //         vController->scene->addItem(gameover);
 //         gameover->setPos(500,400);
 
-//         // adding to scene
-//         scene()->addItem(mainmenuButton);
-//         mainmenuButton->setPos(655, 618);
-
-//         // showing mouse pointer
-//         setCursor(Qt::ArrowCursor);
-
-//         is = false;
 //    }
 }

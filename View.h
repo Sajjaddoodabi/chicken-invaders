@@ -4,7 +4,6 @@
 #include <QGraphicsView>
 #include "Controller.h"
 #include "MainMenuButton.h"
-#include "Score.h"
 
 class View : public QGraphicsView
 {
@@ -25,11 +24,7 @@ private:
     QTimer * deathTimer;
     QMediaPlayer * deathMedia;
 
-    Score *score;
-
-    MainMenuButton *mainmenuButton = nullptr;
-
-    bool is;
+    int level;
 public:
     // constructor
     explicit View();
@@ -38,8 +33,6 @@ public:
     ~View();
 
     void mouseMoveEvent(QMouseEvent *event);
-    void stopGame();
-
 public slots:
     void death();
     void schedule();

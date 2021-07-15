@@ -22,8 +22,8 @@ void Meats::addToMeat(int meat)
     // printing
     setPlainText(QString::number(playerMeat));
 
-    if (playerMeat >= 30){
-        playerMeat -= 30;
+    if (playerMeat >= 29){
         score->addToScore(50);
+        playerMeat -= 30;
     }
 }

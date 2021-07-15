@@ -16,7 +16,7 @@ Chicken::Chicken(Score *score, int *countChicken, int x, int y, bool isLord, QGr
 
     //setting the Lord's pic
     else{
-        setPixmap(QPixmap(":/image/"));
+        setPixmap(QPixmap(":/images/lordchicken.png"));
         Health = 4;
     }
 
@@ -46,11 +46,22 @@ void Chicken::HealthDecrement()
 {
     if(Health != 0)
         --Health;
-    if(Health == 0){
+    if(Health == 0 && !isLord){
         auto meat = new Meat();
         scene()->addItem(meat);
         meat->setPos(x() + 45, y() + 125);
         score->addToScore(10);
+        *countChicken -= 1;
+        score->addTokills(1);
+        qInfo() << score->getChickenKilled();
+
+        scene()->removeItem(this);
+        delete this;
+    }else if(Health == 0 && isLord){
+        auto meat = new Meat();
+        scene()->addItem(meat);
+        meat->setPos(x() + 45, y() + 125);
+        score->addToScore(20);
         *countChicken -= 1;
         score->addTokills(1);
         qInfo() << score->getChickenKilled();

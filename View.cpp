@@ -67,6 +67,8 @@ View::View() : QGraphicsView(), level{0}
     //
     deathMedia = new QMediaPlayer();
     deathMedia->setMedia(QUrl("qrc:/musics/spaceship/deathsound.mp3"));
+
+    ExitTime = 0;
 }
 
 // destructor
@@ -178,11 +180,76 @@ void View::schedule()
   }
 
     if(vController->controllerScore->getChickenKilled() == 155){
+        ExitTime++;
+                vMedia->stop();
+                winMusic->play();
 
+                auto gameover = new QGraphicsTextItem();
+                gameover->setPlainText("V I C T O R Y");
+                gameover->setDefaultTextColor(Qt::white);
+                gameover->setFont(QFont("times", 100));
+                vController->scene->addItem(gameover);
+                gameover->setPos(500,400);
+
+
+                if(ExitTime == 5)
+                    exit(0);
     }else if(vController->controllerScore->getChickenKilled() >= 128){
+        if(vTime == 112)
+            vTime = 101;
+
+        if (vTime%11==0 && level==4){
+            vTime = 0;
+            ++level;
+        }
+
+        // adding babychicken
+        if(vTime == 80)
+            for (int i = 0; i < 9 ; ++i)
+                vController->addChicken(1000+vTime, 0, 285+(i*150), 160, true);
+        else if(vTime == 90)
+            for (int i = 0; i < 9 ; ++i)
+                vController->addChicken(1000+vTime, 0, 285+(i*150), 285, true);
+        else if(vTime == 100)
+            for (int i = 0; i < 9 ; ++i)
+                vController->addChicken(1000+vTime, 0, 285+(i*150), 410, true);
 
     }else if(vController->controllerScore->getChickenKilled() >= 110){
+        if(vTime == 312)
+            vTime = 301;
 
+        if (vTime == 300){
+                auto gift = new Gift();
+                scene()->addItem(gift);
+                gift->setPos(500, 0);
+        }
+
+        if (vTime%11==0 && level==3){
+            vTime = 0;
+            ++level;
+        }
+
+        // adding babychicken
+        if(vTime == 80)
+            for (int i = 0; i < 3 ; ++i)
+                vController->addChicken(1000+vTime, 0, 435+(i*300), 160, true);
+        else if(vTime == 90)
+            for (int i = 0; i < 3 ; ++i)
+                vController->addChicken(1000+vTime, 0, 435+(i*300), 285, true);
+        else if(vTime == 100)
+            for (int i = 0; i < 3 ; ++i)
+                vController->addChicken(1000+vTime, 0, 435+(i*300), 410, true);
+
+        // adding chicken
+        if(vTime == 80)
+            for (int i = 0; i < 3 ; ++i)
+                vController->addChicken(1500+vTime, 0, 285+(i*300), 160, false);
+        else if(vTime == 90)
+            for (int i = 0; i < 3 ; ++i)
+                vController->addChicken(1500+vTime, 0, 285+(i*300), 285, false);
+        else if(vTime == 100)
+            for (int i = 0; i < 3 ; ++i)
+                vController->addChicken(1500+vTime, 0, 285+(i*300), 410, false);
     }else if(vController->controllerScore->getChickenKilled() >= 80){
         if(vTime == 112)
             vTime = 101;
@@ -290,39 +357,23 @@ void View::schedule()
                 vTime = 111;
         }
 
+    // game over scene
+    if(vController->controllerLives->isOver()){
+        ExitTime++;
 
+                 vTimer->stop();
+                 vMedia->stop();
+                 gameOverMusic->play();
 
+                 auto gameover = new QGraphicsTextItem();
+                 gameover->setPlainText("G A M E  O V E R");
+                 gameover->setDefaultTextColor(Qt::white);
+                 gameover->setFont(QFont("times", 100));
+                 vController->scene->addItem(gameover);
+                 gameover->setPos(500,400);
 
+                 if(ExitTime == 5)
+                     exit(0);
 
-//    // win scene
-//    if(*vController->countChicken == 0 && vTime > 100){
-//         stopGame();
-//         vMedia->stop();
-//         winMusic->play();
-
-//         auto gameover = new QGraphicsTextItem();
-//         gameover->setPlainText("VICTORY");
-//         gameover->setDefaultTextColor(Qt::white);
-//         gameover->setFont(QFont("times", 100));
-//         vController->scene->addItem(gameover);
-//         gameover->setPos(500,400);
-
-//         // showing mouse pointer
-//         setCursor(Qt::ArrowCursor);
-//    }
-
-//    // game over scene
-//    if(vController->controllerLives->isOver()){
-//         vTimer->stop();
-//         vMedia->stop();
-//         gameOverMusic->play();
-
-//         auto gameover = new QGraphicsTextItem();
-//         gameover->setPlainText("GAME OVER");
-//         gameover->setDefaultTextColor(Qt::white);
-//         gameover->setFont(QFont("times", 100));
-//         vController->scene->addItem(gameover);
-//         gameover->setPos(500,400);
-
-//    }
+    }
 }

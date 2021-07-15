@@ -38,6 +38,8 @@
         <file>egg2.png</file>
         <file>meatboard.png</file>
         <file>meat.png</file>
+        <file>gift.png</file>
+        <file>lordchicken.png</file>
     </qresource>
     <qresource prefix="/musics">
         <file>bullet/bulletsound.wav</file>

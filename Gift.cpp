@@ -1,41 +1,33 @@
 #include "Gift.h"
 
-Gift::Gift(QGraphicsScene *GiftScene, QTimer *timer, QGraphicsItem *parent) : QObject() ,
-       QGraphicsPixmapItem (parent) , GiftScene(GiftScene)
+Gift::Gift(QGraphicsItem *parent) : QObject() ,
+       QGraphicsPixmapItem (parent)
 {
     // set meat picture
-    setPixmap(QPixmap(":/images/")); //ToDO
-
-    //scene
-    GiftScene = new QGraphicsScene;
-    GiftScene->addItem(this);
-    setPos(20 , 50);  //ToDO
+    setPixmap(QPixmap(":/images/gift.png"));
 
     //timer
-    timer = new QTimer;
+    giftTimer = new QTimer;
 
     //connect timer with move
-    connect(timer , SIGNAL(timeout()) , this , SLOT(move()));
+    connect(giftTimer , SIGNAL(timeout()) , this , SLOT(move()));
 
     //start the timer
-    timer -> start(); //ToDO
-
-    timeIntervals = 0;
+    giftTimer -> start(); //ToDO
 }
 
 Gift::~Gift()
 {
-    delete GiftScene;
+    delete giftTimer;
 }
 
 void Gift::move()
 {
-    ++timeIntervals;
     setPos(x(), y() + 27);
 
      if(y() >= 1080)
      {
-         GiftScene->removeItem(this);
+         scene()->removeItem(this);
          delete this;
      }
 }

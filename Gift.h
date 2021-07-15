@@ -11,10 +11,9 @@ class Gift : public QObject , public QGraphicsPixmapItem
 {
     Q_OBJECT
 private:
-    QGraphicsScene * GiftScene;
-    int timeIntervals;
+    QTimer * giftTimer;
 public:
-    Gift(QGraphicsScene *GiftScene , QTimer *timer , QGraphicsItem *parent = nullptr);
+    Gift(QGraphicsItem *parent = nullptr);
     ~Gift();
 
 public slots:

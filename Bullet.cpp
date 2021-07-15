@@ -4,6 +4,7 @@
 #include "Babychichken.h"
 #include "Chicken.h"
 #include "Controller.h"
+#include "Egg.h"
 
 // constructor
 Bullet::Bullet(QGraphicsItem *parent)
@@ -79,6 +80,12 @@ void Bullet::moveToUp()
             return;
         }else if(typeid (*(collidingList[i])) == typeid (Chicken)){
             dynamic_cast<Chicken *>(collidingList[i])->HealthDecrement();
+
+            scene()->removeItem(this);
+            delete this;
+            return;
+        }else if(typeid (*(collidingList[i])) == typeid (Egg)){
+            dynamic_cast<Egg *>(collidingList[i])->HealthDecrement();
 
             scene()->removeItem(this);
             delete this;

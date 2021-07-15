@@ -48,6 +48,9 @@ public:
     void addBabyChicken(int x, int y, int a, int b);
     void addChicken(int x, int y, int a, int b, bool isLord);
     void addMeat();
+
+public slots:
+    void shootEgg();
  };
 
 #endif // CONTROLLER_H

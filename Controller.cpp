@@ -13,7 +13,8 @@ Controller::Controller(QObject *parent) : QObject(parent)
 
     // creating and starting timer
     timer = new QTimer();
-    timer->start(60);
+    connect(timer, SIGNAL(timeout()), this, SLOT(shootEgg()));
+    timer->start(5000);
 
     // adding scoreboard
     scoreBoard = new QGraphicsPixmapItem;
@@ -64,7 +65,7 @@ Controller::~Controller()
 void Controller::addBabyChicken(int x, int y, int a, int b)
 {
     // creating list of babychicken
-    babychickenList.push_back(new BabyChicken(controllerScore,countChicken , timer, a, b, holder));
+    babychickenList.push_back(new BabyChicken(controllerScore,countChicken , a, b, holder));
 
     // adding to scene
     scene->addItem(babychickenList.last());
@@ -76,11 +77,16 @@ void Controller::addBabyChicken(int x, int y, int a, int b)
 void Controller::addChicken(int x, int y, int a, int b, bool isLord)
 {
     // creating list of babychicken
-    chickenList.push_back(new Chicken(controllerScore, countChicken , timer, a, b, isLord, holder));
+    chickenList.push_back(new Chicken(controllerScore, countChicken , a, b, isLord, holder));
 
     // adding to scene
     scene->addItem(chickenList.last());
     chickenList.last()->setPos(x, y);
 
     *countChicken += 1;
+}
+
+void Controller::shootEgg()
+{
+       // to do
 }

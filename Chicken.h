@@ -23,12 +23,14 @@ private:
 public:
     bool gameOver;
     // constructor
-    Chicken(Score *score, int *countChicken, QTimer *timer, int x, int y, bool isLord, QGraphicsItem *parent = nullptr);
+    Chicken(Score *score, int *countChicken, int x, int y, bool isLord, QGraphicsItem *parent = nullptr);
     
     // destructor
     ~Chicken();
 
     void HealthDecrement();
+
+    void addEgg();
     
 public slots:
     // move to mid

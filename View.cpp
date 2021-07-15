@@ -2,6 +2,7 @@
 #include <QList>
 #include "Babychichken.h"
 #include "Menu.h"
+#include "Egg.h"
 
 // constructor
 View::View(int season , int level) : QGraphicsView() ,  level{level} , season{season}
@@ -152,6 +153,19 @@ void View::schedule()
 
             scene()->removeItem(dynamic_cast<BabyChicken *>(spaceShipCollidingList[i]));
             delete dynamic_cast<BabyChicken *>(spaceShipCollidingList[i]);
+
+            deathMedia->stop();
+            deathMedia->play();
+
+            vController->controllerLives->lowOffLive();
+
+            vController->spaceShip->setPixmap(QPixmap(":/images/spaceship/death.png"));
+
+            deathTimer->start(500);
+        }else if(typeid (*(spaceShipCollidingList[i])) == typeid (Egg) && !(deathTimer->isActive())){
+
+            scene()->removeItem(dynamic_cast<Egg *>(spaceShipCollidingList[i]));
+            delete dynamic_cast<Egg *>(spaceShipCollidingList[i]);
 
             deathMedia->stop();
             deathMedia->play();

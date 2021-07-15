@@ -5,7 +5,6 @@
 #include <QGraphicsPixmapItem>
 #include <QTimer>
 #include <QMediaPlayer>
-#include "Score.h"
 
 class Bullet : public QObject, public QGraphicsPixmapItem
 {

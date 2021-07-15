@@ -1,42 +1,53 @@
 #include "Egg.h"
+#include <QGraphicsScene>
 
-Egg::Egg(QGraphicsScene *EggScene, QTimer *timer, QGraphicsItem *parent) : QObject()
-  , QGraphicsPixmapItem (parent) , EggScene(EggScene)
+Egg::Egg(Score *score, QGraphicsItem *parent) : QObject()
+  , QGraphicsPixmapItem (parent), score{score}
 
 {
-    // set meat picture
-    setPixmap(QPixmap(":/images/")); //ToDO
+    // setting picture
+    setPixmap(QPixmap(":/images/egg1.png"));
 
-    //scene
-    EggScene = new QGraphicsScene;
-    EggScene->addItem(this);
-    setPos(20 , 50);  //ToDO
+    // creating bulletTimer
+    eggTimer = new QTimer();
 
-    //timer
-    timer = new QTimer;
+    // connecting to movetoup and starting
+    connect(eggTimer, SIGNAL(timeout()), this, SLOT(move()));
+    eggTimer->start(200);
 
-    //connect timer with move
-    connect(timer , SIGNAL(timeout()) , this , SLOT(move()));
-
-    //start the timer
-    timer -> start(); //ToDO
-
-    timeIntervals = 0;
+    time = 0;
 }
 
 Egg::~Egg()
 {
-    delete EggScene;
+    delete eggTimer;
+}
+
+void Egg::HealthDecrement()
+{
+    score->addToScore(5);
+
+    // removing at scene
+    scene()->removeItem(this);
+
+    // deleting BabyChicken
+    delete this;
 }
 
 void Egg::move()
 {
-    ++timeIntervals;
-     setPos(x() , y()+6);
+    // moving to up
+    setPos(x(), y() + 27);
 
-     //if(//ToDO)
-     {
-         EggScene->removeItem(this);
-         delete this;
-     }
+    // deleting bullet
+    if(y() >= 1065){
+        setPos(x(), 1065);
+        setPixmap(QPixmap(":/images/egg2.png"));
+        ++time;
+    }
+
+    if (time == 6){
+        scene()->removeItem(this);
+        delete this;
+    }
 }

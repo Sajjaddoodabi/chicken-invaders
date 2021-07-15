@@ -1,7 +1,8 @@
 #include "Chicken.h"
 #include <QGraphicsScene>
+#include "Egg.h"
 
-Chicken::Chicken(Score *score, int *countChicken, QTimer *timer, int x, int y, bool isLord, QGraphicsItem *parent) :
+Chicken::Chicken(Score *score, int *countChicken, int x, int y, bool isLord, QGraphicsItem *parent) :
     QObject() , QGraphicsPixmapItem(parent) , a{x}, b{y}, countChicken{countChicken}, score{score}
 {
     this->isLord = isLord;
@@ -18,11 +19,13 @@ Chicken::Chicken(Score *score, int *countChicken, QTimer *timer, int x, int y, b
         Health = 4;
     }
 
-    // connecting timer to move
-    connect(timer, SIGNAL(timeout()), this, SLOT(move()));
+
 
     // creating babyTimer
     chickenTimer = new QTimer();
+
+    // connecting timer to move
+    connect(chickenTimer, SIGNAL(timeout()), this, SLOT(move()));
 
     // connecting babyTimer to movetopos and starting
     connect(chickenTimer, SIGNAL(timeout()), this, SLOT(moveToPos()));
@@ -47,6 +50,13 @@ void Chicken::HealthDecrement()
         scene()->removeItem(this);
         delete this;
     }
+}
+
+void Chicken::addEgg()
+{
+    auto egg = new Egg(score);
+    scene()->addItem(egg);
+    egg->setPos(x() + 60, y() + 125);
 }
 
 void Chicken::move()

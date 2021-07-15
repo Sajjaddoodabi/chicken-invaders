@@ -22,7 +22,7 @@ private:
 public:
     bool gameOver;
     // constructor
-    BabyChicken(Score *score, int *countBabyChicken ,QTimer * timer, int x, int y, QGraphicsItem *parent = nullptr);
+    BabyChicken(Score *score, int *countBabyChicken, int x, int y, QGraphicsItem *parent = nullptr);
 
     // destructor
     ~BabyChicken();

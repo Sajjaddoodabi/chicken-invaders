@@ -2,17 +2,17 @@
 #include <QGraphicsScene>
 
 // constructor
-BabyChicken::BabyChicken(Score *score, int *countBabyChicken , QTimer * timer, int x, int y, QGraphicsItem *parent)
+BabyChicken::BabyChicken(Score *score, int *countBabyChicken , int x, int y, QGraphicsItem *parent)
     : QObject(), QGraphicsPixmapItem(parent), a{x}, b{y}, countBabyChicken{countBabyChicken}, score{score}
 {
     // setting picture
     setPixmap(QPixmap(":/images/chickens/babychicken1.png"));
 
-    // connecting timer to move
-    connect(timer, SIGNAL(timeout()), this, SLOT(move()));
-
     // creating babyTimer
     babyTimer = new QTimer();
+
+    // connecting timer to move
+    connect(babyTimer, SIGNAL(timeout()), this, SLOT(move()));
 
     // connecting babyTimer to movetopos and starting
     connect(babyTimer, SIGNAL(timeout()), this, SLOT(moveToPos()));

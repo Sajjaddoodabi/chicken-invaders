@@ -5,17 +5,21 @@
 #include <QGraphicsScene>
 #include <QTimer>
 #include <QGraphicsPixmapItem>
+#include "Score.h"
 
 class Egg : public QObject , public QGraphicsPixmapItem
 {
     Q_OBJECT
+
 private:
-    QGraphicsScene *EggScene;
-    int timeIntervals;
+    QTimer * eggTimer;
+    int time;
+    Score * score;
 public:
-    Egg(QGraphicsScene *EggScene , QTimer *timer , QGraphicsItem *parent = nullptr);
+    Egg(Score *score, QGraphicsItem *parent = nullptr);
     ~Egg();
 
+    void HealthDecrement();
 public slots:
     // move down
     void move();

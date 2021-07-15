@@ -17,6 +17,8 @@ private:
     QTimer * vTimer;
     int vTime;
 
+    int ExitTime;
+
     QMediaPlayer *gameOverMusic;
     QMediaPlayer *winMusic;
 

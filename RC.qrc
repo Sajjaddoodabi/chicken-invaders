@@ -48,5 +48,7 @@
         <file>menu/click.mp3</file>
         <file>menu/music.mp3</file>
         <file>spaceship/deathsound.mp3</file>
+        <file>GO.mp3</file>
+        <file>VIC.mp3</file>
     </qresource>
 </RCC>

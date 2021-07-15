@@ -33,6 +33,8 @@ public:
     // lowwing-off level and setting picture
     void lowOffLevel();
 
+    void increaseLevel();
+
 public slots:
     // moving bullet to up
     void moveToUp();

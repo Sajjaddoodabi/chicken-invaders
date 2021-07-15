@@ -45,6 +45,7 @@ Controller::Controller(QObject *parent) : QObject(parent)
 
     countChicken = new int();
     *countChicken = 0;
+
 }
 
 // destructor

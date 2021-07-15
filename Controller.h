@@ -8,6 +8,7 @@
 #include "SpaceShip.h"
 #include "Meat.h"
 #include "Chicken.h"
+#include "Bullet.h"
 
 class Controller : public QObject
 {
@@ -36,6 +37,8 @@ private:
     Lives * controllerLives;
 
     SpaceShip * spaceShip;
+
+    Bullet *bullet;
 
 public:
     // constructor

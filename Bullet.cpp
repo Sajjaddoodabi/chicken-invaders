@@ -65,6 +65,17 @@ void Bullet::lowOffLevel()
         setPixmap(QPixmap(":/images/bullet/bullet1.png"));
 }
 
+void Bullet::increaseLevel()
+{
+    ++level;
+
+    // setting picture
+    if(level == 2)
+        setPixmap(QPixmap(":/images/bullet/bullet2.png"));
+    else if(level == 1)
+        setPixmap(QPixmap(":/images/bullet/bullet1.png"));
+}
+
 // moving bullet to up
 void Bullet::moveToUp()
 {

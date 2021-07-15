@@ -26,7 +26,6 @@ void Meat::move()
 {
     // moving to up
     setPos(x(), y() + 27);
-
     // deleting bullet
     if(y() >= 1080){
         scene()->removeItem(this);

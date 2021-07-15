@@ -25,6 +25,7 @@ SOURCES += \
     Lives.cpp \
     MainMenuButton.cpp \
     Meat.cpp \
+    Meats.cpp \
     NextLevelButton.cpp \
     Score.cpp \
     SpaceShip.cpp \
@@ -45,6 +46,7 @@ HEADERS += \
     Lives.h \
     MainMenuButton.h \
     Meat.h \
+    Meats.h \
     NextLevelButton.h \
     Score.h \
     SpaceShip.h \

@@ -175,6 +175,11 @@ void View::schedule()
             vController->spaceShip->setPixmap(QPixmap(":/images/spaceship/death.png"));
 
             deathTimer->start(500);
+        }else if(typeid (*(spaceShipCollidingList[i])) == typeid (Meat)){
+            scene()->removeItem(dynamic_cast<Meat *>(spaceShipCollidingList[i]));
+            delete dynamic_cast<Meat *>(spaceShipCollidingList[i]);
+
+            vController->controllerMeat->addMeat(1);
         }
      }
 

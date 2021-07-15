@@ -25,7 +25,6 @@ private:
     int deathTime;
     QTimer * deathTimer;
     QMediaPlayer * deathMedia;
-    int ExitTime;
     int level;
 public:
     // constructor

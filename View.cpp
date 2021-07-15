@@ -25,7 +25,7 @@ View::View() : QGraphicsView(), level{0}
     // setting background
     setBackgroundBrush(QBrush(QImage(":/images/game/space1.jpg")));
 
-    // initializing vTime to zero
+    // initializing vTime to zeror
     vTime = 0;
 
     // creating vTimer
@@ -191,27 +191,8 @@ void View::schedule()
                 vController->scene->addItem(gameover);
                 gameover->setPos(500,400);
 
-
-<<<<<<< HEAD
                 if(ExitTime == 5)
                     exit(0);
-=======
-        ExitTime++;
-        vMedia->stop();
-        winMusic->play();
-
-        auto gameover = new QGraphicsTextItem();
-        gameover->setPlainText("VICTORY");
-        gameover->setDefaultTextColor(Qt::white);
-        gameover->setFont(QFont("times", 100));
-        vController->scene->addItem(gameover);
-        gameover->setPos(500,400);
-
-
-        if(ExitTime == 5)
-            exit(0);
-
->>>>>>> 669e41dd8299472d85cd057a6b50689cdd0cce4f
     }else if(vController->controllerScore->getChickenKilled() >= 128){
         if(vTime == 112)
             vTime = 101;
@@ -238,7 +219,7 @@ void View::schedule()
 
         if (vTime == 300){
                 auto gift = new Gift();
-                scene()->addItem(gift);
+                vController->scene->addItem(gift);
                 gift->setPos(500, 0);
         }
 
@@ -379,7 +360,7 @@ void View::schedule()
     if(vController->controllerLives->isOver()){
         ExitTime++;
 
-<<<<<<< HEAD
+
                  vTimer->stop();
                  vMedia->stop();
                  gameOverMusic->play();
@@ -393,24 +374,5 @@ void View::schedule()
 
                  if(ExitTime == 5)
                      exit(0);
-
-=======
-         vTimer->stop();
-         vMedia->stop();
-         gameOverMusic->play();
-
-         auto gameover = new QGraphicsTextItem();
-         gameover->setPlainText("GAME OVER");
-         gameover->setDefaultTextColor(Qt::white);
-         gameover->setFont(QFont("times", 100));
-         vController->scene->addItem(gameover);
-         gameover->setPos(500,400);
-
-         if(ExitTime == 5)
-             exit(0);
-
-
-
->>>>>>> 669e41dd8299472d85cd057a6b50689cdd0cce4f
     }
 }

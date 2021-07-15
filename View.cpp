@@ -3,6 +3,8 @@
 #include "Babychichken.h"
 #include "Menu.h"
 #include "Egg.h"
+#include "Gift.h"
+
 
 // constructor
 View::View() : QGraphicsView()
@@ -178,7 +180,13 @@ void View::schedule()
 
             deathTimer->start(500);
         }
-     }
+     else if(typeid (*(spaceShipCollidingList[i])) == typeid (Gift)){
+        scene()->removeItem(dynamic_cast<Gift *>(spaceShipCollidingList[i]));
+        delete dynamic_cast<Gift *>(spaceShipCollidingList[i]);
+
+        vController->bullet->increaseLevel();
+    }
+  }
 
 
     // season 1 , level 1

@@ -49,6 +49,7 @@ void Chicken::HealthDecrement()
         score->addToScore(10);
         *countChicken -= 1;
         score->addTokills(1);
+        qInfo() << score->getChickenKilled();
 
         scene()->removeItem(this);
         delete this;

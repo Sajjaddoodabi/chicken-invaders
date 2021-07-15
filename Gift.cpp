@@ -31,9 +31,9 @@ Gift::~Gift()
 void Gift::move()
 {
     ++timeIntervals;
-     setPos(x() , y()+6);
+    setPos(x(), y() + 27);
 
-     //if(//ToDO)
+     if(y() >= 1080)
      {
          GiftScene->removeItem(this);
          delete this;

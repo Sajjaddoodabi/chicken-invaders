@@ -21,7 +21,6 @@ Egg::Egg(Score *score, QGraphicsItem *parent) : QObject()
 Egg::~Egg()
 {
     delete eggTimer;
-    delete score;
 }
 
 void Egg::HealthDecrement()

@@ -23,7 +23,7 @@ Controller::Controller(QObject *parent) : QObject(parent)
     scoreBoard->setPos(0, 0);
 
     // adding score
-    controllerScore = new Score(holder);
+    controllerScore = new Score();
     scene->addItem(controllerScore);
     controllerScore->setPos(30, 0);
 
@@ -34,14 +34,9 @@ Controller::Controller(QObject *parent) : QObject(parent)
     liveBoard->setPos(0, 1020);
 
     // adding lives
-    controllerLives = new Lives(holder);
+    controllerLives = new Lives();
     scene->addItem(controllerLives);
     controllerLives->setPos(45, 1035);
-
-    // adding number meat
-    controllerMeat = new Meats(controllerScore, holder);
-    scene->addItem(controllerMeat);
-    controllerMeat->setPos(110, 1035);
 
     // creating spaceship and adding to scene and setting position
     spaceShip = new SpaceShip(holder);

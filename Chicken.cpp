@@ -1,7 +1,6 @@
 #include "Chicken.h"
 #include <QGraphicsScene>
 #include "Egg.h"
-#include "Meat.h"
 
 Chicken::Chicken(Score *score, int *countChicken, int x, int y, bool isLord, QGraphicsItem *parent) :
     QObject() , QGraphicsPixmapItem(parent) , a{x}, b{y}, countChicken{countChicken}, score{score}
@@ -47,9 +46,6 @@ void Chicken::HealthDecrement()
     if(Health != 0)
         --Health;
     if(Health == 0){
-        auto meat = new Meat(score);
-        scene()->addItem(meat);
-        meat->setPos(x() + 45, y() + 125);
         score->addToScore(10);
         *countChicken -= 1;
         score->addTokills(1);

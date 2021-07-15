@@ -33,6 +33,7 @@ BabyChicken::~BabyChicken()
 void BabyChicken::HealthDecrement()
 {
     score->addToScore(5);
+    score->addTokills(1);
 
     *countBabyChicken -= 1;
     // removing at scene

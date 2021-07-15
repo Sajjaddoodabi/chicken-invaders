@@ -8,7 +8,6 @@ class NextLevelButton : public QGraphicsPixmapItem
 {
     friend class AfterLevel;
 private:
-    QGraphicsScene * buttonScene;
     QMediaPlayer * buttonMedia;
     int click;
     int season;
@@ -16,7 +15,7 @@ private:
 
 public:
     //constructor
-    NextLevelButton(QGraphicsScene *scene , int season , int level);
+    NextLevelButton(int season , int level);
 
     //destructor
     ~NextLevelButton();

@@ -6,15 +6,14 @@
 
 class MainMenuButton : public QGraphicsPixmapItem
 {
-    friend class AfterLevel;
+    friend class View;
 private:
-    QGraphicsScene * buttonScene;
     QMediaPlayer * buttonMedia;
     int click;
 
 public:
     //constructor
-    MainMenuButton(QGraphicsScene *scene);
+    MainMenuButton();
 
     //destructor
     ~MainMenuButton();

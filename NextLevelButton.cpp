@@ -2,15 +2,11 @@
 #include "View.h"
 
 //constructor
-NextLevelButton::NextLevelButton(QGraphicsScene *scene ,int season , int level) : QGraphicsPixmapItem()
-  , buttonScene{scene}, click{0} , season{season} , level{level}
+NextLevelButton::NextLevelButton(int season , int level) : QGraphicsPixmapItem()
+  , click{0} , season{season} , level{level}
 {
     // setting picture
     setPixmap(QPixmap(":/images/menu/newgamebutton.jpg"));
-
-    // adding to scene
-    buttonScene->addItem(this);
-    setPos(0, 0); //ToDO
 
     // creating media
     buttonMedia = new QMediaPlayer();
@@ -20,7 +16,6 @@ NextLevelButton::NextLevelButton(QGraphicsScene *scene ,int season , int level) 
 NextLevelButton::~NextLevelButton()
 {
     delete buttonMedia;
-    delete buttonScene;
 }
 
 //mouse event
@@ -30,11 +25,7 @@ void NextLevelButton::mousePressEvent(QGraphicsSceneMouseEvent *event)
     click = 1;
 
     // setting picture
-    setPixmap(QPixmap(":/images/menu/.jpg"));
-
-    // adding to scene
-    buttonScene->addItem(this);
-    setPos(755, 618);
+    setPixmap(QPixmap(":/images/menu/newgamebutton2.jpg"));
 
     // setting clicksound to mMedia
     buttonMedia->setMedia(QUrl("qrc:/musics/menu/click.mp3"));

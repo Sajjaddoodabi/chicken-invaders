@@ -5,7 +5,6 @@
 #include "Controller.h"
 #include "MainMenuButton.h"
 #include "NextLevelButton.h"
-#include "SaveButton.h"
 
 class View : public QGraphicsView
 {
@@ -29,10 +28,10 @@ private:
     QTimer * deathTimer;
     QMediaPlayer * deathMedia;
 
-    MainMenuButton *mainmenuButton;
+    MainMenuButton *mainmenuButton = nullptr;
     NextLevelButton *nextlevelButton;
-    SaveButton *saveButton;
 
+    bool is;
 public:
     // constructor
     explicit View(int season , int level);
@@ -44,8 +43,6 @@ public:
     void stopGame();
 
 public slots:
-    // showing animated background
-    void animatedBackground();
     void death();
     void schedule();
 };

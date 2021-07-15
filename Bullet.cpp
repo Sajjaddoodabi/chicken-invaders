@@ -2,6 +2,7 @@
 #include <QGraphicsScene>
 #include <QList>
 #include "Babychichken.h"
+#include "Chicken.h"
 #include "Controller.h"
 
 // constructor
@@ -74,6 +75,14 @@ void Bullet::moveToUp()
             dynamic_cast<BabyChicken *>(collidingList[i])->HealthDecrement();
 
             score->addToScore(5);
+
+            scene()->removeItem(this);
+            delete this;
+            return;
+        }else if(typeid (*(collidingList[i])) == typeid (Chicken)){
+            dynamic_cast<Chicken *>(collidingList[i])->HealthDecrement();
+
+            score->addToScore(10);
 
             scene()->removeItem(this);
             delete this;

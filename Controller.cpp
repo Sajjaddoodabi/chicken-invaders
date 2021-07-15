@@ -13,7 +13,7 @@ Controller::Controller(QObject *parent) : QObject(parent)
 
     // creating and starting timer
     timer = new QTimer();
-    timer->start(70);
+    timer->start(60);
 
     // adding scoreboard
     scoreBoard = new QGraphicsPixmapItem;
@@ -42,8 +42,8 @@ Controller::Controller(QObject *parent) : QObject(parent)
     scene->addItem(spaceShip);
     spaceShip->setPos(885, 890);
 
-    countBabyChicken = new int();
-    *countBabyChicken = 0;
+    countChicken = new int();
+    *countChicken = 0;
 }
 
 // destructor
@@ -64,11 +64,23 @@ Controller::~Controller()
 void Controller::addBabyChicken(int x, int y, int a, int b)
 {
     // creating list of babychicken
-    babychickenList.push_back(new BabyChicken(countBabyChicken , timer, a, b, holder));
+    babychickenList.push_back(new BabyChicken(countChicken , timer, a, b, holder));
 
     // adding to scene
     scene->addItem(babychickenList.last());
     babychickenList.last()->setPos(x, y);
 
-    *countBabyChicken += 1;
+    *countChicken += 1;
+}
+
+void Controller::addChicken(int x, int y, int a, int b, bool isLord)
+{
+    // creating list of babychicken
+    chickenList.push_back(new Chicken(countChicken , timer, a, b, isLord, holder));
+
+    // adding to scene
+    scene->addItem(chickenList.last());
+    chickenList.last()->setPos(x, y);
+
+    *countChicken += 1;
 }

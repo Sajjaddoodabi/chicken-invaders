@@ -1,7 +1,6 @@
 #ifndef CHICKEN_H
 #define CHICKEN_H
 
-#include <QObject>
 #include <QGraphicsPixmapItem>
 #include <QObject>
 #include <QTimer>
@@ -14,24 +13,26 @@ class Chicken : public QObject, public QGraphicsPixmapItem
 
 private:
     // private members
-    int Health;
-    int speedPerPix;
+    int time, a, b, Health;
+    int *countChicken;
     bool isLord;
-    QMediaPlayer *chickenSound;
+    QTimer * chickenTimer;
     
 public:
     bool gameOver;
     // constructor
-    Chicken(int speedPerPix, QTimer *timer , QGraphicsItem *parent , int Health , bool isLord);
+    Chicken(int *countChicken, QTimer *timer, int x, int y, bool isLord, QGraphicsItem *parent = nullptr);
     
     // destructor
     ~Chicken();
 
-    void HeathDecrement();
+    void HealthDecrement();
     
 public slots:
     // move to mid
     void move(); //ToDO
+
+    void moveToPos();
 };
 
 #endif // CHICKEN_H

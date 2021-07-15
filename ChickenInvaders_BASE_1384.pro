@@ -25,7 +25,7 @@ SOURCES += \
     Lives.cpp \
     MainMenuButton.cpp \
     Meat.cpp \
-    Meats.cpp \
+    NextLevelButton.cpp \
     Score.cpp \
     SpaceShip.cpp \
     Loading.cpp \
@@ -33,7 +33,7 @@ SOURCES += \
     NewGameButton.cpp \
     QuitButton.cpp \
     View.cpp \
-    main.cpp \
+    main.cpp
 
 HEADERS += \
     Babychichken.h \
@@ -45,7 +45,6 @@ HEADERS += \
     Lives.h \
     MainMenuButton.h \
     Meat.h \
-    Meats.h \
     NextLevelButton.h \
     Score.h \
     SpaceShip.h \
@@ -53,7 +52,7 @@ HEADERS += \
     Menu.h \
     NewGameButton.h \
     QuitButton.h \
-    View.h \
+    View.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

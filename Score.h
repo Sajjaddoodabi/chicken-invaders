@@ -9,6 +9,7 @@ class Score : public QGraphicsTextItem
     private:
     // private members
     int playerScore;
+    int chickenkilled;
     QMediaPlayer *scorePlayer;
 
 public:
@@ -20,6 +21,9 @@ public:
 
     // adding to score function
     void addToScore(int score);
+
+    int getChickenKilled();
+    void addTokills(int i);
 };
 
 #endif // SCORE_H

@@ -34,6 +34,7 @@ Chicken::Chicken(Score *score, int *countChicken, int x, int y, bool isLord, QGr
 
     //intializing time
     time = 0;
+
 }
 
 Chicken::~Chicken()
@@ -51,6 +52,8 @@ void Chicken::HealthDecrement()
         meat->setPos(x() + 45, y() + 125);
         score->addToScore(10);
         *countChicken -= 1;
+        score->addTokills(1);
+
         scene()->removeItem(this);
         delete this;
     }

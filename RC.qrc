@@ -36,6 +36,8 @@
         <file>chickens/chicken2.png</file>
         <file>egg1.png</file>
         <file>egg2.png</file>
+        <file>meatboard.png</file>
+        <file>meat.png</file>
     </qresource>
     <qresource prefix="/musics">
         <file>bullet/bulletsound.wav</file>

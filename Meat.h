@@ -5,10 +5,7 @@
 #include <QGraphicsPixmapItem>
 #include "Score.h"
 #include <QTimer>
-#include <QGraphicsSceneMouseEvent>
 #include <QGraphicsScene>
-#include <QMouseEvent>
-#include <QMediaPlayer>
 
 class Meat : public QObject , public QGraphicsPixmapItem
 {
@@ -17,20 +14,16 @@ class Meat : public QObject , public QGraphicsPixmapItem
 
 private:
     // private members
-    QGraphicsScene *meatScene;
-    Score *meatScore;
-    int countMeat;
-    int timeIntervals;
+    QTimer * meatTimer;
+    Score * meatScore;
+    int time;
 
 public:
     // constructor
-    Meat(QGraphicsScene *meatScene , Score *meatScore , QTimer *timer
-         , QGraphicsItem *parent = nullptr);
+    Meat(Score *score, QGraphicsItem *parent = nullptr);
 
     // destructor
     ~Meat();
-
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
 
 public slots:
     // move down

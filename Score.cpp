@@ -3,7 +3,7 @@
 
 // constructor
 Score::Score(QGraphicsItem *parent)
-    : QGraphicsTextItem (parent) , playerScore{0}
+  : QGraphicsTextItem (parent) , playerScore{0}
 {
     // changing playerScore to text and printing
     setPlainText(QString::number(playerScore));
@@ -17,8 +17,6 @@ Score::Score(QGraphicsItem *parent)
     //media
     scorePlayer = new QMediaPlayer;
     scorePlayer->setMedia(QUrl("qrc:/musics/")); //ToDo
-
-    chickenkilled = 0;
 }
 
 Score::~Score()
@@ -39,14 +37,4 @@ void Score::addToScore(int score)
 
     // printing
     setPlainText(QString::number(playerScore));
-}
-
-int Score::getChickenKilled()
-{
-    return chickenkilled;
-}
-
-void Score::addTokills(int i)
-{
-    chickenkilled += i;
 }

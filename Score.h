@@ -10,6 +10,7 @@ class Score : public QGraphicsTextItem
     // private members
     int playerScore;
     int chickenkilled;
+    int a;
     QMediaPlayer *scorePlayer;
 
 public:

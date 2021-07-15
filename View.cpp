@@ -5,7 +5,7 @@
 #include "Egg.h"
 
 // constructor
-View::View(int season , int level) : QGraphicsView() ,  level{level} , season{season}
+View::View() : QGraphicsView()
 {
     // creating controller
     vController = new Controller;
@@ -70,7 +70,9 @@ View::View(int season , int level) : QGraphicsView() ,  level{level} , season{se
 
 
     mainmenuButton = new MainMenuButton();
-    nextlevelButton = new NextLevelButton(season , level);
+
+    score = new Score();
+
 }
 
 // destructor
@@ -178,7 +180,9 @@ void View::schedule()
         }
      }
 
-    if(season == 1 && level == 1){
+
+    // season 1 , level 1
+if(score->getChickenKilled() == 0){
         // adding babychicken
         if(vTime == 80)
             for (int i = 0; i < 5 ; ++i)
@@ -195,9 +199,10 @@ void View::schedule()
 
         if(vTime == 122)
             vTime = 111;
-    }
+}
+qInfo() << score->getChickenKilled();
+    if(score->getChickenKilled() == 20){
 
-    if(season == 1 && level == 2){
         // adding babychicken
         if(vTime == 80)
             for (int i = 0; i < 9 ; ++i)
@@ -214,11 +219,12 @@ void View::schedule()
 
         if(vTime == 122)
             vTime = 111;
-
     }
 
-    if(season == 2 && level == 1){
+    if(score->getChickenKilled() == 56){
         // adding babychicken
+
+
         if(vTime == 80)
             for (int i = 0; i < 4 ; ++i)
                 vController->addBabyChicken(1500+vTime, 0, 285+(i*300), 160);
@@ -242,59 +248,56 @@ void View::schedule()
 
         if(vTime == 112)
             vTime = 101;
-
     }
 
-    if(season == 2 && level == 2){}
-    if(season == 3 && level == 1){}
-    if(season == 3 && level == 2){}
+//    if(season == 2 && level == 2){}
+//    if(season == 3 && level == 1){}
+//    if(season == 3 && level == 2){}
 
     //win scene
-    if(*vController->countChicken == 0 && vTime > 100 && is){
-         stopGame();
-         vMedia->stop();
-         winMusic->play();
+//    if(*vController->countChicken == 0 && vTime > 100 && is){
+//         stopGame();
+//         vMedia->stop();
+//         winMusic->play();
 
-         auto gameover = new QGraphicsTextItem();
-         gameover->setPlainText("VICTORY");
-         gameover->setDefaultTextColor(Qt::white);
-         gameover->setFont(QFont("times", 100));
-         vController->scene->addItem(gameover);
-         gameover->setPos(500,400);
+//         auto gameover = new QGraphicsTextItem();
+//         gameover->setPlainText("VICTORY");
+//         gameover->setDefaultTextColor(Qt::white);
+//         gameover->setFont(QFont("times", 100));
+//         vController->scene->addItem(gameover);
+//         gameover->setPos(500,400);
 
-         // adding to scene
-         scene()->addItem(mainmenuButton);
-         mainmenuButton->setPos(655, 618);
-         // adding to scene
-         scene()->addItem(nextlevelButton);
-         nextlevelButton->setPos(900, 618);
+//         // adding to scene
+//         scene()->addItem(mainmenuButton);
+//         mainmenuButton->setPos(655, 618);
+//         // adding to scene
 
-         // showing mouse pointer
-         setCursor(Qt::ArrowCursor);
+//         // showing mouse pointer
+//         setCursor(Qt::ArrowCursor);
 
-         is = false;
-    }
+//         is = false;
+//    }
 
-    //game over scene
-    if(vController->controllerLives->isOver() && is){
-         stopGame();
-         vMedia->stop();
-         gameOverMusic->play();
+//    //game over scene
+//    if(vController->controllerLives->isOver() && is){
+//         stopGame();
+//         vMedia->stop();
+//         gameOverMusic->play();
 
-         auto gameover = new QGraphicsTextItem();
-         gameover->setPlainText("GAME OVER");
-         gameover->setDefaultTextColor(Qt::white);
-         gameover->setFont(QFont("times", 100));
-         vController->scene->addItem(gameover);
-         gameover->setPos(500,400);
+//         auto gameover = new QGraphicsTextItem();
+//         gameover->setPlainText("GAME OVER");
+//         gameover->setDefaultTextColor(Qt::white);
+//         gameover->setFont(QFont("times", 100));
+//         vController->scene->addItem(gameover);
+//         gameover->setPos(500,400);
 
-         // adding to scene
-         scene()->addItem(mainmenuButton);
-         mainmenuButton->setPos(655, 618);
+//         // adding to scene
+//         scene()->addItem(mainmenuButton);
+//         mainmenuButton->setPos(655, 618);
 
-         // showing mouse pointer
-         setCursor(Qt::ArrowCursor);
+//         // showing mouse pointer
+//         setCursor(Qt::ArrowCursor);
 
-         is = false;
-    }
+//         is = false;
+//    }
 }

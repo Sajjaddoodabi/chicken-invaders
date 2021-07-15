@@ -4,7 +4,7 @@
 #include <QGraphicsView>
 #include "Controller.h"
 #include "MainMenuButton.h"
-#include "NextLevelButton.h"
+#include "Score.h"
 
 class View : public QGraphicsView
 {
@@ -13,9 +13,6 @@ class View : public QGraphicsView
 
 private:
     // private members
-    int level;
-    int season;
-
     Controller * vController;
     QMediaPlayer * vMedia;
     QTimer * vTimer;
@@ -28,13 +25,14 @@ private:
     QTimer * deathTimer;
     QMediaPlayer * deathMedia;
 
+    Score *score;
+
     MainMenuButton *mainmenuButton = nullptr;
-    NextLevelButton *nextlevelButton;
 
     bool is;
 public:
     // constructor
-    explicit View(int season , int level);
+    explicit View();
 
     // destructor
     ~View();
